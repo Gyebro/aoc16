@@ -1,8 +1,14 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <list>
+#include <vector>
+#include <algorithm>
 #include "md5.h"
+#include "dexel2.h"
 
 using namespace std;
+using namespace vpm;
 
 template <class T>
 void bfs(T node, T target, size_t depth_limit = 0, bool verbose = false) {
@@ -216,16 +222,64 @@ void day18_count_only(const string first_row, size_t rows) {
     cout << "Total number of safe tiles: " << safes << endl;
 }
 
+/*** DAY20 : DEV ***/
+
+
+void day20(string filename) {
+    ifstream input(filename);
+    string line;
+
+    vector<size_t> full_range;
+    full_range.push_back(0);
+    full_range.push_back(4294967295);
+    Dexel2<size_t> full(full_range);
+
+    size_t subtracts = 0;
+    while (getline(input, line)) {
+        stringstream ss;
+        ss.str(line);
+        string n;
+        vector<size_t> ban_range;
+        while (std::getline(ss, n, '-')) {
+            ban_range.push_back(stoul(n));
+        }
+        Dexel2<size_t> ban(ban_range);
+        full = dexelSubtract(full, ban);
+        subtracts++;
+    }
+    cout << "Addressed " << subtracts << " blacklisted IP ranges.\n";
+
+    vector<size_t> points = full.getPoints();
+    for (size_t i=0; i<points.size(); i+=2) {
+        if (points[i+1] > points[i]+1) {
+            cout << "First white IP: " << points[i]+1 << endl;
+            break;
+        }
+    }
+
+    size_t allowed = 0;
+    for (size_t i=0; i<points.size(); i+=2) {
+        size_t a = points[i+1]-points[i]-1;
+        allowed += a;
+        if (a>0) cout << "Range " << points[i] << " - " << points[i+1] << " allows: " << a << endl;
+    }
+    cout << "Total allowed: " << allowed << endl;
+
+
+}
+
 int main() {
 
 
     // Day 17 solution
-    day17(day17_input);
+    //day17(day17_input);
 
     // Day 18 solution
     //day18(day18_input, 40);
-    day18_count_only(day18_input, 400000);
+    //day18_count_only(day18_input, 400000);
 
+    // Day 20 solution
+    day20("day20_input.txt");
 
 
     return 0;
