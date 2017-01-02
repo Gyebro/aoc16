@@ -459,21 +459,21 @@ void day21(string filename, string password, string scrambled) {
         string word;
         while (getline(ss, word, ' ')) {
             words.push_back(word);
-            if (words.size() >= 7 && words[0] == "rotate" && words[1] == "based") {
-                scrambler.add(day21_scramble(day21_type::RotateSpecial, words[6][0]));
-            } else if (words.size() >= 6 && words[0] == "swap" && words[1] == "position") {
-                scrambler.add(day21_scramble(day21_type::SwapPosition, stoi(words[2]), stoi(words[5])));
-            } else if  (words.size() >= 6 && words[0] == "swap" && words[1] == "letter") {
-                scrambler.add(day21_scramble(day21_type::SwapLetter, words[2][0], words[5][0]));
-            } else if  (words.size() >= 6 && words[0] == "move") {
-                scrambler.add(day21_scramble(day21_type::Move, stoi(words[2]), stoi(words[5])));
-            } else if  (words.size() >= 5 && words[0] == "reverse") {
-                scrambler.add(day21_scramble(day21_type::Reverse, stoi(words[2]), stoi(words[4])));
-            } else if  (words.size() >= 4 && words[0] == "rotate" && words[1] == "left") {
-                scrambler.add(day21_scramble(day21_type::Rotate, stoi(words[2])));
-            } else if  (words.size() >= 4 && words[0] == "rotate" && words[1] == "right") {
-                scrambler.add(day21_scramble(day21_type::Rotate, -stoi(words[2])));
-            }
+        }
+        if (words.size() >= 7 && words[0] == "rotate" && words[1] == "based") {
+            scrambler.add(day21_scramble(day21_type::RotateSpecial, words[6][0]));
+        } else if (words.size() >= 6 && words[0] == "swap" && words[1] == "position") {
+            scrambler.add(day21_scramble(day21_type::SwapPosition, stoi(words[2]), stoi(words[5])));
+        } else if  (words.size() >= 6 && words[0] == "swap" && words[1] == "letter") {
+            scrambler.add(day21_scramble(day21_type::SwapLetter, words[2][0], words[5][0]));
+        } else if  (words.size() >= 6 && words[0] == "move") {
+            scrambler.add(day21_scramble(day21_type::Move, stoi(words[2]), stoi(words[5])));
+        } else if  (words.size() >= 5 && words[0] == "reverse") {
+            scrambler.add(day21_scramble(day21_type::Reverse, stoi(words[2]), stoi(words[4])));
+        } else if  (words.size() >= 4 && words[0] == "rotate" && words[1] == "left") {
+            scrambler.add(day21_scramble(day21_type::Rotate, stoi(words[2])));
+        } else if  (words.size() >= 4 && words[0] == "rotate" && words[1] == "right") {
+            scrambler.add(day21_scramble(day21_type::Rotate, -stoi(words[2])));
         }
     }
     scrambler.apply(i);
