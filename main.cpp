@@ -487,6 +487,144 @@ void day21(string filename, string password, string scrambled) {
     cout << "Result: " << scrambled << endl;
 }
 
+/*** DAY22 : WORKS (Part 2 needs counting) ***/
+
+class day22_node {
+private:
+    size_t x, y, s, u, a;
+public:
+    day22_node(size_t x, size_t y, size_t size, size_t used, size_t avail) : x(x), y(y), s(size),
+                                                                             u(used), a(avail) {};
+    void print_info() {
+        cout << "Node at (" << x << "," << y << ") free: " << a << ", used: " << u << " (total: " << s << ")\n";
+    }
+    size_t size() const {
+        return s;
+    }
+    size_t used() const {
+        return u;
+    }
+    size_t avail() const {
+        return a;
+    }
+    size_t getX() const {
+        return x;
+    }
+    size_t getY() const {
+        return y;
+    }
+};
+
+void day22(string filename) {
+    ifstream input(filename);
+    string line;
+    // Skip first line
+    getline(input, line);
+    vector<day22_node> nodes;
+    while (getline(input, line)) {
+        stringstream ss;
+        ss.str(line);
+        vector<string> words;
+        string word;
+        while (getline(ss, word, ' ')) {
+            words.push_back(word);
+        }
+        // Parse node data (x0 y0 94T 73T 21T 77%)
+        // Erase extra chars
+        words[0].erase(words[0].begin());
+        words[1].erase(words[1].begin());
+        words[2].erase(words[2].length()-1);
+        words[3].erase(words[3].length()-1);
+        words[4].erase(words[4].length()-1);
+        nodes.push_back( day22_node(stoi(words[0]),
+                                    stoi(words[1]),
+                                    stoi(words[2]),
+                                    stoi(words[3]),
+                                    stoi(words[4])) );
+    }
+    /*for(day22_node &n : nodes) {
+        n.print_info();
+    }*/
+    size_t pairs = 0;
+    for (size_t i=0; i<nodes.size(); i++) {
+        for (size_t j=i+1; j<nodes.size(); j++) {
+            if(nodes[i].used() <= nodes[j].avail() && nodes[i].used() > 0) pairs++;
+            if(nodes[j].used() <= nodes[i].avail() && nodes[j].used() > 0) pairs++;
+        }
+    }
+    cout << "Viable pairs: " << pairs << endl;
+    size_t n = 31;
+    for (size_t i=0; i<n; i++) {
+        for (size_t j=0; j<n; j++) {
+            size_t z = j*n+i;//i*n+j;
+            size_t u = nodes[z].used();
+            size_t s = nodes[z].size();
+            size_t x = nodes[z].getX();
+            size_t y = nodes[z].getY();
+            //cout << "("<<x<<","<<y<<") ";
+            if (x==0 && y==0) { cout << "E"; }
+            else if ((x==n-1) && y==0) { cout << "G"; }
+            else if (s > 99) { cout << "#"; }
+            else if (u == 0) { cout << "_"; }
+            else if (double(u)/double(s) > 0.6) { cout << "."; }
+            else { cout << "?";}
+            cout << " ";
+        }
+        cout << endl;
+    }
+}
+
+/**
+ * After getting the map of the grid:
+    D.............................G
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    .....##########################
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ...............................
+    ............._.................
+    ...............................
+    ...............................
+    ...............................
+
+    9+26+26 to move before the data
+    D............................_G
+    ...............................
+
+    +1 to move it left by 1 (sub total 62)
+    D............................G_
+    ...............................
+
+    Now additional 5 moves it left again
+    So from this move:
+    D............................G_
+    ...............................
+    29*5 moves it to destination D
+    Total 62+29*5=207
+ */
+
+/*** DAY23 : DEV ***/
 
 int main() {
 
@@ -503,6 +641,9 @@ int main() {
 
     // Day 21 solution
     //day21("day21_input.txt","abcdefgh","fbgdceah");
+
+    // Day 22 solution
+    //day22("day22_input.txt");
 
 
     return 0;
