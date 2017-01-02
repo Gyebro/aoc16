@@ -222,8 +222,7 @@ void day18_count_only(const string first_row, size_t rows) {
     cout << "Total number of safe tiles: " << safes << endl;
 }
 
-/*** DAY20 : DEV ***/
-
+/*** DAY20 : WORKS ***/
 
 void day20(string filename) {
     ifstream input(filename);
@@ -268,6 +267,227 @@ void day20(string filename) {
 
 }
 
+/*** DAY21 : WORKS ***/
+
+enum class day21_type {
+    SwapPosition,
+    SwapLetter,
+    Rotate,
+    RotateSpecial,
+    Reverse,
+    Move
+};
+
+class day21_scramble {
+private:
+    day21_type type;
+    int x, y;
+public:
+    day21_scramble(day21_type t, int X) {
+        type = t;
+        x = y = X;
+    }
+    day21_scramble(day21_type t, int X, int Y) {
+        type = t;
+        x = X;
+        y = Y;
+    }
+    void apply(string& input) const {
+        char t = 'a';
+        size_t ny = 0;
+        size_t nx = 0;
+        int f = 0;
+        switch (type) {
+            case day21_type::SwapPosition:
+                t = input[x];
+                input[x] = input[y];
+                input[y] = t;
+                break;
+            case day21_type::SwapLetter:
+                nx = input.find((char)x);
+                ny = input.find((char)y);
+                if((nx != string::npos) && (ny != string::npos)) {
+                    char t = input[nx];
+                    input[nx] = input[ny];
+                    input[ny] = t;
+                }
+                break;
+            case day21_type::Rotate:
+                if (x < 0) {
+                    // Rotate right
+                    f = (-x) - ((-x)/input.length())*input.length();
+                    rotate(input.rbegin(), input.rbegin() + f, input.rend());
+                } else {
+                    // Rotate left
+                    f = x - (x/input.length())*input.length();
+                    rotate(input.begin(), input.begin() + f, input.end());
+                }
+                break;
+            case day21_type::RotateSpecial:
+                // Get amount
+                nx = input.find((char)x);
+                if (nx>=4) nx++;
+                nx++;
+                // Rotate right
+                f = nx - (nx/input.length())*input.length();
+                rotate(input.rbegin(), input.rbegin() + f, input.rend());
+                break;
+            case day21_type::Reverse:
+                reverse(input.begin()+x,input.begin()+y+1);
+                break;
+            case day21_type::Move:
+                t = input[x];
+                input.erase(input.begin()+x);
+                input.insert(input.begin()+y,t);
+                break;
+        }
+    }
+    void unapply(string& input) const {
+        char t = 'a';
+        size_t ny = 0;
+        size_t nx = 0;
+        int f = 0;
+        string str = "";
+        string original = input;
+        switch (type) {
+            case day21_type::SwapPosition:
+                // Swap = Same operation
+                t = input[x];
+                input[x] = input[y];
+                input[y] = t;
+                break;
+            case day21_type::SwapLetter:
+                // Swap = Same operation
+                nx = input.find((char)x);
+                ny = input.find((char)y);
+                if((nx != string::npos) && (ny != string::npos)) {
+                    char t = input[nx];
+                    input[nx] = input[ny];
+                    input[ny] = t;
+                }
+                break;
+            case day21_type::Rotate:
+                if (x < 0) {
+                    // Rotate left
+                    f = (-x) - ((-x)/input.length())*input.length();
+                    rotate(input.begin(), input.begin() + f, input.end());
+                } else {
+                    // Rotate right
+                    f = x - (x/input.length())*input.length();
+                    rotate(input.rbegin(), input.rbegin() + f, input.rend());
+                }
+                break;
+            case day21_type::RotateSpecial:
+                // f = 0 initially
+                while(true) {
+                    // Try inverse operation, rotate with f
+                    rotate(input.begin(), input.begin() + f, input.end());
+                    str = input;
+                    apply(str);
+                    if (str == original) {
+                        break;
+                    }
+                    f++;
+                }
+                break;
+            case day21_type::Reverse:
+                // Reverse = same
+                reverse(input.begin()+x,input.begin()+y+1);
+                break;
+            case day21_type::Move:
+                // Unmove
+                t = input[y];
+                input.erase(input.begin()+y);
+                input.insert(input.begin()+x,t);
+                break;
+        }
+    }
+};
+
+class day21_scrambler {
+private:
+    vector<day21_scramble> i;
+public:
+    day21_scrambler() {};
+    void apply(string& input) {
+        for (day21_scramble& s : i) {
+            s.apply(input);
+        }
+    }
+    void unapply(string& input) {
+        for (int p = i.size()-1; p>=0; p--) {
+            string before = input;
+            i[p].unapply(input);
+            string verify = input;
+            i[p].apply(verify);
+            if (verify == before) {
+                //cout << "Unapply instruction " << p << " verified!\n";
+            } else {
+                cout << "Unapply instruction " << p << " failed!\n";
+            }
+        }
+    }
+    void add(day21_scramble s) {
+        i.push_back(s);
+    }
+};
+
+void day21_test() {
+    day21_scrambler s;
+    s.add(day21_scramble(day21_type::SwapPosition,4,0));
+    s.add(day21_scramble(day21_type::SwapLetter,'d','b'));
+    s.add(day21_scramble(day21_type::Reverse,0,4));
+    s.add(day21_scramble(day21_type::Rotate,1));
+    s.add(day21_scramble(day21_type::Move,1,4));
+    s.add(day21_scramble(day21_type::Move,3,0));
+    s.add(day21_scramble(day21_type::RotateSpecial,'b'));
+    s.add(day21_scramble(day21_type::RotateSpecial,'d'));
+    string in = "abcde";
+    s.apply(in);
+}
+
+void day21(string filename, string password, string scrambled) {
+    ifstream input(filename);
+    string line;
+    day21_scrambler scrambler;
+    string i = password;
+    cout << "Scrambling: " << i << endl;
+    while (getline(input, line)) {
+        stringstream ss;
+        ss.str(line);
+        vector<string> words;
+        string word;
+        while (getline(ss, word, ' ')) {
+            words.push_back(word);
+            if (words.size() >= 7 && words[0] == "rotate" && words[1] == "based") {
+                scrambler.add(day21_scramble(day21_type::RotateSpecial, words[6][0]));
+            } else if (words.size() >= 6 && words[0] == "swap" && words[1] == "position") {
+                scrambler.add(day21_scramble(day21_type::SwapPosition, stoi(words[2]), stoi(words[5])));
+            } else if  (words.size() >= 6 && words[0] == "swap" && words[1] == "letter") {
+                scrambler.add(day21_scramble(day21_type::SwapLetter, words[2][0], words[5][0]));
+            } else if  (words.size() >= 6 && words[0] == "move") {
+                scrambler.add(day21_scramble(day21_type::Move, stoi(words[2]), stoi(words[5])));
+            } else if  (words.size() >= 5 && words[0] == "reverse") {
+                scrambler.add(day21_scramble(day21_type::Reverse, stoi(words[2]), stoi(words[4])));
+            } else if  (words.size() >= 4 && words[0] == "rotate" && words[1] == "left") {
+                scrambler.add(day21_scramble(day21_type::Rotate, stoi(words[2])));
+            } else if  (words.size() >= 4 && words[0] == "rotate" && words[1] == "right") {
+                scrambler.add(day21_scramble(day21_type::Rotate, -stoi(words[2])));
+            }
+        }
+    }
+    scrambler.apply(i);
+    cout << "Result: " << i << endl; // Result: fdhbcgea
+    cout << "Unscrambling: " << i << endl;
+    scrambler.unapply(i);
+    cout << "Result: " << i << endl;
+
+    cout << "Unscrambling: " << scrambled << endl;
+    scrambler.unapply(scrambled);
+    cout << "Result: " << scrambled << endl;
+}
+
+
 int main() {
 
 
@@ -279,7 +499,10 @@ int main() {
     //day18_count_only(day18_input, 400000);
 
     // Day 20 solution
-    day20("day20_input.txt");
+    //day20("day20_input.txt");
+
+    // Day 21 solution
+    //day21("day21_input.txt","abcdefgh","fbgdceah");
 
 
     return 0;
