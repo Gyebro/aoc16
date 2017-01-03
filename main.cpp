@@ -624,7 +624,238 @@ void day22(string filename) {
     Total 62+29*5=207
  */
 
-/*** DAY23 : DEV ***/
+/*** DAY23 : WORKS ***/
+
+enum class day23_t {
+    cpy,
+    dec,
+    inc,
+    jnz,
+    tgl
+};
+
+enum class day23_argt {
+    reg,
+    val
+};
+
+class day23_i {
+public:
+    day23_t t;
+    int a1, a2;
+    day23_argt at1, at2;
+    day23_i(day23_t t, day23_argt at1, int a1, day23_argt at2, int a2) : t(t), a1(a1), a2(a2), at1(at1), at2(at2) {};
+    day23_i(day23_t t, day23_argt at1, int a1) : t(t), a1(a1), at1(at1) {};
+};
+
+day23_i day23_parse(vector<string>& words) {
+    // Parse assembunny instruction
+    if (words[0] == "cpy") {
+        if (words[1] == "a" || words[1] == "b" || words[1] == "c" || words[1] == "d") {
+            return day23_i(day23_t::cpy, day23_argt::reg, words[1][0], day23_argt::reg, words[2][0]);
+        } else {
+            return day23_i(day23_t::cpy, day23_argt::val, stoi(words[1]), day23_argt::reg, words[2][0]);
+        }
+    } else if (words[0] == "inc") {
+        return day23_i(day23_t::inc, day23_argt::reg, words[1][0]);
+    } else if (words[0] == "dec") {
+        return day23_i(day23_t::dec, day23_argt::reg, words[1][0]);
+    } else if (words[0] == "jnz") {
+        if (words[1] == "a" || words[1] == "b" || words[1] == "c" || words[1] == "d") {
+            if (words[2] == "a" || words[2] == "b" || words[2] == "c" || words[2] == "d") {
+                return day23_i(day23_t::jnz, day23_argt::reg, words[1][0], day23_argt::reg, words[2][0]);
+            } else {
+                return day23_i(day23_t::jnz, day23_argt::reg, words[1][0], day23_argt::val, stoi(words[2]));
+            }
+        } else {
+            if (words[2] == "a" || words[2] == "b" || words[2] == "c" || words[2] == "d") {
+                return day23_i(day23_t::jnz, day23_argt::val, stoi(words[1]), day23_argt::reg, words[2][0]);
+            } else {
+                return day23_i(day23_t::jnz, day23_argt::val, stoi(words[1]), day23_argt::val, stoi(words[2]));
+            }
+        }
+    } else if (words[0] == "tgl") {
+        if (words[1] == "a" || words[1] == "b" || words[1] == "c" || words[1] == "d") {
+            return day23_i(day23_t::tgl, day23_argt::reg, words[1][0]);
+        } else {
+            return day23_i(day23_t::tgl, day23_argt::val, stoi(words[1]));
+        }
+    }
+}
+
+class day23_program {
+private:
+    vector<day23_i> instructions;
+    vector<day23_i> default_instr;
+    int registers[4];
+    size_t iptr;
+    size_t reg(int regval) {
+        // a = 0, b = 1, c = 2, d = 3;
+        return regval - 97;
+    }
+    void toggle_instruction(int n) {
+        // If an attempt is made to toggle an instruction outside the program, nothing happens.
+        if((n<0) || (n>=instructions.size())) return;
+        day23_i i = instructions[n];
+        switch(i.t) {
+            case day23_t::inc:
+                // inc becomes dec
+                i.t = day23_t::dec;
+                break;
+            case day23_t::dec:
+            case day23_t::tgl:
+                // All other one-argument instructions (dec and tgl) become inc
+                i.t = day23_t::inc;
+                break;
+            case day23_t::jnz:
+                // jnz becomes cpy
+                i.t = day23_t::cpy;
+                break;
+            case day23_t::cpy:
+                // All other two-instructions (cpy) become jnz.
+                i.t = day23_t::jnz;
+                break;
+        }
+        // Save toggled instruction
+        // The arguments of a toggled instruction are not affected.
+        instructions[n] = i;
+    }
+    void apply_instruction(day23_i i) {
+        switch(i.t) {
+            case day23_t::cpy:
+                // First arg can be reg or val, Second arg always reg
+                // If 2nd arg is val, skip
+                if (i.at2 == day23_argt::val) {
+                    // Skip
+                    iptr++;
+                } else {
+                    switch (i.at1) {
+                        case day23_argt::reg:
+                            // Copy reg(a1) to reg(a2)
+                            registers[reg(i.a2)] = registers[reg(i.a1)];
+                            iptr++;
+                            break;
+                        case day23_argt::val:
+                            // Copy val(a1) to reg(a2)
+                            registers[reg(i.a2)] = i.a1;
+                            iptr++;
+                            break;
+                    }
+                }
+                break;
+            case day23_t::dec:
+                if (i.at1 == day23_argt::val) {
+                    // Skip
+                    iptr++;
+                } else {
+                    // Decrease reg(a1)
+                    registers[reg(i.a1)]--;
+                    iptr++;
+                }
+                break;
+            case day23_t::inc:
+                if (i.at1 == day23_argt::val) {
+                    // Skip
+                    iptr++;
+                } else {
+                    // Increase reg(a1)
+                    registers[reg(i.a1)]++;
+                    iptr++;
+                }
+                break;
+            case day23_t::jnz:
+                // Check first arg
+                switch (i.at1) {
+                    case day23_argt::reg:
+                        // Check if first arg is zero
+                        if (registers[reg(i.a1)]!=0) {
+                            // Check second arg
+                            switch (i.at2) {
+                                case day23_argt::reg:
+                                    iptr += registers[reg(i.a2)];
+                                    break;
+                                case day23_argt::val:
+                                    iptr += i.a2;
+                                    break;
+                            }
+                        } else {
+                            iptr++;
+                        }
+                        break;
+                    case day23_argt::val:
+                        // Check if first value argument is zero
+                        if (i.a1 != 0) {
+                            // Check second arg
+                            switch (i.at2) {
+                                case day23_argt::reg:
+                                    iptr += registers[reg(i.a2)];
+                                    break;
+                                case day23_argt::val:
+                                    iptr += i.a2;
+                                    break;
+                            }
+                        } else {
+                            iptr++;
+                        }
+                        break;
+                }
+                break;
+            case day23_t::tgl:
+                size_t target = 0;
+                switch (i.at1) {
+                    case day23_argt::reg:
+                        target = iptr + registers[reg(i.a1)];
+                        break;
+                    case day23_argt::val:
+                        target = iptr + i.a1;
+                        break;
+                }
+                // Toggle target
+                toggle_instruction(target);
+                // Continue execution
+                iptr++;
+                break;
+        }
+    }
+public:
+    day23_program(const vector<day23_i> &i) : instructions(i) {
+        iptr = 0;
+        default_instr = i;
+    }
+    void run(int a, int b, int c, int d) {
+        // Init registers and reset instructions
+        registers[0] = a;
+        registers[1] = b;
+        registers[2] = c;
+        registers[3] = d;
+        instructions = default_instr;
+        iptr = 0;
+        while((iptr >= 0) && (iptr < instructions.size())) {
+            apply_instruction(instructions[iptr]);
+        }
+        cout << "a,b,c,d = " << registers[0] << ", " << registers[1] << ", " << registers[2] << ", " << registers[3] << endl;
+    }
+};
+
+void day23(string filename,int a, int b, int c, int d) {
+    ifstream input(filename);
+    string line;
+    vector<day23_i> instructions;
+    while (getline(input, line)) {
+        stringstream ss;
+        ss.str(line);
+        vector<string> words;
+        string word;
+        while (getline(ss, word, ' ')) {
+            words.push_back(word);
+        }
+        instructions.push_back(day23_parse(words));
+    }
+    cout << "Assembunny code compiled, total number of instructions: " << instructions.size() << endl;
+    day23_program program(instructions);
+    program.run(a,b,c,d);
+
+}
 
 int main() {
 
@@ -645,6 +876,10 @@ int main() {
     // Day 22 solution
     //day22("day22_input.txt");
 
+    // Day 23 solution
+    //day23("day12_input.txt",0,0,0,0);
+    //day23("day23_input.txt",7,0,0,0);
+    //day23("day23_input.txt",12,0,0,0);
 
     return 0;
 
