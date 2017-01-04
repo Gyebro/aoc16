@@ -299,6 +299,52 @@ void day17(string passcode) {
     bfs_longest(start, target, 1000);
 }
 
+/**** DAY 19 : WORKS ****/
+
+#define day19_input 3012210
+
+void day19() {
+    size_t* data = new size_t[day19_input];
+    size_t* next = new size_t[day19_input];
+    size_t* prev = new size_t[day19_input];
+
+    // Init
+    size_t l=day19_input;
+    for(size_t i=0; i<l; i++) {
+        data[i]=i+1;
+        next[i]=i+1;
+        prev[i]=i-1;
+    }
+    // Fix endings
+    next[l-1]=0;
+    prev[0]=l-1;
+
+    // Start stepping
+    size_t p=0;
+    size_t steps = 0;
+    while (l>1) {
+        // Step with p
+        size_t delta = floor(l/2);
+        size_t target = next[p];
+        for (size_t j = 0; j<delta-1; j++) {
+            target=next[target];
+        }
+        // Remove target
+        // the previous of the next is the previous of current
+        prev[next[target]]=prev[target];
+        // the next of the previous is the next of the current
+        next[prev[target]]=next[target];
+        // Decrement size
+        l--;
+        //cout << "Elf " << data[p] << " eliminated " << data[target] << endl;
+        steps++;
+        if(steps%10000 == 0) { cout << "Steps: " << steps << endl; }
+        // Find next
+        p = next[p];
+    }
+    cout << "Last elf: " << data[p];
+}
+
 /*** DAY18 : WORKS ***/
 
 const char trap = '^';
