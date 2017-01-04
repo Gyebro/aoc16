@@ -631,7 +631,8 @@ enum class day23_t {
     dec,
     inc,
     jnz,
-    tgl
+    tgl,
+    out
 };
 
 enum class day23_argt {
@@ -680,6 +681,12 @@ day23_i day23_parse(vector<string>& words) {
         } else {
             return day23_i(day23_t::tgl, day23_argt::val, stoi(words[1]));
         }
+    } else if (words[0] == "out") {
+        if (words[1] == "a" || words[1] == "b" || words[1] == "c" || words[1] == "d") {
+            return day23_i(day23_t::out, day23_argt::reg, words[1][0]);
+        } else {
+            return day23_i(day23_t::out, day23_argt::val, stoi(words[1]));
+        }
     }
 }
 
@@ -687,6 +694,7 @@ class day23_program {
 private:
     vector<day23_i> instructions;
     vector<day23_i> default_instr;
+    vector<int> output;
     int registers[4];
     size_t iptr;
     size_t reg(int regval) {
@@ -704,7 +712,8 @@ private:
                 break;
             case day23_t::dec:
             case day23_t::tgl:
-                // All other one-argument instructions (dec and tgl) become inc
+            case day23_t::out:
+                // All other one-argument instructions (dec, tgl and out) become inc
                 i.t = day23_t::inc;
                 break;
             case day23_t::jnz:
@@ -721,6 +730,7 @@ private:
         instructions[n] = i;
     }
     void apply_instruction(day23_i i) {
+        size_t target = 0;
         switch(i.t) {
             case day23_t::cpy:
                 // First arg can be reg or val, Second arg always reg
@@ -801,7 +811,7 @@ private:
                 }
                 break;
             case day23_t::tgl:
-                size_t target = 0;
+                target = 0;
                 switch (i.at1) {
                     case day23_argt::reg:
                         target = iptr + registers[reg(i.a1)];
@@ -813,6 +823,17 @@ private:
                 // Toggle target
                 toggle_instruction(target);
                 // Continue execution
+                iptr++;
+                break;
+            case day23_t::out:
+                switch (i.at1) {
+                    case day23_argt::reg:
+                        output.push_back(registers[reg(i.a1)]);
+                        break;
+                    case day23_argt::val:
+                        output.push_back(i.a1);
+                        break;
+                }
                 iptr++;
                 break;
         }
@@ -830,14 +851,35 @@ public:
         registers[3] = d;
         instructions = default_instr;
         iptr = 0;
+        output.resize(0);
         while((iptr >= 0) && (iptr < instructions.size())) {
             apply_instruction(instructions[iptr]);
         }
         cout << "a,b,c,d = " << registers[0] << ", " << registers[1] << ", " << registers[2] << ", " << registers[3] << endl;
     }
+    bool run_and_monitor(int a, int b, int c, int d, vector<int> desired_output) {
+        // Init registers and reset instructions
+        registers[0] = a;
+        registers[1] = b;
+        registers[2] = c;
+        registers[3] = d;
+        instructions = default_instr;
+        iptr = 0;
+        output.resize(0);
+        size_t desired_outsize = desired_output.size();
+        while((iptr >= 0) && (iptr < instructions.size())) {
+            apply_instruction(instructions[iptr]);
+            if(output.size() == desired_outsize) break;
+        }
+        // Check output
+        for (size_t i=0; i<desired_outsize; i++) {
+            if (output[i] != desired_output[i]) return false;
+        }
+        return true;
+    }
 };
 
-void day23(string filename,int a, int b, int c, int d) {
+void day23(string filename, int a, int b, int c, int d) {
     ifstream input(filename);
     string line;
     vector<day23_i> instructions;
@@ -855,6 +897,39 @@ void day23(string filename,int a, int b, int c, int d) {
     day23_program program(instructions);
     program.run(a,b,c,d);
 
+}
+
+/*** DAY24 : DEV ***/
+
+void day24() {
+    // See Mathematica nb
+}
+
+/*** DAY25 : DEV ***/
+
+void day25(string filename) {
+    vector<int> desired_out;
+    for (size_t i=0; i<32; i++) {
+        desired_out.push_back(i%2);
+    }
+    ifstream input(filename);
+    string line;
+    vector<day23_i> instructions;
+    while (getline(input, line)) {
+        stringstream ss;
+        ss.str(line);
+        vector<string> words;
+        string word;
+        while (getline(ss, word, ' ')) {
+            words.push_back(word);
+        }
+        instructions.push_back(day23_parse(words));
+    }
+    cout << "Assembunny code compiled, total number of instructions: " << instructions.size() << endl;
+    day23_program program(instructions);
+    int a = 0;
+    while (!program.run_and_monitor(a,0,0,0,desired_out))  a++;
+    cout << "Lowest initial value of register 'a' to generate clock signal: " << a << endl;
 }
 
 int main() {
@@ -880,6 +955,12 @@ int main() {
     //day23("day12_input.txt",0,0,0,0);
     //day23("day23_input.txt",7,0,0,0);
     //day23("day23_input.txt",12,0,0,0);
+
+    // Day 24 solution
+    day24();
+
+    // Day 25 solution
+    //day25("day25_input.txt");
 
     return 0;
 
