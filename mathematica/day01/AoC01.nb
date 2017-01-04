@@ -1,0 +1,348 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13770,        340]
+NotebookOptionsPosition[     12683,        298]
+NotebookOutlinePosition[     13056,        314]
+CellTagsIndexPosition[     13013,        311]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Day 1: No Time for a Taxicab", "Section",
+ CellChangeTimes->{{3.69011089339085*^9, 3.6901109202649508`*^9}, 
+   3.6901372390897756`*^9}],
+
+Cell["http://adventofcode.com/2016/day/1", "Text",
+ CellChangeTimes->{3.6901109043975973`*^9}],
+
+Cell["How many blocks away is Easter Bunny HQ?", "Text",
+ CellChangeTimes->{{3.690110907273897*^9, 3.6901109113250055`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "input", "=", 
+   "\"\<R4, R1, L2, R1, L1, L1, R1, L5, R1, R5, L2, R3, L3, L4, R4, R4, R3, \
+L5, L1, R5, R3, L4, R1, R5, L1, R3, L2, R3, R1, L4, L1, R1, L1, L5, R1, L2, \
+R2, L3, L5, R1, R5, L1, R188, L3, R2, R52, R5, L3, R79, L1, R5, R186, R2, R1, \
+L3, L5, L2, R2, R4, R5, R5, L5, L4, R5, R3, L4, R4, L4, L4, R5, L4, L3, L1, \
+L4, R1, R2, L5, R3, L4, R3, L3, L5, R1, R1, L3, R2, R1, R2, R2, L4, R5, R1, \
+R3, R2, L2, L2, L1, R2, L1, L3, R5, R1, R4, R5, R2, R2, R4, R4, R1, L3, R4, \
+L2, R2, R1, R3, L5, R5, R2, R5, L1, R2, R4, L1, R5, L3, L3, R1, L4, R2, L2, \
+R1, L1, R4, R3, L2, L3, R3, L2, R1, L4, R5, L1, R5, L2, L1, L5, L2, L5, L2, \
+L4, L2, R3\>\""}], ";"}]], "Input",
+ CellChangeTimes->{{3.6901108757815495`*^9, 3.690110883549404*^9}, 
+   3.6901121078090024`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"directions", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"StringTake", "[", 
+        RowBox[{"#", ",", "1"}], "]"}], ",", 
+       RowBox[{"ToExpression", "@", 
+        RowBox[{"StringTake", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{
+           RowBox[{"-", 
+            RowBox[{"StringLength", "@", "#"}]}], "+", "1"}]}], "]"}]}]}], 
+      "}"}], "&"}], "/@", 
+    RowBox[{"StringSplit", "[", 
+     RowBox[{
+      RowBox[{"StringReplace", "[", 
+       RowBox[{"input", ",", 
+        RowBox[{"\"\< \>\"", "\[Rule]", "\"\<\>\""}]}], "]"}], ",", 
+      "\"\<,\>\""}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6901109390354137`*^9, 3.6901109684660964`*^9}, {
+  3.690111002944206*^9, 3.6901110727725267`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"applyDir", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p_", ",", "v_"}], "}"}], ",", "n_"}], "}"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "vnew", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"vnew", "=", 
+      RowBox[{
+       RowBox[{"RotationMatrix", "[", 
+        RowBox[{"Switch", "[", 
+         RowBox[{
+          RowBox[{"directions", "\[LeftDoubleBracket]", 
+           RowBox[{"n", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+          "\"\<R\>\"", ",", 
+          RowBox[{
+           RowBox[{"-", "\[Pi]"}], "/", "2"}], ",", "\"\<L\>\"", ",", 
+          RowBox[{"\[Pi]", "/", "2"}]}], "]"}], "]"}], ".", "v"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"p", "+", 
+          RowBox[{"vnew", " ", 
+           RowBox[{"directions", "\[LeftDoubleBracket]", 
+            RowBox[{"n", ",", "2"}], "\[RightDoubleBracket]"}]}]}], ",", 
+         "vnew"}], "}"}], ",", 
+       RowBox[{"n", "+", "1"}]}], "}"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.690111119369517*^9, 3.6901113327330217`*^9}, {
+  3.690111365066193*^9, 3.690111372221589*^9}, {3.690111425943434*^9, 
+  3.690111488504801*^9}, {3.6901115249392686`*^9, 3.690111624231448*^9}, {
+  3.6901117014817667`*^9, 3.690111702437479*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"path", "=", 
+   RowBox[{"NestList", "[", 
+    RowBox[{"applyDir", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", "0"}], "}"}]}], "}"}], ",", "1"}], "}"}], 
+     ",", 
+     RowBox[{"Length", "@", "directions"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6901114958455515`*^9, 3.6901115049800777`*^9}, {
+   3.690111546952571*^9, 3.690111550572976*^9}, {3.6901116435704155`*^9, 
+   3.69011170444906*^9}, 3.6901117478449783`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"path", "[", 
+  RowBox[{"[", 
+   RowBox[{
+    RowBox[{"-", "1"}], ",", "1", ",", "1"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6901118386831784`*^9, 3.6901118471226187`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"113", ",", 
+   RowBox[{"-", "48"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6901118415173693`*^9, 3.6901118474130135`*^9}, 
+   3.6901120529843006`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Norm", "[", 
+  RowBox[{
+   RowBox[{"path", "[", 
+    RowBox[{"[", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", "1", ",", "1"}], "]"}], "]"}], ",", "1"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6901118514679832`*^9, 3.690111864447929*^9}}],
+
+Cell[BoxData["161"], "Output",
+ CellChangeTimes->{{3.6901118538268733`*^9, 3.690111864719862*^9}, 
+   3.6901120538657236`*^9}]
+}, Open  ]],
+
+Cell["Correct answer: 161", "Text",
+ CellChangeTimes->{{3.6901118856264343`*^9, 3.690111889011775*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graphics", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Arrowheads", "[", "0.001", "]"}], ",", 
+     RowBox[{"Arrow", "/@", 
+      RowBox[{"Partition", "[", 
+       RowBox[{
+        RowBox[{"path", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "1", ",", "1"}], "]"}], "]"}], ",", "2", ",", 
+        "1"}], "]"}]}]}], "}"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "800"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6901116696746416`*^9, 3.690111673093537*^9}, {
+   3.6901117192530346`*^9, 3.6901118336535635`*^9}, 3.6901121786456265`*^9, {
+   3.690112217573456*^9, 3.6901122218215466`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Arrowheads[0.001], ArrowBox[{{0, 0}, {0, 4}}], ArrowBox[{{0, 4}, {1, 4}}], 
+   ArrowBox[{{1, 4}, {1, 6}}], ArrowBox[{{1, 6}, {2, 6}}], 
+   ArrowBox[{{2, 6}, {2, 7}}], ArrowBox[{{2, 7}, {1, 7}}], 
+   ArrowBox[{{1, 7}, {1, 8}}], ArrowBox[{{1, 8}, {-4, 8}}], 
+   ArrowBox[{{-4, 8}, {-4, 9}}], ArrowBox[{{-4, 9}, {1, 9}}], 
+   ArrowBox[{{1, 9}, {1, 11}}], ArrowBox[{{1, 11}, {4, 11}}], 
+   ArrowBox[{{4, 11}, {4, 14}}], ArrowBox[{{4, 14}, {0, 14}}], 
+   ArrowBox[{{0, 14}, {0, 18}}], ArrowBox[{{0, 18}, {4, 18}}], 
+   ArrowBox[{{4, 18}, {4, 15}}], ArrowBox[{{4, 15}, {9, 15}}], 
+   ArrowBox[{{9, 15}, {9, 16}}], ArrowBox[{{9, 16}, {14, 16}}], 
+   ArrowBox[{{14, 16}, {14, 13}}], ArrowBox[{{14, 13}, {18, 13}}], 
+   ArrowBox[{{18, 13}, {18, 12}}], ArrowBox[{{18, 12}, {13, 12}}], 
+   ArrowBox[{{13, 12}, {13, 11}}], ArrowBox[{{13, 11}, {10, 11}}], 
+   ArrowBox[{{10, 11}, {10, 9}}], ArrowBox[{{10, 9}, {7, 9}}], 
+   ArrowBox[{{7, 9}, {7, 10}}], ArrowBox[{{7, 10}, {3, 10}}], 
+   ArrowBox[{{3, 10}, {3, 9}}], ArrowBox[{{3, 9}, {2, 9}}], 
+   ArrowBox[{{2, 9}, {2, 8}}], ArrowBox[{{2, 8}, {7, 8}}], 
+   ArrowBox[{{7, 8}, {7, 7}}], ArrowBox[{{7, 7}, {9, 7}}], 
+   ArrowBox[{{9, 7}, {9, 5}}], ArrowBox[{{9, 5}, {12, 5}}], 
+   ArrowBox[{{12, 5}, {12, 10}}], ArrowBox[{{12, 10}, {13, 10}}], 
+   ArrowBox[{{13, 10}, {13, 5}}], ArrowBox[{{13, 5}, {14, 5}}], 
+   ArrowBox[{{14, 5}, {14, -183}}], ArrowBox[{{14, -183}, {17, -183}}], 
+   ArrowBox[{{17, -183}, {17, -185}}], ArrowBox[{{17, -185}, {-35, -185}}], 
+   ArrowBox[{{-35, -185}, {-35, -180}}], ArrowBox[{{-35, -180}, {-38, -180}}],
+    ArrowBox[{{-38, -180}, {-38, -101}}], 
+   ArrowBox[{{-38, -101}, {-39, -101}}], ArrowBox[{{-39, -101}, {-39, -96}}], 
+   ArrowBox[{{-39, -96}, {147, -96}}], ArrowBox[{{147, -96}, {147, -98}}], 
+   ArrowBox[{{147, -98}, {146, -98}}], ArrowBox[{{146, -98}, {146, -101}}], 
+   ArrowBox[{{146, -101}, {151, -101}}], ArrowBox[{{151, -101}, {151, -99}}], 
+   ArrowBox[{{151, -99}, {153, -99}}], ArrowBox[{{153, -99}, {153, -103}}], 
+   ArrowBox[{{153, -103}, {148, -103}}], ArrowBox[{{148, -103}, {148, -98}}], 
+   ArrowBox[{{148, -98}, {143, -98}}], ArrowBox[{{143, -98}, {143, -102}}], 
+   ArrowBox[{{143, -102}, {138, -102}}], ArrowBox[{{138, -102}, {138, -99}}], 
+   ArrowBox[{{138, -99}, {134, -99}}], ArrowBox[{{134, -99}, {134, -95}}], 
+   ArrowBox[{{134, -95}, {130, -95}}], ArrowBox[{{130, -95}, {130, -99}}], 
+   ArrowBox[{{130, -99}, {125, -99}}], ArrowBox[{{125, -99}, {125, -103}}], 
+   ArrowBox[{{125, -103}, {128, -103}}], ArrowBox[{{128, -103}, {128, -102}}],
+    ArrowBox[{{128, -102}, {124, -102}}], 
+   ArrowBox[{{124, -102}, {124, -101}}], ArrowBox[{{124, -101}, {126, -101}}],
+    ArrowBox[{{126, -101}, {126, -96}}], ArrowBox[{{126, -96}, {129, -96}}], 
+   ArrowBox[{{129, -96}, {129, -92}}], ArrowBox[{{129, -92}, {132, -92}}], 
+   ArrowBox[{{132, -92}, {132, -89}}], ArrowBox[{{132, -89}, {127, -89}}], 
+   ArrowBox[{{127, -89}, {127, -88}}], ArrowBox[{{127, -88}, {128, -88}}], 
+   ArrowBox[{{128, -88}, {128, -85}}], ArrowBox[{{128, -85}, {130, -85}}], 
+   ArrowBox[{{130, -85}, {130, -86}}], ArrowBox[{{130, -86}, {128, -86}}], 
+   ArrowBox[{{128, -86}, {128, -84}}], ArrowBox[{{128, -84}, {124, -84}}], 
+   ArrowBox[{{124, -84}, {124, -79}}], ArrowBox[{{124, -79}, {125, -79}}], 
+   ArrowBox[{{125, -79}, {125, -82}}], ArrowBox[{{125, -82}, {123, -82}}], 
+   ArrowBox[{{123, -82}, {123, -84}}], ArrowBox[{{123, -84}, {125, -84}}], 
+   ArrowBox[{{125, -84}, {125, -83}}], ArrowBox[{{125, -83}, {127, -83}}], 
+   ArrowBox[{{127, -83}, {127, -82}}], ArrowBox[{{127, -82}, {124, -82}}], 
+   ArrowBox[{{124, -82}, {124, -77}}], ArrowBox[{{124, -77}, {125, -77}}], 
+   ArrowBox[{{125, -77}, {125, -81}}], ArrowBox[{{125, -81}, {120, -81}}], 
+   ArrowBox[{{120, -81}, {120, -79}}], ArrowBox[{{120, -79}, {122, -79}}], 
+   ArrowBox[{{122, -79}, {122, -83}}], ArrowBox[{{122, -83}, {118, -83}}], 
+   ArrowBox[{{118, -83}, {118, -82}}], ArrowBox[{{118, -82}, {115, -82}}], 
+   ArrowBox[{{115, -82}, {115, -78}}], ArrowBox[{{115, -78}, {113, -78}}], 
+   ArrowBox[{{113, -78}, {113, -76}}], ArrowBox[{{113, -76}, {114, -76}}], 
+   ArrowBox[{{114, -76}, {114, -79}}], ArrowBox[{{114, -79}, {119, -79}}], 
+   ArrowBox[{{119, -79}, {119, -84}}], ArrowBox[{{119, -84}, {117, -84}}], 
+   ArrowBox[{{117, -84}, {117, -79}}], ArrowBox[{{117, -79}, {116, -79}}], 
+   ArrowBox[{{116, -79}, {116, -77}}], ArrowBox[{{116, -77}, {120, -77}}], 
+   ArrowBox[{{120, -77}, {120, -76}}], ArrowBox[{{120, -76}, {125, -76}}], 
+   ArrowBox[{{125, -76}, {125, -73}}], ArrowBox[{{125, -73}, {122, -73}}], 
+   ArrowBox[{{122, -73}, {122, -72}}], ArrowBox[{{122, -72}, {118, -72}}], 
+   ArrowBox[{{118, -72}, {118, -70}}], ArrowBox[{{118, -70}, {116, -70}}], 
+   ArrowBox[{{116, -70}, {116, -69}}], ArrowBox[{{116, -69}, {115, -69}}], 
+   ArrowBox[{{115, -69}, {115, -65}}], ArrowBox[{{115, -65}, {118, -65}}], 
+   ArrowBox[{{118, -65}, {118, -63}}], ArrowBox[{{118, -63}, {115, -63}}], 
+   ArrowBox[{{115, -63}, {115, -60}}], ArrowBox[{{115, -60}, {113, -60}}], 
+   ArrowBox[{{113, -60}, {113, -59}}], ArrowBox[{{113, -59}, {109, -59}}], 
+   ArrowBox[{{109, -59}, {109, -54}}], ArrowBox[{{109, -54}, {108, -54}}], 
+   ArrowBox[{{108, -54}, {108, -49}}], ArrowBox[{{108, -49}, {106, -49}}], 
+   ArrowBox[{{106, -49}, {106, -50}}], ArrowBox[{{106, -50}, {111, -50}}], 
+   ArrowBox[{{111, -50}, {111, -48}}], ArrowBox[{{111, -48}, {106, -48}}], 
+   ArrowBox[{{106, -48}, {106, -50}}], ArrowBox[{{106, -50}, {110, -50}}], 
+   ArrowBox[{{110, -50}, {110, -48}}], ArrowBox[{{110, -48}, {113, -48}}]},
+  Frame->True,
+  ImageSize->800]], "Output",
+ CellChangeTimes->{
+  3.6901116733452797`*^9, {3.6901117093170767`*^9, 3.690111833930992*^9}, 
+   3.690112073146329*^9, 3.690112179334007*^9, {3.6901122202059984`*^9, 
+   3.6901122224811845`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part 2: extract first location visited twice", "Subsection",
+ CellChangeTimes->{{3.690111912194255*^9, 3.690111920165509*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Norm", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"14", ",", 
+     RowBox[{"-", "96"}]}], "}"}], ",", "1"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6901122430915313`*^9, 3.690112256694935*^9}}],
+
+Cell[BoxData["110"], "Output",
+ CellChangeTimes->{3.6901122570645175`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1920, 997},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>1.2 Inherited,
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 142, 2, 84, "Section"],
+Cell[725, 26, 94, 1, 35, "Text"],
+Cell[822, 29, 124, 1, 35, "Text"],
+Cell[949, 32, 809, 14, 134, "Input"],
+Cell[1761, 48, 794, 23, 37, "Input"],
+Cell[2558, 73, 1418, 37, 110, "Input"],
+Cell[3979, 112, 648, 18, 37, "Input"],
+Cell[CellGroupData[{
+Cell[4652, 134, 204, 5, 37, "Input"],
+Cell[4859, 141, 193, 5, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5089, 151, 266, 8, 37, "Input"],
+Cell[5358, 161, 126, 2, 37, "Output"]
+}, Open  ]],
+Cell[5499, 166, 103, 1, 35, "Text"],
+Cell[CellGroupData[{
+Cell[5627, 171, 690, 17, 37, "Input"],
+Cell[6320, 190, 5832, 84, 1013, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12189, 279, 132, 1, 58, "Subsection"],
+Cell[CellGroupData[{
+Cell[12346, 284, 220, 6, 37, "Input"],
+Cell[12569, 292, 74, 1, 37, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
