@@ -1,0 +1,1859 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     75780,       1851]
+NotebookOptionsPosition[     71638,       1713]
+NotebookOutlinePosition[     72009,       1729]
+CellTagsIndexPosition[     71966,       1726]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Day 10: Balance Bots", "Section",
+ CellChangeTimes->{3.6903677656239586`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Input", "Subsection",
+ CellChangeTimes->{{3.6903677673779593`*^9, 3.6903677679781137`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "inputTest", "=", 
+   "\"\<value 5 goes to bot 2\nbot 2 gives low to bot 1 and high to bot 0\n\
+value 3 goes to bot 1\nbot 1 gives low to output 1 and high to bot 0\nbot 0 \
+gives low to output 2 and high to output 0\nvalue 2 goes to bot 2\>\""}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6903696731890373`*^9, 3.6903696767356424`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "input", "=", 
+   "\"\<bot 76 gives low to bot 191 and high to bot 21\nbot 193 gives low to \
+bot 118 and high to bot 145\nbot 173 gives low to bot 91 and high to bot 36\n\
+value 23 goes to bot 68\nbot 129 gives low to bot 124 and high to bot 155\n\
+bot 58 gives low to output 2 and high to bot 51\nbot 97 gives low to bot 205 \
+and high to bot 156\nbot 95 gives low to bot 21 and high to bot 204\nbot 56 \
+gives low to bot 202 and high to bot 97\nbot 181 gives low to bot 144 and \
+high to bot 101\nbot 20 gives low to bot 42 and high to bot 23\nbot 122 gives \
+low to bot 190 and high to bot 50\nbot 202 gives low to bot 103 and high to \
+bot 205\nbot 169 gives low to bot 125 and high to bot 208\nbot 91 gives low \
+to bot 58 and high to bot 17\nbot 10 gives low to bot 127 and high to bot 1\n\
+bot 119 gives low to bot 50 and high to bot 149\nbot 194 gives low to bot 38 \
+and high to bot 77\nbot 82 gives low to bot 49 and high to bot 22\nbot 180 \
+gives low to bot 199 and high to bot 71\nbot 191 gives low to bot 146 and \
+high to bot 13\nbot 111 gives low to bot 186 and high to bot 89\nbot 75 gives \
+low to bot 195 and high to bot 117\nbot 17 gives low to bot 51 and high to \
+bot 184\nvalue 5 goes to bot 209\nbot 139 gives low to bot 81 and high to bot \
+57\nbot 36 gives low to bot 17 and high to bot 46\nbot 158 gives low to bot \
+30 and high to bot 6\nbot 40 gives low to bot 160 and high to bot 82\nvalue \
+11 goes to bot 175\nvalue 3 goes to bot 170\nbot 208 gives low to bot 14 and \
+high to bot 104\nbot 113 gives low to output 15 and high to bot 27\nbot 96 \
+gives low to bot 170 and high to bot 110\nbot 9 gives low to bot 102 and high \
+to bot 132\nvalue 67 goes to bot 129\nbot 35 gives low to bot 24 and high to \
+bot 187\nbot 172 gives low to bot 117 and high to bot 64\nbot 157 gives low \
+to bot 65 and high to bot 136\nbot 179 gives low to bot 178 and high to bot \
+197\nbot 144 gives low to bot 172 and high to bot 2\nbot 51 gives low to \
+output 8 and high to bot 31\nbot 177 gives low to bot 194 and high to bot 61\n\
+bot 106 gives low to bot 134 and high to bot 52\nbot 148 gives low to bot 86 \
+and high to bot 199\nbot 64 gives low to bot 48 and high to bot 146\nbot 121 \
+gives low to bot 165 and high to bot 116\nbot 146 gives low to bot 9 and high \
+to bot 69\nbot 199 gives low to bot 141 and high to bot 152\nbot 166 gives \
+low to bot 62 and high to bot 201\nbot 102 gives low to bot 151 and high to \
+bot 179\nbot 15 gives low to bot 80 and high to bot 3\nbot 105 gives low to \
+bot 197 and high to bot 86\nbot 2 gives low to bot 64 and high to bot 191\n\
+bot 3 gives low to bot 169 and high to bot 208\nbot 39 gives low to bot 43 \
+and high to bot 98\nbot 196 gives low to bot 66 and high to bot 32\nvalue 47 \
+goes to bot 142\nbot 110 gives low to bot 29 and high to bot 40\nbot 151 \
+gives low to bot 74 and high to bot 178\nbot 164 gives low to bot 4 and high \
+to bot 93\nbot 61 gives low to bot 77 and high to bot 144\nbot 29 gives low \
+to bot 183 and high to bot 160\nbot 79 gives low to bot 204 and high to bot \
+37\nbot 188 gives low to output 0 and high to bot 72\nbot 131 gives low to \
+bot 54 and high to bot 38\nbot 59 gives low to output 4 and high to bot 34\n\
+bot 8 gives low to bot 101 and high to bot 7\nbot 189 gives low to bot 46 and \
+high to bot 53\nbot 77 gives low to bot 75 and high to bot 172\nbot 206 gives \
+low to bot 56 and high to bot 107\nbot 114 gives low to bot 188 and high to \
+bot 125\nbot 207 gives low to bot 87 and high to bot 10\nbot 30 gives low to \
+bot 106 and high to bot 11\nbot 167 gives low to bot 45 and high to bot 183\n\
+bot 168 gives low to output 12 and high to bot 58\nbot 142 gives low to bot \
+68 and high to bot 111\nbot 138 gives low to bot 180 and high to bot 198\nbot \
+171 gives low to bot 150 and high to bot 35\nbot 5 gives low to bot 39 and \
+high to bot 100\nbot 197 gives low to bot 120 and high to bot 173\nbot 46 \
+gives low to bot 184 and high to bot 128\nbot 137 gives low to bot 0 and high \
+to bot 114\nbot 7 gives low to bot 76 and high to bot 95\nbot 104 gives low \
+to bot 159 and high to bot 203\nbot 103 gives low to bot 5 and high to bot \
+108\nbot 66 gives low to bot 158 and high to bot 161\nbot 156 gives low to \
+bot 166 and high to bot 201\nbot 178 gives low to bot 130 and high to bot 120\
+\nbot 1 gives low to bot 206 and high to bot 107\nbot 65 gives low to bot 111 \
+and high to bot 143\nbot 150 gives low to bot 25 and high to bot 24\nvalue 7 \
+goes to bot 135\nbot 48 gives low to bot 182 and high to bot 9\nbot 112 gives \
+low to bot 22 and high to bot 202\nbot 32 gives low to bot 161 and high to \
+bot 42\nbot 12 gives low to bot 61 and high to bot 181\nbot 155 gives low to \
+bot 196 and high to bot 73\nvalue 73 goes to bot 140\nbot 99 gives low to bot \
+109 and high to bot 151\nbot 163 gives low to bot 131 and high to bot 194\n\
+bot 98 gives low to bot 174 and high to bot 26\nvalue 53 goes to bot 4\nbot \
+204 gives low to bot 18 and high to bot 126\nbot 19 gives low to output 6 and \
+high to bot 113\nbot 190 gives low to bot 7 and high to bot 154\nbot 88 gives \
+low to bot 26 and high to bot 122\nbot 153 gives low to bot 113 and high to \
+bot 33\nbot 49 gives low to bot 193 and high to bot 55\nvalue 37 goes to bot \
+150\nbot 53 gives low to bot 128 and high to bot 15\nbot 80 gives low to bot \
+114 and high to bot 169\nbot 192 gives low to bot 115 and high to bot 138\n\
+bot 132 gives low to bot 179 and high to bot 105\nbot 57 gives low to bot 41 \
+and high to bot 206\nbot 118 gives low to bot 20 and high to bot 162\nbot 37 \
+gives low to bot 126 and high to bot 78\nbot 201 gives low to bot 16 and high \
+to bot 119\nbot 145 gives low to bot 162 and high to bot 39\nbot 62 gives low \
+to bot 88 and high to bot 16\nbot 133 gives low to bot 59 and high to bot 200\
+\nbot 52 gives low to bot 19 and high to bot 153\nbot 28 gives low to bot 200 \
+and high to bot 182\nbot 149 gives low to bot 79 and high to bot 37\nbot 117 \
+gives low to bot 28 and high to bot 48\nbot 4 gives low to bot 171 and high \
+to bot 93\nbot 182 gives low to bot 99 and high to bot 102\nvalue 2 goes to \
+bot 92\nbot 170 gives low to bot 167 and high to bot 29\nbot 187 gives low to \
+bot 47 and high to bot 63\nbot 72 gives low to output 20 and high to bot 176\n\
+bot 209 gives low to bot 94 and high to bot 30\nbot 26 gives low to bot 8 and \
+high to bot 190\nbot 162 gives low to bot 23 and high to bot 43\nbot 16 gives \
+low to bot 122 and high to bot 119\nbot 200 gives low to bot 34 and high to \
+bot 99\nbot 68 gives low to bot 175 and high to bot 186\nbot 85 gives low to \
+bot 82 and high to bot 112\nvalue 61 goes to bot 45\nbot 38 gives low to bot \
+123 and high to bot 75\nbot 108 gives low to bot 100 and high to bot 62\nbot \
+34 gives low to output 17 and high to bot 109\nbot 90 gives low to bot 44 and \
+high to bot 193\nbot 94 gives low to bot 135 and high to bot 106\nvalue 19 \
+goes to bot 124\nbot 184 gives low to bot 31 and high to bot 137\nbot 134 \
+gives low to output 3 and high to bot 19\nbot 63 gives low to bot 207 and \
+high to bot 10\nbot 24 gives low to bot 157 and high to bot 47\nbot 185 gives \
+low to bot 147 and high to bot 81\nbot 18 gives low to bot 84 and high to bot \
+192\nbot 130 gives low to output 14 and high to bot 168\nbot 78 gives low to \
+bot 138 and high to bot 198\nbot 69 gives low to bot 132 and high to bot 60\n\
+bot 161 gives low to bot 6 and high to bot 163\nbot 176 gives low to output 5 \
+and high to bot 159\nbot 55 gives low to bot 145 and high to bot 5\nbot 160 \
+gives low to bot 90 and high to bot 49\nvalue 71 goes to bot 167\nbot 165 \
+gives low to bot 53 and high to bot 116\nbot 128 gives low to bot 137 and \
+high to bot 80\nbot 67 gives low to bot 140 and high to bot 66\nbot 86 gives \
+low to bot 173 and high to bot 141\nbot 93 gives low to bot 35 and high to \
+bot 187\nbot 175 gives low to bot 96 and high to bot 70\nbot 174 gives low to \
+bot 181 and high to bot 8\nbot 14 gives low to bot 176 and high to bot 104\n\
+bot 13 gives low to bot 69 and high to bot 84\nbot 54 gives low to bot 153 \
+and high to bot 123\nbot 135 gives low to output 10 and high to bot 134\nbot \
+101 gives low to bot 2 and high to bot 76\nbot 147 gives low to bot 40 and \
+high to bot 85\nbot 205 gives low to bot 108 and high to bot 166\nbot 141 \
+gives low to bot 36 and high to bot 189\nbot 84 gives low to bot 60 and high \
+to bot 115\nbot 115 gives low to bot 148 and high to bot 180\nvalue 31 goes \
+to bot 171\nvalue 13 goes to bot 67\nbot 195 gives low to bot 133 and high to \
+bot 28\nbot 124 gives low to bot 67 and high to bot 196\nbot 109 gives low to \
+output 7 and high to bot 74\nbot 25 gives low to bot 92 and high to bot 157\n\
+bot 116 gives low to bot 15 and high to bot 3\nbot 140 gives low to bot 209 \
+and high to bot 158\nbot 154 gives low to bot 95 and high to bot 79\nbot 92 \
+gives low to bot 142 and high to bot 65\nbot 81 gives low to bot 85 and high \
+to bot 41\nbot 33 gives low to bot 27 and high to bot 133\nbot 186 gives low \
+to bot 70 and high to bot 185\nbot 73 gives low to bot 32 and high to bot 20\n\
+bot 41 gives low to bot 112 and high to bot 56\nbot 89 gives low to bot 185 \
+and high to bot 139\nbot 23 gives low to bot 177 and high to bot 12\nbot 125 \
+gives low to bot 72 and high to bot 14\nbot 50 gives low to bot 154 and high \
+to bot 149\nbot 21 gives low to bot 13 and high to bot 18\nbot 159 gives low \
+to output 9 and high to bot 203\nbot 47 gives low to bot 136 and high to bot \
+63\nbot 143 gives low to bot 89 and high to bot 87\nbot 44 gives low to bot \
+73 and high to bot 118\nvalue 43 goes to bot 94\nbot 107 gives low to bot 97 \
+and high to bot 156\nbot 70 gives low to bot 110 and high to bot 147\nbot 45 \
+gives low to bot 129 and high to bot 83\nbot 43 gives low to bot 12 and high \
+to bot 174\nvalue 41 goes to bot 164\nbot 74 gives low to output 18 and high \
+to bot 130\nbot 136 gives low to bot 143 and high to bot 207\nbot 42 gives \
+low to bot 163 and high to bot 177\nvalue 17 goes to bot 164\nbot 0 gives low \
+to output 19 and high to bot 188\nbot 87 gives low to bot 139 and high to bot \
+127\nvalue 59 goes to bot 96\nbot 120 gives low to bot 168 and high to bot 91\
+\nbot 198 gives low to bot 71 and high to bot 121\nbot 203 gives low to \
+output 16 and high to output 1\nvalue 29 goes to bot 25\nbot 22 gives low to \
+bot 55 and high to bot 103\nbot 11 gives low to bot 52 and high to bot 54\n\
+bot 6 gives low to bot 11 and high to bot 131\nbot 31 gives low to output 13 \
+and high to bot 0\nbot 126 gives low to bot 192 and high to bot 78\nbot 27 \
+gives low to output 11 and high to bot 59\nbot 127 gives low to bot 57 and \
+high to bot 1\nbot 60 gives low to bot 105 and high to bot 148\nbot 152 gives \
+low to bot 189 and high to bot 165\nbot 100 gives low to bot 98 and high to \
+bot 88\nbot 83 gives low to bot 155 and high to bot 44\nbot 123 gives low to \
+bot 33 and high to bot 195\nbot 183 gives low to bot 83 and high to bot 90\n\
+bot 71 gives low to bot 152 and high to bot 121\>\""}], ";"}]], "Input",
+ CellChangeTimes->{{3.690368328697777*^9, 3.6903683401430335`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Part 1", "Subsection",
+ CellChangeTimes->{{3.6903677693467865`*^9, 3.6903677700782385`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"parsed", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"StringSplit", "[", 
+      RowBox[{"#", ",", "\"\< \>\""}], "]"}], "&"}], "/@", 
+    RowBox[{"StringSplit", "[", 
+     RowBox[{"input", ",", "\"\<\\n\>\""}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6903683453595257`*^9, 3.690368396743208*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"parsedTest", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"StringSplit", "[", 
+      RowBox[{"#", ",", "\"\< \>\""}], "]"}], "&"}], "/@", 
+    RowBox[{"StringSplit", "[", 
+     RowBox[{"inputTest", ",", "\"\<\\n\>\""}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.690369684719702*^9, 3.6903696931026106`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"parsed", "//", "Length"}]], "Input",
+ CellChangeTimes->{{3.690368678949766*^9, 3.690368680917077*^9}}],
+
+Cell[BoxData["231"], "Output",
+ CellChangeTimes->{3.690368681149275*^9, 3.690377128299819*^9}]
+}, Open  ]],
+
+Cell["Passing instructions", "Text",
+ CellChangeTimes->{{3.6903686714804225`*^9, 3.690368674070611*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"passInstructions", "=", 
+   RowBox[{
+    RowBox[{"Select", "[", 
+     RowBox[{"parsed", ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<bot\>\""}], "&"}]}],
+      "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "6", ",", "7", ",", "11", ",", "12"}], 
+       "}"}]}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pickupInstructions", "=", 
+   RowBox[{
+    RowBox[{"Select", "[", 
+     RowBox[{"parsed", ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<value\>\""}], 
+       "&"}]}], "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "6"}], "}"}]}], "]"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.69036856600751*^9, 3.6903686330844407`*^9}, {
+  3.6903697066380887`*^9, 3.6903697068224087`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"passInstructions", "//", "Length"}], "\[IndentingNewLine]", 
+ RowBox[{"pickupInstructions", "//", "Length"}]}], "Input",
+ CellChangeTimes->{{3.690377349522187*^9, 3.690377357951601*^9}}],
+
+Cell[BoxData["210"], "Output",
+ CellChangeTimes->{3.6903773587894316`*^9, 3.6903864424239187`*^9}],
+
+Cell[BoxData["21"], "Output",
+ CellChangeTimes->{3.6903773587894316`*^9, 3.6903864424239187`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"passInstructionsTest", "=", 
+  RowBox[{
+   RowBox[{"Select", "[", 
+    RowBox[{"parsedTest", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<bot\>\""}], "&"}]}], 
+    "]"}], "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2", ",", "6", ",", "7", ",", "11", ",", "12"}], 
+      "}"}]}], "]"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"pickupInstructionsTest", "=", 
+  RowBox[{
+   RowBox[{"Select", "[", 
+    RowBox[{"parsedTest", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<value\>\""}], 
+      "&"}]}], "]"}], "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "6"}], "}"}]}], "]"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.690369644365431*^9, 3.6903696487821293`*^9}, {
+  3.690369753540803*^9, 3.6903697660386972`*^9}, {3.6903737672599974`*^9, 
+  3.690373769529857*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"bot\"\>", ",", "\<\"2\"\>", ",", "\<\"bot\"\>", 
+     ",", "\<\"1\"\>", ",", "\<\"bot\"\>", ",", "\<\"0\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"bot\"\>", ",", "\<\"1\"\>", ",", "\<\"output\"\>", 
+     ",", "\<\"1\"\>", ",", "\<\"bot\"\>", ",", "\<\"0\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"bot\"\>", ",", "\<\"0\"\>", ",", "\<\"output\"\>", 
+     ",", "\<\"2\"\>", ",", "\<\"output\"\>", ",", "\<\"0\"\>"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.6903697613933277`*^9, 3.6903697670073996`*^9}, 
+   3.690373769989309*^9, 3.6903771291809645`*^9, 3.6903810584372025`*^9, 
+   3.6903864429237986`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"5\"\>", ",", "\<\"2\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"3\"\>", ",", "\<\"1\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"2\"\>", ",", "\<\"2\"\>"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6903697613933277`*^9, 3.6903697670073996`*^9}, 
+   3.690373769989309*^9, 3.6903771291809645`*^9, 3.6903810584372025`*^9, 
+   3.690386442939411*^9}]
+}, Open  ]],
+
+Cell["\<\
+General logic:
+- use pickup instructions until there\[CloseCurlyQuote]s a bot having 2 numbers
+- if there is a bot with 2 numbers, use pass instructions
+- after a pass, use pass instructions again!\
+\>", "Text",
+ CellChangeTimes->{{3.690370334494874*^9, 3.6903703419415455`*^9}, {
+  3.6903704731471014`*^9, 3.6903705284137163`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"PassValue", ",", "HoldFirst"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"PassValue", "[", 
+     RowBox[{"bots_", ",", "name_", ",", "value_"}], "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"KeyExistsQ", "[", 
+       RowBox[{"bots", ",", "name"}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"AppendTo", "[", 
+        RowBox[{
+         RowBox[{
+         "bots", "\[LeftDoubleBracket]", "name", "\[RightDoubleBracket]"}], 
+         ",", 
+         RowBox[{"ToExpression", "[", "value", "]"}]}], "]"}], ";"}], ",", 
+      RowBox[{
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"bots", ",", 
+         RowBox[{"name", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"ToExpression", "[", "value", "]"}], "}"}]}]}], "]"}], 
+       ";"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"SetAttributes", "[", 
+  RowBox[{"ProcessPickup", ",", "HoldFirst"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"ProcessPickup", "[", 
+     RowBox[{"bots_", ",", "instr_"}], "]"}], ":=", 
+    RowBox[{"PassValue", "[", 
+     RowBox[{"bots", ",", 
+      RowBox[{"instr", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}],
+       ",", 
+      RowBox[{
+      "instr", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"SetAttributes", "[", 
+  RowBox[{"ProcessPass", ",", "HoldAll"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ProcessPass", "[", 
+    RowBox[{"bots_", ",", "outs_", ",", "instr_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"values", ",", "low", ",", "high"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"values", "=", 
+       RowBox[{"bots", "\[LeftDoubleBracket]", 
+        RowBox[{
+        "instr", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+        "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"low", ",", "high"}], "}"}], "=", 
+       RowBox[{"Sort", "[", "values", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"low", "\[Equal]", "17"}], ",", 
+        RowBox[{"Print", "[", 
+         RowBox[{"Row", "@", 
+          RowBox[{"{", 
+           RowBox[{"\"\<Bot \>\"", ",", 
+            RowBox[{
+            "instr", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+            ",", "\"\< compares: \>\"", ",", "low", ",", "\"\<<\>\"", ",", 
+            "high"}], "}"}]}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"bots", "\[LeftDoubleBracket]", 
+        RowBox[{
+        "instr", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+        "\[RightDoubleBracket]"}], "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+         "instr", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}], 
+         "\[Equal]", "\"\<bot\>\""}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Evaluate", "@", 
+          RowBox[{"PassValue", "[", 
+           RowBox[{"bots", ",", 
+            RowBox[{
+            "instr", "\[LeftDoubleBracket]", "4", "\[RightDoubleBracket]"}], 
+            ",", "low"}], "]"}]}], ";"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Evaluate", "@", 
+          RowBox[{"PassValue", "[", 
+           RowBox[{"outs", ",", 
+            RowBox[{
+            "instr", "\[LeftDoubleBracket]", "4", "\[RightDoubleBracket]"}], 
+            ",", "low"}], "]"}]}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+         "instr", "\[LeftDoubleBracket]", "5", "\[RightDoubleBracket]"}], 
+         "\[Equal]", "\"\<bot\>\""}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Evaluate", "@", 
+          RowBox[{"PassValue", "[", 
+           RowBox[{"bots", ",", 
+            RowBox[{
+            "instr", "\[LeftDoubleBracket]", "6", "\[RightDoubleBracket]"}], 
+            ",", "high"}], "]"}]}], ";"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Evaluate", "@", 
+          RowBox[{"PassValue", "[", 
+           RowBox[{"outs", ",", 
+            RowBox[{
+            "instr", "\[LeftDoubleBracket]", "6", "\[RightDoubleBracket]"}], 
+            ",", "high"}], "]"}]}], ";"}]}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BotsShouldMove", "[", "bots_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"Max", "[", 
+     RowBox[{"Length", "/@", 
+      RowBox[{"Values", "[", "bots", "]"}]}], "]"}], ">", "1"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WhichBotShouldMove", "[", "bots_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"keys", ",", "nums"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"keys", "=", 
+      RowBox[{"Keys", "[", "bots", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"nums", "=", 
+      RowBox[{"Length", "/@", 
+       RowBox[{"Values", "[", "bots", "]"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"keys", "[", 
+      RowBox[{"[", 
+       RowBox[{"First", "@", 
+        RowBox[{"First", "@", 
+         RowBox[{"Position", "[", 
+          RowBox[{"nums", ",", "2"}], "]"}]}]}], "]"}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.6903740801672416`*^9, 3.6903740880432262`*^9}, {
+  3.690374306380863*^9, 3.6903743133800917`*^9}, {3.6903745384641886`*^9, 
+  3.690374546016254*^9}, {3.6903746051186285`*^9, 3.690374652330332*^9}, {
+  3.6903747733912077`*^9, 3.6903747758214808`*^9}, {3.69037490554327*^9, 
+  3.6903749085964346`*^9}, {3.6903749656629457`*^9, 3.6903749726508102`*^9}, {
+  3.6903750208471746`*^9, 3.6903750376494436`*^9}, {3.690376832766761*^9, 
+  3.6903769099816484`*^9}, {3.6903769519552913`*^9, 3.69037695460786*^9}, {
+  3.690377465536462*^9, 3.690377497966405*^9}, {3.6903775617336683`*^9, 
+  3.690377567180251*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"testbots", "=", 
+   RowBox[{"<|", "|>"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"testouts", "=", 
+   RowBox[{"<|", "|>"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ProcessPickup", "[", 
+  RowBox[{"testbots", ",", 
+   RowBox[{"pickupInstructionsTest", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"testbots", ",", 
+   RowBox[{"BotsShouldMove", "[", "testbots", "]"}]}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"ProcessPickup", "[", 
+  RowBox[{"testbots", ",", 
+   RowBox[{"pickupInstructionsTest", "[", 
+    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"testbots", ",", 
+   RowBox[{"BotsShouldMove", "[", "testbots", "]"}]}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"ProcessPickup", "[", 
+  RowBox[{"testbots", ",", 
+   RowBox[{"pickupInstructionsTest", "[", 
+    RowBox[{"[", "3", "]"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"testbots", ",", 
+   RowBox[{"BotsShouldMove", "[", "testbots", "]"}]}], "}"}]}], "Input",
+ CellChangeTimes->{{3.6903721873429317`*^9, 3.69037223004128*^9}, {
+   3.6903722925933056`*^9, 3.6903723084397326`*^9}, {3.690372370262907*^9, 
+   3.6903724128630157`*^9}, 3.6903729053265023`*^9, {3.690373785917425*^9, 
+   3.6903738664927535`*^9}, {3.6903738965557036`*^9, 
+   3.6903739073195324`*^9}, {3.6903741626399555`*^9, 3.690374178538173*^9}, {
+   3.6903742243854537`*^9, 3.6903742251855145`*^9}, 3.690374375532953*^9, {
+   3.690374413682437*^9, 3.690374418413991*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{"\<\"2\"\>", "\[Rule]", 
+     RowBox[{"{", "5", "}"}]}], "\[RightAssociation]"}], ",", "False"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.6903744191661396`*^9, 3.690374547778398*^9, 3.6903746647601023`*^9, {
+   3.6903747589406986`*^9, 3.690374779867205*^9}, 3.6903748228201876`*^9, 
+   3.6903749107116556`*^9, {3.690374975429267*^9, 3.690375040165363*^9}, 
+   3.690376919259291*^9, 3.6903769561074247`*^9, 3.690377132800156*^9, 
+   3.6903775013661823`*^9, 3.6903775721297593`*^9, 3.6903810620426292`*^9, 
+   3.690386445394959*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"2\"\>", "\[Rule]", 
+      RowBox[{"{", "5", "}"}]}], ",", 
+     RowBox[{"\<\"1\"\>", "\[Rule]", 
+      RowBox[{"{", "3", "}"}]}]}], "\[RightAssociation]"}], ",", "False"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.6903744191661396`*^9, 3.690374547778398*^9, 3.6903746647601023`*^9, {
+   3.6903747589406986`*^9, 3.690374779867205*^9}, 3.6903748228201876`*^9, 
+   3.6903749107116556`*^9, {3.690374975429267*^9, 3.690375040165363*^9}, 
+   3.690376919259291*^9, 3.6903769561074247`*^9, 3.690377132800156*^9, 
+   3.6903775013661823`*^9, 3.6903775721297593`*^9, 3.6903810620426292`*^9, 
+   3.6903864453979607`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"2\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"5", ",", "2"}], "}"}]}], ",", 
+     RowBox[{"\<\"1\"\>", "\[Rule]", 
+      RowBox[{"{", "3", "}"}]}]}], "\[RightAssociation]"}], ",", "True"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.6903744191661396`*^9, 3.690374547778398*^9, 3.6903746647601023`*^9, {
+   3.6903747589406986`*^9, 3.690374779867205*^9}, 3.6903748228201876`*^9, 
+   3.6903749107116556`*^9, {3.690374975429267*^9, 3.690375040165363*^9}, 
+   3.690376919259291*^9, 3.6903769561074247`*^9, 3.690377132800156*^9, 
+   3.6903775013661823`*^9, 3.6903775721297593`*^9, 3.6903810620426292`*^9, 
+   3.6903864453999615`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"ProcessPass", "[", 
+  RowBox[{"testbots", ",", "testouts", ",", 
+   RowBox[{"passInstructionsTest", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"testbots", ",", "testouts", ",", 
+   RowBox[{"BotsShouldMove", "[", "testbots", "]"}]}], "}"}]}], "Input",
+ CellChangeTimes->{{3.690374817003991*^9, 3.6903748176507187`*^9}, 
+   3.690374991297497*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"2\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"\<\"1\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "2"}], "}"}]}], ",", 
+     RowBox[{"\<\"0\"\>", "\[Rule]", 
+      RowBox[{"{", "5", "}"}]}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}], ",", "True"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.6903744447692804`*^9, 3.6903745488624325`*^9, 3.6903746656595306`*^9, {
+   3.690374761226203*^9, 3.690374781489006*^9}, {3.690374818735409*^9, 
+   3.6903748248355227`*^9}, 3.690374912594468*^9, {3.690374976950589*^9, 
+   3.6903750417111225`*^9}, 3.69037713458099*^9, 3.6903775026708417`*^9, 
+   3.690377573263733*^9, 3.690386446575651*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"ProcessPass", "[", 
+  RowBox[{"testbots", ",", "testouts", ",", 
+   RowBox[{"passInstructionsTest", "[", 
+    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"testbots", ",", "testouts", ",", 
+   RowBox[{"BotsShouldMove", "[", "testbots", "]"}]}], "}"}]}], "Input",
+ CellChangeTimes->{
+  3.6903744425700474`*^9, {3.690375049320099*^9, 3.6903750504503374`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"2\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"\<\"1\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"\<\"0\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"5", ",", "3"}], "}"}]}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{"\<\"1\"\>", "\[Rule]", 
+     RowBox[{"{", "2", "}"}]}], "\[RightAssociation]"}], ",", "True"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.6903722177271347`*^9, 3.690372231088011*^9}, {
+   3.6903722974398775`*^9, 3.690372309544548*^9}, {3.690372373129692*^9, 
+   3.690372413509994*^9}, {3.6903729021249943`*^9, 3.690372907064412*^9}, {
+   3.6903737804955587`*^9, 3.6903738108535557`*^9}, 3.6903738695685697`*^9, {
+   3.6903739001816015`*^9, 3.6903739077988176`*^9}, 3.6903740941227694`*^9, 
+   3.6903741791919184`*^9, 3.6903742279904814`*^9, {3.690374315595441*^9, 
+   3.6903743222177377`*^9}, 3.6903743769170856`*^9, 3.690375052065136*^9, 
+   3.6903771352649584`*^9, 3.690377504365709*^9, 3.6903775737945323`*^9, 
+   3.6903864470070057`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"ProcessPass", "[", 
+  RowBox[{"testbots", ",", "testouts", ",", 
+   RowBox[{"passInstructionsTest", "[", 
+    RowBox[{"[", "3", "]"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"testbots", ",", "testouts", ",", 
+   RowBox[{"BotsShouldMove", "[", "testbots", "]"}]}], "}"}]}], "Input",
+ CellChangeTimes->{{3.6903750647540216`*^9, 3.690375066232561*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"2\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"\<\"1\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"\<\"0\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"1\"\>", "\[Rule]", 
+      RowBox[{"{", "2", "}"}]}], ",", 
+     RowBox[{"\<\"2\"\>", "\[Rule]", 
+      RowBox[{"{", "3", "}"}]}], ",", 
+     RowBox[{"\<\"0\"\>", "\[Rule]", 
+      RowBox[{"{", "5", "}"}]}]}], "\[RightAssociation]"}], ",", "False"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6903750668322687`*^9, 3.690377136017703*^9, 
+  3.6903775064658346`*^9, 3.690377574547119*^9, 3.6903864479094753`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"verbose", "=", "False"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Simulate", "[", 
+     RowBox[{"passI_", ",", "pickupI_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "passes", ",", "pickups", ",", "bots", ",", "outs", ",", "processing", 
+        ",", "botsShouldMove", ",", "currPass", ",", "currPickup", ",", 
+        "currBot", ",", "t", ",", "states"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"passes", "=", "passI"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"pickups", "=", "pickupI"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"bots", "=", 
+        RowBox[{"<|", "|>"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"outs", "=", 
+        RowBox[{"<|", "|>"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"processing", "=", "True"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"states", "=", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{"verbose", ",", 
+         RowBox[{"Print", "[", "\"\<Starting...\>\"", "]"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"t", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"While", "[", 
+        RowBox[{"processing", ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"t", ">", "1000"}], ",", 
+            RowBox[{
+             RowBox[{"processing", "=", "False"}], ";"}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"!", 
+             RowBox[{"BotsShouldMove", "[", "bots", "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "Get", " ", "next", " ", "pickup", " ", "and", " ", "process"}], 
+             " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Length", "@", "pickups"}], "\[Equal]", "0"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"processing", "=", "False"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"currPickup", "=", 
+                RowBox[{"First", "@", "pickups"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"pickups", "=", 
+                RowBox[{"Drop", "[", 
+                 RowBox[{"pickups", ",", "1"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{"verbose", ",", 
+                 RowBox[{"Print", "[", 
+                  RowBox[{"Row", "@", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    "\"\<Processing pickup: \>\"", ",", "currPickup"}], 
+                    "}"}]}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+               RowBox[{"ProcessPickup", "[", 
+                RowBox[{"bots", ",", "currPickup"}], "]"}], ";"}]}], 
+             "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "Get", " ", "next", " ", "pass", " ", "instruction", " ", "for", 
+              " ", "bot", " ", "who", " ", "should", " ", "move"}], " ", 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Length", "@", "passes"}], "\[Equal]", "0"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"processing", "=", "False"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"currBot", "=", 
+                RowBox[{"WhichBotShouldMove", "[", "bots", "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"currPass", "=", 
+                RowBox[{"First", "@", 
+                 RowBox[{"Select", "[", 
+                  RowBox[{"passes", ",", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "\[Equal]", "currBot"}], 
+                    "&"}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"passes", "=", 
+                RowBox[{"Delete", "[", 
+                 RowBox[{"passes", ",", 
+                  RowBox[{"Position", "[", 
+                   RowBox[{"passes", ",", "currPass"}], "]"}]}], "]"}]}], ";",
+                "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{"verbose", ",", 
+                 RowBox[{"Print", "[", 
+                  RowBox[{"Row", "@", 
+                   RowBox[{"{", 
+                    RowBox[{"\"\<Processing pass: \>\"", ",", "currPass"}], 
+                    "}"}]}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+               RowBox[{"ProcessPass", "[", 
+                RowBox[{"bots", ",", "outs", ",", "currPass"}], "]"}], ";", 
+               RowBox[{"t", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
+           "\[IndentingNewLine]", "]"}], ";", 
+          RowBox[{"(*", "endif", "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"states", ",", 
+            RowBox[{"{", 
+             RowBox[{"bots", ",", "outs"}], "}"}]}], "]"}], ";"}]}], 
+        "\[IndentingNewLine]", "]"}], ";", 
+       RowBox[{"(*", 
+        RowBox[{"*", "endwhile"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"bots", ",", "outs", ",", "states"}], "}"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6903698174106874`*^9, 3.6903699170464582`*^9}, {
+  3.6903712258612556`*^9, 3.690371228276332*^9}, {3.6903715785447397`*^9, 
+  3.6903716327307577`*^9}, {3.6903728607681837`*^9, 3.690372996850572*^9}, {
+  3.6903761487455997`*^9, 3.690376184061409*^9}, {3.690376368202572*^9, 
+  3.6903765350244093`*^9}, {3.69037663813264*^9, 3.6903767647554626`*^9}, {
+  3.690376990589015*^9, 3.690377054942012*^9}, {3.690377117454936*^9, 
+  3.6903771622737646`*^9}, {3.6903772096284585`*^9, 3.6903772180115514`*^9}, {
+  3.6903772595749454`*^9, 3.690377259737582*^9}, {3.6903773826044035`*^9, 
+  3.690377404151678*^9}, {3.690381378217102*^9, 3.690381426438455*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simulate", "[", 
+  RowBox[{
+  "passInstructionsTest", ",", "\[IndentingNewLine]", 
+   "pickupInstructionsTest"}], "]"}]], "Input",
+ CellChangeTimes->{{3.690369918383709*^9, 3.6903699254135733`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"2\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"\<\"1\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"\<\"0\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"1\"\>", "\[Rule]", 
+      RowBox[{"{", "2", "}"}]}], ",", 
+     RowBox[{"\<\"2\"\>", "\[Rule]", 
+      RowBox[{"{", "3", "}"}]}], ",", 
+     RowBox[{"\<\"0\"\>", "\[Rule]", 
+      RowBox[{"{", "5", "}"}]}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{"\<\"2\"\>", "\[Rule]", 
+         RowBox[{"{", "5", "}"}]}], "\[RightAssociation]"}], ",", 
+       RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"2\"\>", "\[Rule]", 
+          RowBox[{"{", "5", "}"}]}], ",", 
+         RowBox[{"\<\"1\"\>", "\[Rule]", 
+          RowBox[{"{", "3", "}"}]}]}], "\[RightAssociation]"}], ",", 
+       RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"2\"\>", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"5", ",", "2"}], "}"}]}], ",", 
+         RowBox[{"\<\"1\"\>", "\[Rule]", 
+          RowBox[{"{", "3", "}"}]}]}], "\[RightAssociation]"}], ",", 
+       RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"2\"\>", "\[Rule]", 
+          RowBox[{"{", "}"}]}], ",", 
+         RowBox[{"\<\"1\"\>", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"3", ",", "2"}], "}"}]}], ",", 
+         RowBox[{"\<\"0\"\>", "\[Rule]", 
+          RowBox[{"{", "5", "}"}]}]}], "\[RightAssociation]"}], ",", 
+       RowBox[{"\[LeftAssociation]", "\[RightAssociation]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"2\"\>", "\[Rule]", 
+          RowBox[{"{", "}"}]}], ",", 
+         RowBox[{"\<\"1\"\>", "\[Rule]", 
+          RowBox[{"{", "}"}]}], ",", 
+         RowBox[{"\<\"0\"\>", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"5", ",", "3"}], "}"}]}]}], "\[RightAssociation]"}], ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{"\<\"1\"\>", "\[Rule]", 
+         RowBox[{"{", "2", "}"}]}], "\[RightAssociation]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"2\"\>", "\[Rule]", 
+          RowBox[{"{", "}"}]}], ",", 
+         RowBox[{"\<\"1\"\>", "\[Rule]", 
+          RowBox[{"{", "}"}]}], ",", 
+         RowBox[{"\<\"0\"\>", "\[Rule]", 
+          RowBox[{"{", "}"}]}]}], "\[RightAssociation]"}], ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"1\"\>", "\[Rule]", 
+          RowBox[{"{", "2", "}"}]}], ",", 
+         RowBox[{"\<\"2\"\>", "\[Rule]", 
+          RowBox[{"{", "3", "}"}]}], ",", 
+         RowBox[{"\<\"0\"\>", "\[Rule]", 
+          RowBox[{"{", "5", "}"}]}]}], "\[RightAssociation]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"2\"\>", "\[Rule]", 
+          RowBox[{"{", "}"}]}], ",", 
+         RowBox[{"\<\"1\"\>", "\[Rule]", 
+          RowBox[{"{", "}"}]}], ",", 
+         RowBox[{"\<\"0\"\>", "\[Rule]", 
+          RowBox[{"{", "}"}]}]}], "\[RightAssociation]"}], ",", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\<\"1\"\>", "\[Rule]", 
+          RowBox[{"{", "2", "}"}]}], ",", 
+         RowBox[{"\<\"2\"\>", "\[Rule]", 
+          RowBox[{"{", "3", "}"}]}], ",", 
+         RowBox[{"\<\"0\"\>", "\[Rule]", 
+          RowBox[{"{", "5", "}"}]}]}], "\[RightAssociation]"}]}], "}"}]}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.690377173210286*^9, 3.6903772228581653`*^9, 3.6903774084724116`*^9, 
+   3.690377512633081*^9, 3.6903775772934694`*^9, 3.6903810662815976`*^9, {
+   3.6903814082862463`*^9, 3.690381428762883*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"finalbots", ",", "finalouts", ",", "states"}], "}"}], "=", 
+   RowBox[{"Simulate", "[", 
+    RowBox[{"passInstructions", ",", "pickupInstructions"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.690377197463188*^9, 3.6903771994848976`*^9}, {
+  3.690377267874469*^9, 3.690377278289326*^9}, {3.6903774131019964`*^9, 
+  3.6903774264329405`*^9}, {3.690381431672775*^9, 3.690381432416913*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"164\"","\" compares: \"","17","\"<\"","41"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864528712196`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"4\"","\" compares: \"","17","\"<\"","53"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.690386452873226*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"171\"","\" compares: \"","17","\"<\"","31"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.690386452876223*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"150\"","\" compares: \"","17","\"<\"","37"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864528767233`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"25\"","\" compares: \"","17","\"<\"","29"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864528767233`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"65\"","\" compares: \"","17","\"<\"","29"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864528767233`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"111\"","\" compares: \"","17","\"<\"","47"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864528767233`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"186\"","\" compares: \"","17","\"<\"","23"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864528767233`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"147\"","\" compares: \"","17","\"<\"","23"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.690386452892754*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"40\"","\" compares: \"","17","\"<\"","59"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.690386452892754*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"49\"","\" compares: \"","17","\"<\"","23"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.690386452892754*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"193\"","\" compares: \"","17","\"<\"","71"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.690386452892754*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"118\"","\" compares: \"","17","\"<\"","61"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.690386452892754*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"20\"","\" compares: \"","17","\"<\"","67"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864529083796`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"42\"","\" compares: \"","17","\"<\"","19"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864529083796`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"194\"","\" compares: \"","17","\"<\"","19"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864529083796`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"38\"","\" compares: \"","17","\"<\"","73"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864529083796`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"195\"","\" compares: \"","17","\"<\"","19"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864529083796`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"133\"","\" compares: \"","17","\"<\"","43"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864529240046`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Bot \"","\"34\"","\" compares: \"","17","\"<\"","19"},
+  "RowDefault"]], "Print",
+ CellChangeTimes->{
+  3.6903775157317977`*^9, 3.6903775781309595`*^9, 3.690381067798562*^9, {
+   3.6903814090496225`*^9, 3.690381432703579*^9}, 3.6903864529240046`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part 2", "Subsection",
+ CellChangeTimes->{{3.690367771678707*^9, 3.6903677724475904`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Times", "@@", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Values", "[", 
+     RowBox[{"finalouts", "[", 
+      RowBox[{"[", 
+       RowBox[{"{", 
+        RowBox[{"\"\<0\>\"", ",", "\"\<1\>\"", ",", "\"\<2\>\""}], "}"}], 
+       "]"}], "]"}], "]"}], "//", "Flatten"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.690377625942521*^9, 3.69037770386289*^9}}],
+
+Cell[BoxData["143153"], "Output",
+ CellChangeTimes->{{3.6903776282920027`*^9, 3.6903777042626586`*^9}, 
+   3.690381074470993*^9, 3.6903814386802297`*^9, {3.690386450640747*^9, 
+   3.6903864544555464`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Values", "[", 
+  RowBox[{"finalouts", "[", 
+   RowBox[{"[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<0\>\"", ",", "\"\<1\>\"", ",", "\"\<2\>\""}], "}"}], "]"}], 
+   "]"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", "53", "}"}], ",", 
+   RowBox[{"{", "73", "}"}], ",", 
+   RowBox[{"{", "37", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6903855818180065`*^9, 3.690386455508214*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Animation", "Subsection",
+ CellChangeTimes->{{3.690381236079248*^9, 3.6903812381241837`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ToExpression", "@", 
+   RowBox[{"Keys", "[", "finalbots", "]"}]}], "//", "Sort"}]], "Input",
+ CellChangeTimes->{{3.6903812577652197`*^9, 3.690381277323633*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0", ",", "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", 
+   ",", "8", ",", "9", ",", "10", ",", "11", ",", "12", ",", "13", ",", "14", 
+   ",", "15", ",", "16", ",", "17", ",", "18", ",", "19", ",", "20", ",", 
+   "21", ",", "22", ",", "23", ",", "24", ",", "25", ",", "26", ",", "27", 
+   ",", "28", ",", "29", ",", "30", ",", "31", ",", "32", ",", "33", ",", 
+   "34", ",", "35", ",", "36", ",", "37", ",", "38", ",", "39", ",", "40", 
+   ",", "41", ",", "42", ",", "43", ",", "44", ",", "45", ",", "46", ",", 
+   "47", ",", "48", ",", "49", ",", "50", ",", "51", ",", "52", ",", "53", 
+   ",", "54", ",", "55", ",", "56", ",", "57", ",", "58", ",", "59", ",", 
+   "60", ",", "61", ",", "62", ",", "63", ",", "64", ",", "65", ",", "66", 
+   ",", "67", ",", "68", ",", "69", ",", "70", ",", "71", ",", "72", ",", 
+   "73", ",", "74", ",", "75", ",", "76", ",", "77", ",", "78", ",", "79", 
+   ",", "80", ",", "81", ",", "82", ",", "83", ",", "84", ",", "85", ",", 
+   "86", ",", "87", ",", "88", ",", "89", ",", "90", ",", "91", ",", "92", 
+   ",", "93", ",", "94", ",", "95", ",", "96", ",", "97", ",", "98", ",", 
+   "99", ",", "100", ",", "101", ",", "102", ",", "103", ",", "104", ",", 
+   "105", ",", "106", ",", "107", ",", "108", ",", "109", ",", "110", ",", 
+   "111", ",", "112", ",", "113", ",", "114", ",", "115", ",", "116", ",", 
+   "117", ",", "118", ",", "119", ",", "120", ",", "121", ",", "122", ",", 
+   "123", ",", "124", ",", "125", ",", "126", ",", "127", ",", "128", ",", 
+   "129", ",", "130", ",", "131", ",", "132", ",", "133", ",", "134", ",", 
+   "135", ",", "136", ",", "137", ",", "138", ",", "139", ",", "140", ",", 
+   "141", ",", "142", ",", "143", ",", "144", ",", "145", ",", "146", ",", 
+   "147", ",", "148", ",", "149", ",", "150", ",", "151", ",", "152", ",", 
+   "153", ",", "154", ",", "155", ",", "156", ",", "157", ",", "158", ",", 
+   "159", ",", "160", ",", "161", ",", "162", ",", "163", ",", "164", ",", 
+   "165", ",", "166", ",", "167", ",", "168", ",", "169", ",", "170", ",", 
+   "171", ",", "172", ",", "173", ",", "174", ",", "175", ",", "176", ",", 
+   "177", ",", "178", ",", "179", ",", "180", ",", "181", ",", "182", ",", 
+   "183", ",", "184", ",", "185", ",", "186", ",", "187", ",", "188", ",", 
+   "189", ",", "190", ",", "191", ",", "192", ",", "193", ",", "194", ",", 
+   "195", ",", "196", ",", "197", ",", "198", ",", "199", ",", "200", ",", 
+   "201", ",", "202", ",", "203", ",", "204", ",", "205", ",", "206", ",", 
+   "207", ",", "208", ",", "209"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6903812594836283`*^9, 3.6903812775861034`*^9}, 
+   3.690381440529284*^9, 3.690385846176851*^9, 3.6903864561393824`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ToExpression", "@", 
+   RowBox[{"Keys", "[", "finalbots", "]"}]}], "//", "Length"}]], "Input",
+ CellChangeTimes->{{3.69038128426758*^9, 3.6903812849001355`*^9}}],
+
+Cell[BoxData["210"], "Output",
+ CellChangeTimes->{3.6903812856249437`*^9, 3.690381441537564*^9, 
+  3.6903858487204604`*^9, 3.690386458176016*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ToExpression", "@", 
+   RowBox[{"Keys", "[", "finalouts", "]"}]}], "//", "Sort"}]], "Input",
+ CellChangeTimes->{{3.6903813376219053`*^9, 3.690381345008633*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0", ",", "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", 
+   ",", "8", ",", "9", ",", "10", ",", "11", ",", "12", ",", "13", ",", "14", 
+   ",", "15", ",", "16", ",", "17", ",", "18", ",", "19", ",", "20"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6903813452662582`*^9, 3.690381442099841*^9, 
+  3.6903857411758137`*^9, 3.690385851547744*^9, 3.6903864619739304`*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"hB", "=", "100"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GetRectangle", "[", 
+   RowBox[{"i_", ",", "list_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"x", ",", "y"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"x", "=", 
+      RowBox[{"Mod", "[", 
+       RowBox[{
+        RowBox[{"i", "-", "1"}], ",", "21"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"y", "=", 
+      RowBox[{"Floor", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"i", "-", "1"}], ")"}], "/", "21"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Length", "@", "list"}], "\[Equal]", "0"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"EdgeForm", "[", "Black", "]"}], ",", 
+         RowBox[{"Opacity", "[", "0", "]"}], ",", 
+         RowBox[{"Rectangle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x", ",", "y"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"x", "+", "1"}], ",", 
+             RowBox[{"y", "+", "1"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "@", "list"}], "\[Equal]", "1"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Hue", "[", 
+            RowBox[{
+             RowBox[{"list", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "/", "hB"}], "]"}], ",", 
+           RowBox[{"Rectangle", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"x", ",", "y"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "+", "1"}], ",", 
+               RowBox[{"y", "+", ".5"}]}], "}"}]}], "]"}], ",", "Black", ",", 
+           RowBox[{"Inset", "[", 
+            RowBox[{
+             RowBox[{"list", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "+", ".5"}], ",", 
+               RowBox[{"y", "+", ".25"}]}], "}"}]}], "]"}], ",", 
+           RowBox[{"EdgeForm", "[", "Black", "]"}], ",", 
+           RowBox[{"Opacity", "[", "0", "]"}], ",", 
+           RowBox[{"Rectangle", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"x", ",", "y"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "+", "1"}], ",", 
+               RowBox[{"y", "+", "1"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Hue", "[", 
+            RowBox[{
+             RowBox[{"list", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "/", "hB"}], "]"}], ",", 
+           RowBox[{"Rectangle", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"x", ",", "y"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "+", "1"}], ",", 
+               RowBox[{"y", "+", ".5"}]}], "}"}]}], "]"}], ",", "Black", ",", 
+           RowBox[{"Inset", "[", 
+            RowBox[{
+             RowBox[{"list", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "+", ".5"}], ",", 
+               RowBox[{"y", "+", ".25"}]}], "}"}]}], "]"}], ",", 
+           RowBox[{"Hue", "[", 
+            RowBox[{
+             RowBox[{"list", "[", 
+              RowBox[{"[", "2", "]"}], "]"}], "/", "hB"}], "]"}], ",", 
+           RowBox[{"Rectangle", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"x", ",", 
+               RowBox[{"y", "+", ".5"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "+", "1"}], ",", 
+               RowBox[{"y", "+", "1"}]}], "}"}]}], "]"}], ",", "Black", ",", 
+           RowBox[{"Inset", "[", 
+            RowBox[{
+             RowBox[{"list", "[", 
+              RowBox[{"[", "2", "]"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "+", ".5"}], ",", 
+               RowBox[{"y", "+", ".75"}]}], "}"}]}], "]"}], ",", 
+           RowBox[{"EdgeForm", "[", "Black", "]"}], ",", 
+           RowBox[{"Opacity", "[", "0", "]"}], ",", 
+           RowBox[{"Rectangle", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"x", ",", "y"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "+", "1"}], ",", 
+               RowBox[{"y", "+", "1"}]}], "}"}]}], "]"}]}], "}"}]}], 
+        "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GetRectangle2", "[", 
+   RowBox[{"i_", ",", "list_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"x", ",", "y"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"x", "=", 
+      RowBox[{"Mod", "[", 
+       RowBox[{
+        RowBox[{"i", "-", "1"}], ",", "21"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"y", "=", 
+      RowBox[{"Floor", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"i", "-", "1"}], ")"}], "/", "21"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Length", "@", "list"}], "\[Equal]", "0"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"EdgeForm", "[", "Black", "]"}], ",", 
+         RowBox[{"Opacity", "[", "0", "]"}], ",", 
+         RowBox[{"Rectangle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x", ",", "y"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"x", "+", "1"}], ",", 
+             RowBox[{"y", "+", "1"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "@", "list"}], "\[Equal]", "1"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Hue", "[", 
+            RowBox[{
+             RowBox[{"list", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "/", "hB"}], "]"}], ",", 
+           RowBox[{"Rectangle", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"x", ",", "y"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "+", "1"}], ",", 
+               RowBox[{"y", "+", "1"}]}], "}"}]}], "]"}], ",", "Black", ",", 
+           RowBox[{"Inset", "[", 
+            RowBox[{
+             RowBox[{"list", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "+", ".5"}], ",", 
+               RowBox[{"y", "+", ".5"}]}], "}"}]}], "]"}], ",", 
+           RowBox[{"EdgeForm", "[", "Black", "]"}], ",", 
+           RowBox[{"Opacity", "[", "0", "]"}], ",", 
+           RowBox[{"Rectangle", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"x", ",", "y"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "+", "1"}], ",", 
+               RowBox[{"y", "+", "1"}]}], "}"}]}], "]"}]}], "}"}]}], 
+        "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.6903826441934986`*^9, 3.6903826845237327`*^9}, {
+  3.690382724123863*^9, 3.6903828012397013`*^9}, {3.690384965581949*^9, 
+  3.6903850310527983`*^9}, {3.6903850651832094`*^9, 3.690385282738505*^9}, {
+  3.6903853160346594`*^9, 3.6903853361488347`*^9}, {3.690385373464713*^9, 
+  3.6903854267878375`*^9}, {3.6903861303266087`*^9, 3.690386143954805*^9}, {
+  3.6903864968599744`*^9, 3.6903865260317354`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DisplayState", "[", 
+   RowBox[{"{", 
+    RowBox[{"bots_", ",", "outs_"}], "}"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"fullBots", ",", "convBots", ",", "fullOuts", ",", "convOuts"}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"fullBots", "=", 
+      RowBox[{"Array", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", "}"}], "&"}], ",", "210"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"fullOuts", "=", 
+      RowBox[{"Array", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", "}"}], "&"}], ",", "21"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"convBots", "=", 
+      RowBox[{"Partition", "[", 
+       RowBox[{
+        RowBox[{"Riffle", "[", 
+         RowBox[{
+          RowBox[{"ToExpression", "[", 
+           RowBox[{"Keys", "[", "bots", "]"}], "]"}], ",", 
+          RowBox[{"Values", "@", "bots"}]}], "]"}], ",", "2"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"convOuts", "=", 
+      RowBox[{"Partition", "[", 
+       RowBox[{
+        RowBox[{"Riffle", "[", 
+         RowBox[{
+          RowBox[{"ToExpression", "[", 
+           RowBox[{"Keys", "[", "outs", "]"}], "]"}], ",", 
+          RowBox[{"Values", "@", "outs"}]}], "]"}], ",", "2"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"fullBots", "\[LeftDoubleBracket]", 
+         RowBox[{
+          RowBox[{"convBots", "\[LeftDoubleBracket]", 
+           RowBox[{"i", ",", "1"}], "\[RightDoubleBracket]"}], "+", "1"}], 
+         "\[RightDoubleBracket]"}], "=", 
+        RowBox[{"convBots", "\[LeftDoubleBracket]", 
+         RowBox[{"i", ",", "2"}], "\[RightDoubleBracket]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"Length", "@", "convBots"}]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"fullOuts", "\[LeftDoubleBracket]", 
+         RowBox[{
+          RowBox[{"convOuts", "\[LeftDoubleBracket]", 
+           RowBox[{"i", ",", "1"}], "\[RightDoubleBracket]"}], "+", "1"}], 
+         "\[RightDoubleBracket]"}], "=", 
+        RowBox[{"convOuts", "\[LeftDoubleBracket]", 
+         RowBox[{"i", ",", "2"}], "\[RightDoubleBracket]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"Length", "@", "convOuts"}]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"GetRectangle", "[", 
+            RowBox[{"i", ",", 
+             RowBox[{
+             "fullBots", "\[LeftDoubleBracket]", "i", 
+              "\[RightDoubleBracket]"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "1", ",", "210"}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"GetRectangle2", "[", 
+            RowBox[{
+             RowBox[{"i", "-", 
+              RowBox[{"2", "*", "21"}]}], ",", 
+             RowBox[{
+             "fullOuts", "\[LeftDoubleBracket]", "i", 
+              "\[RightDoubleBracket]"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "1", ",", "21"}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "500"}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.690381511915295*^9, 3.6903815294680195`*^9}, {
+   3.6903815756896625`*^9, 3.6903816159358454`*^9}, {3.6903816756421494`*^9, 
+   3.690381870251068*^9}, {3.6903819185908513`*^9, 3.6903819928750467`*^9}, {
+   3.6903820387782373`*^9, 3.6903821255083623`*^9}, {3.6903822710831423`*^9, 
+   3.690382271235247*^9}, {3.6903823869262605`*^9, 3.6903826237540092`*^9}, {
+   3.6903826895982246`*^9, 3.690382710487466*^9}, {3.690382803454056*^9, 
+   3.6903828041712112`*^9}, {3.690385459504161*^9, 3.69038551499536*^9}, {
+   3.690385551858341*^9, 3.690385552658089*^9}, 3.690385595498456*^9, {
+   3.6903857631287727`*^9, 3.690385780410778*^9}, {3.6903858956107655`*^9, 
+   3.690385896263564*^9}, {3.69038597663348*^9, 3.690385983033493*^9}, 
+   3.690386529362131*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"DisplayState", "[", 
+    RowBox[{"states", "[", 
+     RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", 
+     RowBox[{"Length", "@", "states"}], ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.690381449899971*^9, 3.690381451983534*^9}, {
+  3.6903814908624315`*^9, 3.690381510708792*^9}, {3.690381585023429*^9, 
+  3.690381588008103*^9}, {3.6903818536378603`*^9, 3.6903818737268066`*^9}, {
+  3.6903820029806857`*^9, 3.690382009307176*^9}, {3.6903852661429925`*^9, 
+  3.6903852665900435`*^9}, {3.6903853446801453`*^9, 3.690385349316855*^9}, {
+  3.69038543193988*^9, 3.690385437204915*^9}, {3.6903855577245913`*^9, 
+  3.690385566186159*^9}, {3.6903859016305523`*^9, 3.690385918793908*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`i$$ = 232, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`i$$], 1, 232, 1}}, Typeset`size$$ = {
+    650., {187., 195.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`i$35151$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`i$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`i$$, $CellContext`i$35151$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`DisplayState[
+        Part[$CellContext`states, $CellContext`i$$]], 
+      "Specifications" :> {{$CellContext`i$$, 1, 232, 1, Appearance -> 
+         "Labeled"}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{713., {243., 252.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.690381452333853*^9, {3.6903814913148165`*^9, 3.690381506792369*^9}, {
+   3.6903815884510098`*^9, 3.6903816177766767`*^9}, {3.6903816824208193`*^9, 
+   3.6903817109867764`*^9}, 3.6903817765663424`*^9, {3.690381839426879*^9, 
+   3.69038187410445*^9}, 3.6903819199275675`*^9, {3.69038195150846*^9, 
+   3.690382009687922*^9}, {3.6903820423599706`*^9, 3.6903820978918657`*^9}, {
+   3.690382462774064*^9, 3.6903825288477015`*^9}, {3.690382566857006*^9, 
+   3.6903826250288534`*^9}, {3.690382693043723*^9, 3.6903827317571163`*^9}, {
+   3.690382785331814*^9, 3.690382806167729*^9}, 3.6903848671299367`*^9, {
+   3.6903850124121046`*^9, 3.6903850338408065`*^9}, 3.690385081004599*^9, {
+   3.6903851195907297`*^9, 3.6903852037664576`*^9}, {3.690385264290534*^9, 
+   3.6903852844200816`*^9}, {3.690385338032937*^9, 3.690385437504661*^9}, 
+   3.6903855161967707`*^9, {3.6903855539266076`*^9, 3.6903855965205336`*^9}, 
+   3.6903857838827934`*^9, {3.690385898031849*^9, 3.6903859221942835`*^9}, 
+   3.6903860929076834`*^9, 3.690386465888522*^9, 3.6903865319005156`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6903861617627707`*^9, 3.6903861681952543`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\Gyebro\\\\Desktop\\\\AoC2016\"\>"], "Output",
+ CellChangeTimes->{3.6903861687951913`*^9, 3.6903865486708803`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"frames", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"DisplayState", "[", 
+      RowBox[{"states", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"Length", "@", "states"}]}], "}"}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"frames", "=", 
+   RowBox[{"frames", "~", "Join", "~", 
+    RowBox[{"Array", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Last", "@", "frames"}], "&"}], ",", "25"}], "]"}]}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{3.6903865933173857`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"frames", "//", "Length"}]], "Input",
+ CellChangeTimes->{{3.6903865957496605`*^9, 3.6903865973658934`*^9}}],
+
+Cell[BoxData["257"], "Output",
+ CellChangeTimes->{3.6903865977505774`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<AoC10.gif\>\"", ",", "frames"}], "]"}]], "Input",
+ CellChangeTimes->{{3.690386169279398*^9, 3.6903862524573417`*^9}, {
+  3.690386551308025*^9, 3.690386614056053*^9}}],
+
+Cell[BoxData["\<\"AoC10.gif\"\>"], "Output",
+ CellChangeTimes->{3.6903862985482264`*^9, 3.690386656647394*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{958, 988},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+Magnification:>1.3 Inherited,
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 83, 1, 91, "Section"],
+Cell[CellGroupData[{
+Cell[688, 27, 97, 1, 61, "Subsection"],
+Cell[788, 30, 374, 8, 214, "Input"],
+Cell[1165, 40, 11175, 145, 7527, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[12377, 190, 98, 1, 49, "Subsection"],
+Cell[12478, 193, 341, 9, 39, "Input"],
+Cell[12822, 204, 349, 9, 39, "Input"],
+Cell[CellGroupData[{
+Cell[13196, 217, 126, 2, 39, "Input"],
+Cell[13325, 221, 94, 1, 39, "Output"]
+}, Open  ]],
+Cell[13434, 225, 104, 1, 39, "Text"],
+Cell[13541, 228, 1023, 31, 65, "Input"],
+Cell[CellGroupData[{
+Cell[14589, 263, 211, 3, 65, "Input"],
+Cell[14803, 268, 98, 1, 39, "Output"],
+Cell[14904, 271, 97, 1, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15038, 277, 1028, 30, 65, "Input"],
+Cell[16069, 309, 714, 15, 39, "Output"],
+Cell[16786, 326, 448, 11, 39, "Output"]
+}, Open  ]],
+Cell[17249, 340, 342, 7, 114, "Text"],
+Cell[17594, 349, 6282, 158, 740, "Input"],
+Cell[CellGroupData[{
+Cell[23901, 511, 1579, 36, 215, "Input"],
+Cell[25483, 549, 621, 13, 39, "Output"],
+Cell[26107, 564, 717, 16, 39, "Output"],
+Cell[26827, 582, 744, 17, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27608, 604, 426, 9, 65, "Input"],
+Cell[28037, 615, 825, 19, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28899, 639, 427, 9, 65, "Input"],
+Cell[29329, 650, 1152, 24, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30518, 679, 400, 8, 65, "Input"],
+Cell[30921, 689, 804, 21, 39, "Output"]
+}, Open  ]],
+Cell[31740, 713, 6321, 136, 965, "Input"],
+Cell[CellGroupData[{
+Cell[38086, 853, 222, 5, 65, "Input"],
+Cell[38311, 860, 4353, 112, 140, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42701, 977, 459, 10, 39, "Input"],
+Cell[CellGroupData[{
+Cell[43185, 991, 282, 5, 29, "Print"],
+Cell[43470, 998, 278, 5, 29, "Print"],
+Cell[43751, 1005, 280, 5, 29, "Print"],
+Cell[44034, 1012, 282, 5, 29, "Print"],
+Cell[44319, 1019, 281, 5, 29, "Print"],
+Cell[44603, 1026, 281, 5, 29, "Print"],
+Cell[44887, 1033, 282, 5, 29, "Print"],
+Cell[45172, 1040, 282, 5, 29, "Print"],
+Cell[45457, 1047, 280, 5, 29, "Print"],
+Cell[45740, 1054, 279, 5, 29, "Print"],
+Cell[46022, 1061, 279, 5, 29, "Print"],
+Cell[46304, 1068, 280, 5, 29, "Print"],
+Cell[46587, 1075, 280, 5, 29, "Print"],
+Cell[46870, 1082, 281, 5, 29, "Print"],
+Cell[47154, 1089, 281, 5, 29, "Print"],
+Cell[47438, 1096, 282, 5, 29, "Print"],
+Cell[47723, 1103, 281, 5, 29, "Print"],
+Cell[48007, 1110, 282, 5, 29, "Print"],
+Cell[48292, 1117, 282, 5, 29, "Print"],
+Cell[48577, 1124, 281, 5, 29, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48919, 1136, 96, 1, 61, "Subsection"],
+Cell[CellGroupData[{
+Cell[49040, 1141, 373, 10, 39, "Input"],
+Cell[49416, 1153, 205, 3, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49658, 1161, 208, 6, 39, "Input"],
+Cell[49869, 1169, 224, 6, 39, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50142, 1181, 99, 1, 61, "Subsection"],
+Cell[CellGroupData[{
+Cell[50266, 1186, 195, 4, 39, "Input"],
+Cell[50464, 1192, 2740, 38, 290, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53241, 1235, 196, 4, 39, "Input"],
+Cell[53440, 1241, 145, 2, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53622, 1248, 195, 4, 39, "Input"],
+Cell[53820, 1254, 427, 8, 39, "Output"]
+}, Open  ]],
+Cell[54262, 1265, 7864, 209, 640, "Input"],
+Cell[62129, 1476, 4295, 106, 265, "Input"],
+Cell[CellGroupData[{
+Cell[66449, 1586, 875, 17, 39, "Input"],
+Cell[67327, 1605, 2683, 47, 516, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[70047, 1657, 174, 3, 39, "Input"],
+Cell[70224, 1662, 146, 1, 39, "Output"]
+}, Open  ]],
+Cell[70385, 1666, 328, 10, 39, "Input"],
+Cell[70716, 1678, 280, 9, 39, "Input"],
+Cell[CellGroupData[{
+Cell[71021, 1691, 130, 2, 39, "Input"],
+Cell[71154, 1695, 74, 1, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[71265, 1701, 220, 4, 39, "Input"],
+Cell[71488, 1707, 110, 1, 39, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
