@@ -1,0 +1,1969 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     73781,       1961]
+NotebookOptionsPosition[     68459,       1795]
+NotebookOutlinePosition[     68830,       1811]
+CellTagsIndexPosition[     68787,       1808]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Day 11: Radioisotope Thermoelectric Generators", "Section",
+ CellChangeTimes->{{3.6905659473505645`*^9, 3.6905659578969135`*^9}}],
+
+Cell["\<\
+F4 .  .  .  .  .  
+F3 .  .  .  LG .  
+F2 .  HG .  .  .  
+F1 E  .  HM .  LM \
+\>", "Text",
+ CellChangeTimes->{3.690565951959704*^9}],
+
+Cell["First: E, Pairs: {Generator, Microchip}", "Text",
+ CellChangeTimes->{{3.690565991594537*^9, 3.6905660066105337`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"initialState", "=", 
+  RowBox[{"{", 
+   RowBox[{"1", ",", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "1", ",", "3", ",", "1"}], "}"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.6905659628256655`*^9, 3.690565983744933*^9}, {
+  3.6905663824231834`*^9, 3.6905663830654573`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "1", ",", "3", ",", "1"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.690565980291786*^9, 3.69056598421885*^9}, 
+   3.6905663835453663`*^9, 3.6906096712777185`*^9, 3.6906187754007025`*^9, 
+   3.6906418454532948`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Rules: (number = level)
+E: moves max 2 numbers, min 1 number, +-1
+If a microchip and its generator has the same number, it is protected
+If an unprotected microchip has the same number as an other generator, it \
+FRIES\
+\>", "Text",
+ CellChangeTimes->{{3.690566010132351*^9, 3.6905660184706697`*^9}, {
+  3.6905660875261517`*^9, 3.6905661149160357`*^9}, {3.690566167876466*^9, 
+  3.6905662119923487`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Or", "@@", 
+  RowBox[{"{", 
+   RowBox[{"False", ",", "True"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.6906102513363256`*^9, 3.6906102611092052`*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.6906102568312206`*^9, 3.690610261484147*^9}}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ChipsFry", "[", "state_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"comps", ",", "i", ",", "n", ",", "fried"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"comps", "=", 
+      RowBox[{"state", "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"n", "=", 
+      RowBox[{
+       RowBox[{"Length", "@", "comps"}], "/", "2"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"fried", "=", "False"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "2"}], ",", 
+       RowBox[{"i", "<=", 
+        RowBox[{"Length", "@", "comps"}]}], ",", 
+       RowBox[{"i", "+=", "2"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"comps", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", "-", "1"}], "]"}], "]"}], "!=", 
+          RowBox[{"comps", "[", 
+           RowBox[{"[", "i", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+           RowBox[{"this", " ", "chip", " ", "is", " ", "unprotected"}], ",", 
+           " ", 
+           RowBox[{"get", " ", "other", " ", "generators"}]}], " ", "*)"}], 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"fried", "=", 
+           RowBox[{"Or", "[", 
+            RowBox[{"fried", ",", 
+             RowBox[{"Or", "@@", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                  "comps", "\[LeftDoubleBracket]", "i", 
+                   "\[RightDoubleBracket]"}], "\[Equal]", "#"}], "&"}], "/@", 
+                RowBox[{"comps", "\[LeftDoubleBracket]", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"Table", "[", 
+                    RowBox[{"k", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"k", ",", "1", ",", 
+                    RowBox[{"i", "-", "2"}], ",", "2"}], "}"}]}], "]"}], "~", 
+                   "Join", "~", 
+                   RowBox[{"Table", "[", 
+                    RowBox[{"k", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"k", ",", 
+                    RowBox[{"i", "+", "1"}], ",", 
+                    RowBox[{"Length", "@", "comps"}], ",", "2"}], "}"}]}], 
+                    "]"}]}], ")"}], "\[RightDoubleBracket]"}]}], " ", 
+               ")"}]}]}], "]"}]}], " ", ";"}]}], "\[IndentingNewLine]", 
+        "]"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     "fried"}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ChipsOkay", "[", "state_", "]"}], ":=", 
+  RowBox[{"!", 
+   RowBox[{"ChipsFry", "[", "state", "]"}]}]}]}], "Input",
+ CellChangeTimes->{{3.690567303970222*^9, 3.6905674742419367`*^9}, {
+  3.6905675593419733`*^9, 3.690567562635436*^9}, {3.690609732169236*^9, 
+  3.690609761335873*^9}, {3.6906098534696417`*^9, 3.6906098723614273`*^9}, {
+  3.69060991807094*^9, 3.6906099556571617`*^9}, {3.690610007591097*^9, 
+  3.6906100137134895`*^9}, {3.690610053021372*^9, 3.690610353198397*^9}, {
+  3.6906104114448023`*^9, 3.690610422306336*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ChipsFry", "[", 
+  RowBox[{"{", 
+   RowBox[{"1", ",", 
+    RowBox[{"{", 
+     RowBox[{
+     "2", ",", "2", ",", "3", ",", "3", ",", "3", ",", "1", ",", "3", ",", 
+      "1"}], "}"}]}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6906098746186113`*^9, 3.6906098962661653`*^9}, {
+  3.6906101995117707`*^9, 3.690610199619475*^9}, {3.690610356410019*^9, 
+  3.6906103645200834`*^9}}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{{3.6906103477685995`*^9, 3.6906103695369954`*^9}, 
+   3.690618777456003*^9, 3.6906418475570197`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ChipsOkay", "[", 
+  RowBox[{"{", 
+   RowBox[{"1", ",", 
+    RowBox[{"{", 
+     RowBox[{
+     "2", ",", "2", ",", "3", ",", "3", ",", "3", ",", "1", ",", "3", ",", 
+      "1"}], "}"}]}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{3.6906104283791676`*^9}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.690610429085812*^9, 3.69061877811826*^9, 
+  3.6906418481744876`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CreateAllPossibleSteps", "[", "state_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "e", ",", "chips", ",", "here", ",", "single", ",", "double", ",", 
+      "newstates", ",", "temp", ",", "possible", ",", "valid"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"e", "=", 
+      RowBox[{"state", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"chips", "=", 
+      RowBox[{
+       RowBox[{"Length", "@", "state"}], "/", "2"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"here", "=", 
+      RowBox[{"Flatten", "@", 
+       RowBox[{"Position", "[", 
+        RowBox[{
+         RowBox[{"state", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], ",", "e"}], "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"single", "=", "here"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"double", "=", 
+      RowBox[{"Subsets", "[", 
+       RowBox[{"here", ",", 
+        RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"newstates", "=", 
+      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"temp", "=", "state"}], ";", 
+        RowBox[{
+         RowBox[{
+         "temp", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+         "++"}], ";", 
+        RowBox[{
+         RowBox[{"temp", "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", 
+           RowBox[{
+           "here", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}], 
+          "\[RightDoubleBracket]"}], "++"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"newstates", ",", "temp"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"Length", "@", "here"}]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"temp", "=", "state"}], ";", 
+        RowBox[{
+         RowBox[{
+         "temp", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+         "--"}], ";", 
+        RowBox[{
+         RowBox[{"temp", "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", 
+           RowBox[{
+           "here", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}], 
+          "\[RightDoubleBracket]"}], "--"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"newstates", ",", "temp"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"Length", "@", "here"}]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"temp", "=", "state"}], ";", 
+        RowBox[{
+         RowBox[{
+         "temp", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+         "++"}], ";", 
+        RowBox[{
+         RowBox[{"temp", "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", 
+           RowBox[{
+           "double", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}],
+           "\[RightDoubleBracket]"}], "++"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"newstates", ",", "temp"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"Length", "@", "double"}]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"temp", "=", "state"}], ";", 
+        RowBox[{
+         RowBox[{
+         "temp", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+         "--"}], ";", 
+        RowBox[{
+         RowBox[{"temp", "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", 
+           RowBox[{
+           "double", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}],
+           "\[RightDoubleBracket]"}], "--"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"newstates", ",", "temp"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"Length", "@", "double"}]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"possible", "=", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{"newstates", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Min", "[", 
+             RowBox[{"Flatten", "[", "#", "]"}], "]"}], ">", "0"}], "&"}]}], 
+         "]"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Max", "[", 
+           RowBox[{"Flatten", "[", "#", "]"}], "]"}], "<", "5"}], "&"}]}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"valid", "=", 
+      RowBox[{"Select", "[", 
+       RowBox[{"possible", ",", "ChipsOkay"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", "valid"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.690566353750112*^9, 3.6905664899687157`*^9}, {
+   3.690566530081914*^9, 3.690566546856123*^9}, {3.690566581911709*^9, 
+   3.690566776845621*^9}, {3.690566817932374*^9, 3.690566870834135*^9}, {
+   3.690566913653604*^9, 3.690567019342224*^9}, {3.690567052862985*^9, 
+   3.690567057057254*^9}, {3.6905670936727734`*^9, 3.6905671518821325`*^9}, {
+   3.6905672746182823`*^9, 3.690567299875471*^9}, {3.6906103725972786`*^9, 
+   3.690610404156597*^9}, {3.690610434528801*^9, 3.690610471098016*^9}, 
+   3.6906454602523065`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CreateUpSteps", "[", "state_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "e", ",", "chips", ",", "here", ",", "single", ",", "double", ",", 
+      "newstates", ",", "temp", ",", "possible", ",", "valid"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"e", "=", 
+      RowBox[{"state", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"chips", "=", 
+      RowBox[{
+       RowBox[{"Length", "@", "state"}], "/", "2"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"here", "=", 
+      RowBox[{"Flatten", "@", 
+       RowBox[{"Position", "[", 
+        RowBox[{
+         RowBox[{"state", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], ",", "e"}], "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"single", "=", "here"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"double", "=", 
+      RowBox[{"Subsets", "[", 
+       RowBox[{"here", ",", 
+        RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"newstates", "=", 
+      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"temp", "=", "state"}], ";", 
+        RowBox[{
+         RowBox[{
+         "temp", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+         "++"}], ";", 
+        RowBox[{
+         RowBox[{"temp", "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", 
+           RowBox[{
+           "here", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}], 
+          "\[RightDoubleBracket]"}], "++"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"newstates", ",", "temp"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"Length", "@", "here"}]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"temp", "=", "state"}], ";", 
+        RowBox[{
+         RowBox[{
+         "temp", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+         "++"}], ";", 
+        RowBox[{
+         RowBox[{"temp", "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", 
+           RowBox[{
+           "double", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}],
+           "\[RightDoubleBracket]"}], "++"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"newstates", ",", "temp"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"Length", "@", "double"}]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"possible", "=", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{"newstates", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Min", "[", 
+             RowBox[{"Flatten", "[", "#", "]"}], "]"}], ">", "0"}], "&"}]}], 
+         "]"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Max", "[", 
+           RowBox[{"Flatten", "[", "#", "]"}], "]"}], "<", "5"}], "&"}]}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"valid", "=", 
+      RowBox[{"Select", "[", 
+       RowBox[{"possible", ",", "ChipsOkay"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", "valid"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.690611065991185*^9, 3.69061107874811*^9}, {
+  3.690645432538102*^9, 3.690645453385371*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CreateAllPossibleSteps", "[", "initialState", "]"}], "//", 
+  "Column"}]], "Input",
+ CellChangeTimes->{{3.690566548606078*^9, 3.6905665570865116`*^9}, {
+  3.690566604946486*^9, 3.6905666056656284`*^9}, {3.690567024796942*^9, 
+  3.6905670260107203`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     RowBox[{"{", 
+      RowBox[{"2", ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "2", ",", "3", ",", "1"}], "}"}]}], "}"}]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{{3.690566553950308*^9, 3.690566557483332*^9}, {
+   3.690566593725582*^9, 3.6905666061685205`*^9}, {3.690566636573382*^9, 
+   3.6905667250995197`*^9}, {3.690566770079545*^9, 3.690566777855077*^9}, 
+   3.6905668425187483`*^9, 3.6905668736162324`*^9, {3.6905669148775487`*^9, 
+   3.6905669188898764`*^9}, {3.690567020561393*^9, 3.690567026423154*^9}, 
+   3.6905670596776547`*^9, 3.690567108248904*^9, {3.6905671533024564`*^9, 
+   3.690567178082762*^9}, 3.690567300956072*^9, 3.690610376179439*^9, {
+   3.690610440517971*^9, 3.690610472393679*^9}, 3.690618786416876*^9, 
+   3.6906418517189207`*^9, 3.6906454647844076`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CreateUpEdges", "[", "state_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "upstates", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"upstates", "=", 
+      RowBox[{"CreateUpSteps", "[", "state", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"state", "\[UndirectedEdge]", "#"}], "&"}], "/@", 
+      "upstates"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.690611111436181*^9, 3.6906111444304867`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CreateTestGraph4", "[", "init_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"states", ",", "valid", ",", "edges"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"states", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"e", ",", 
+            RowBox[{"{", 
+             RowBox[{"g1", ",", "m1", ",", "g2", ",", "m2"}], "}"}]}], "}"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"e", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"g1", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m1", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"g2", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m2", ",", "1", ",", "4"}], "}"}]}], "]"}], ",", "4"}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Number of states: \>\"", "<>", 
+       RowBox[{"StringJoin", "@", 
+        RowBox[{"ToString", "@", 
+         RowBox[{"Length", "@", "states"}]}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"valid", "=", 
+      RowBox[{"Select", "[", 
+       RowBox[{"states", ",", "ChipsOkay"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Number of valid states: \>\"", "<>", 
+       RowBox[{"StringJoin", "@", 
+        RowBox[{"ToString", "@", 
+         RowBox[{"Length", "@", "valid"}]}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"edges", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{"CreateUpEdges", "/@", "valid"}], ",", "1"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Number of edges: \>\"", "<>", 
+       RowBox[{"StringJoin", "@", 
+        RowBox[{"ToString", "@", 
+         RowBox[{"Length", "@", "edges"}]}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"FindShortestPath", "[", 
+      RowBox[{"edges", ",", "init", ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", 
+         RowBox[{"{", 
+          RowBox[{"4", ",", "4", ",", "4", ",", "4"}], "}"}]}], "}"}]}], 
+      "]"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.690610851726988*^9, 3.690610961712124*^9}, {
+  3.690611084261262*^9, 3.6906110988014364`*^9}, {3.6906111490575247`*^9, 
+  3.6906111552168226`*^9}, {3.6906112064166093`*^9, 3.6906112187245455`*^9}, {
+  3.6906113124003925`*^9, 3.690611410102478*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"testSol", "=", 
+  RowBox[{"CreateTestGraph4", "[", "initialState", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6906108968867283`*^9, 3.6906108994104505`*^9}, {
+   3.690611185619905*^9, 3.690611186658407*^9}, 3.690611325383843*^9, {
+   3.6906114128406577`*^9, 3.690611421761072*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Number of states: 1024\"\>"], "Print",
+ CellChangeTimes->{{3.6906108998504286`*^9, 3.6906109222266984`*^9}, 
+   3.6906109564525642`*^9, 3.690611156115728*^9, {3.6906111870754833`*^9, 
+   3.690611210046648*^9}, {3.690611318948532*^9, 3.6906113257591324`*^9}, {
+   3.6906113615349054`*^9, 3.690611422177038*^9}, 3.690618790671514*^9, 
+   3.6906418556344137`*^9, 3.6906454730532*^9}],
+
+Cell[BoxData["\<\"Number of valid states: 688\"\>"], "Print",
+ CellChangeTimes->{{3.6906108998504286`*^9, 3.6906109222266984`*^9}, 
+   3.6906109564525642`*^9, 3.690611156115728*^9, {3.6906111870754833`*^9, 
+   3.690611210046648*^9}, {3.690611318948532*^9, 3.6906113257591324`*^9}, {
+   3.6906113615349054`*^9, 3.690611422177038*^9}, 3.690618790671514*^9, 
+   3.6906418556344137`*^9, 3.690645473084468*^9}],
+
+Cell[BoxData["\<\"Number of edges: 510\"\>"], "Print",
+ CellChangeTimes->{{3.6906108998504286`*^9, 3.6906109222266984`*^9}, 
+   3.6906109564525642`*^9, 3.690611156115728*^9, {3.6906111870754833`*^9, 
+   3.690611210046648*^9}, {3.690611318948532*^9, 3.6906113257591324`*^9}, {
+   3.6906113615349054`*^9, 3.690611422177038*^9}, 3.690618790671514*^9, 
+   3.6906418556344137`*^9, 3.6906454731378703`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1", ",", "3", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "2", ",", "3", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "3", ",", "3", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "2", ",", "3", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1", ",", "3", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "2", ",", "3", ",", "2"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "3", ",", "3", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "4", ",", "3", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4", ",", "3", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "4", ",", "4", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "3", ",", "4", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "4", ",", "4", ",", "4"}], "}"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.6906113616717405`*^9, 3.6906114222721825`*^9}, 
+   3.690618790972375*^9, 3.6906418557190647`*^9, 3.6906454731378703`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Length", "@", "testSol"}], "-", "1"}]], "Input",
+ CellChangeTimes->{{3.690612506036481*^9, 3.690612514720872*^9}}],
+
+Cell[BoxData["11"], "Output",
+ CellChangeTimes->{3.6906125150026464`*^9, 3.690618791787634*^9, 
+  3.6906418571178617`*^9, 3.6906454762055917`*^9}]
+}, Open  ]],
+
+Cell["\<\
+InitialState:
+The first floor contains a promethium generator and a promethium-compatible \
+microchip.
+The second floor contains a cobalt generator, a curium generator, a ruthenium \
+generator, and a plutonium generator.
+The third floor contains a cobalt-compatible microchip, a curium-compatible \
+microchip, a ruthenium-compatible microchip, and a plutonium-compatible \
+microchip.
+The fourth floor contains nothing relevant.
+{E, {PrG, PrM, CoG, CoM, CuG, CuM, RuG, RuM, PtG, PtM}\
+\>", "Text",
+ CellChangeTimes->{{3.690612631303465*^9, 3.6906126697417316`*^9}, {
+   3.690612720841694*^9, 3.6906127433112125`*^9}, {3.69061277652985*^9, 
+   3.690612779148553*^9}, 3.6906129173720884`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ SuperscriptBox["4", "11"]], "Input",
+ CellChangeTimes->{{3.69061291834089*^9, 3.6906129314870768`*^9}}],
+
+Cell[BoxData["4194304"], "Output",
+ CellChangeTimes->{{3.6906129207144413`*^9, 3.690612931727621*^9}, 
+   3.6906418590329185`*^9, 3.6906454777360516`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"iState10", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "1", ",", "1", ",", "2", ",", "3", ",", "2", ",", "3", ",", "2", ",", 
+       "3", ",", "2", ",", "3"}], "}"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.690612635090146*^9, 3.6906126649016685`*^9}, {
+  3.6906127488517303`*^9, 3.690612764863553*^9}, {3.6906128497929306`*^9, 
+  3.6906128876413765`*^9}, {3.69061305730057*^9, 3.690613057383094*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ChipsOkay", "[", "iState10", "]"}]], "Input",
+ CellChangeTimes->{{3.6906130777615886`*^9, 3.690613082174029*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.6906130824092197`*^9, 3.690618795041252*^9, 
+  3.6906418600708294`*^9, 3.690645480536336*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CreateTestGraph10", "[", "init_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"states", ",", "valid", ",", "edges"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"states", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"e", ",", 
+            RowBox[{"{", 
+             RowBox[{
+             "g1", ",", "m1", ",", "g2", ",", "m2", ",", "g3", ",", "m3", ",",
+               "g4", ",", "m4", ",", "g5", ",", "m5"}], "}"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"e", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"g1", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m1", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"g2", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m2", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"g3", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m3", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"g4", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m4", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"g5", ",", "1", ",", "4"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"m5", ",", "1", ",", "4"}], "}"}]}], "]"}], ",", "10"}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Number of states: \>\"", "<>", 
+       RowBox[{"StringJoin", "@", 
+        RowBox[{"ToString", "@", 
+         RowBox[{"Length", "@", "states"}]}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"valid", "=", 
+      RowBox[{"Select", "[", 
+       RowBox[{"states", ",", "ChipsOkay"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Number of valid states: \>\"", "<>", 
+       RowBox[{"StringJoin", "@", 
+        RowBox[{"ToString", "@", 
+         RowBox[{"Length", "@", "valid"}]}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"edges", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{"CreateUpEdges", "/@", "valid"}], ",", "1"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Number of edges: \>\"", "<>", 
+       RowBox[{"StringJoin", "@", 
+        RowBox[{"ToString", "@", 
+         RowBox[{"Length", "@", "edges"}]}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"FindShortestPath", "[", 
+      RowBox[{"edges", ",", "init", ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", "4", 
+           ",", "4", ",", "4", ",", "4"}], "}"}]}], "}"}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.6906126214920945`*^9, {3.6906128707830515`*^9, 3.690612901599289*^9}, {
+   3.6906130186417956`*^9, 3.690613073232201*^9}, {3.6906131116225357`*^9, 
+   3.6906131158271685`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sol10", "=", 
+   RowBox[{"CreateTestGraph10", "[", "iState10", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6906130488469863`*^9, 3.690613055567652*^9}, {
+  3.6906131234342203`*^9, 3.6906131384462814`*^9}}],
+
+Cell[BoxData["\<\"Number of states: 4194304\"\>"], "Print",
+ CellChangeTimes->{3.6906130655281897`*^9, 3.6906131431285515`*^9, 
+  3.690641865342625*^9, 3.6906454859686084`*^9}],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.6906455013636303`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Length", "@", "sol10"}], "-", "1"}]], "Input",
+ CellChangeTimes->{{3.6906135875680313`*^9, 3.690613602135412*^9}}],
+
+Cell[BoxData["33"], "Output",
+ CellChangeTimes->{{3.690613593537123*^9, 3.6906136023876886`*^9}, 
+   3.6906421320107827`*^9}]
+}, Open  ]],
+
+Cell["Correct :)", "Text",
+ CellChangeTimes->{{3.690613911907714*^9, 3.6906139135771227`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"sol10", "[", 
+     RowBox[{"[", "i", "]"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"Length", "@", "sol10"}], ",", "1"}], "}"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.690613756565506*^9, 3.690613766885316*^9}, 
+   3.690614808738611*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Part 2", "Subsection",
+ CellChangeTimes->{{3.6906137093424363`*^9, 3.6906137102169433`*^9}}],
+
+Cell["\<\
+BFS solution
+
+Breadth-First-Search:
+- start from node i and get its unvisited children, mark them as visited
+- enqueu all unvisited children and repeat\
+\>", "Text",
+ CellChangeTimes->{{3.690642064332752*^9, 3.6906421760858316`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CreateEquivalentStates", "[", "state_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"e", ",", "comps"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"e", "=", 
+      RowBox[{"state", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"comps", "=", 
+      RowBox[{"state", "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"e", ",", 
+         RowBox[{"Flatten", "[", "#", "]"}]}], "}"}], "&"}], "/@", 
+      RowBox[{"Permutations", "[", 
+       RowBox[{"Partition", "[", 
+        RowBox[{"comps", ",", "2"}], "]"}], "]"}]}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6906476574051943`*^9, 3.6906476838871803`*^9}, {
+  3.690647840277444*^9, 3.690647883966518*^9}, {3.6906479374592333`*^9, 
+  3.690647945916111*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Flatten", "[", 
+  RowBox[{
+   RowBox[{"CreateEquivalentStates", "/@", 
+    RowBox[{"{", 
+     RowBox[{"iState10", ",", "iState10"}], "}"}]}], ",", "1"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6906485885064373`*^9, 3.6906486025540304`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "1", ",", "1", ",", "2", ",", "3", ",", "2", ",", "3", ",", "2", ",", 
+       "3", ",", "2", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "2", ",", "3", ",", "1", ",", "1", ",", "2", ",", "3", ",", "2", ",", 
+       "3", ",", "2", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "2", ",", "3", ",", "2", ",", "3", ",", "1", ",", "1", ",", "2", ",", 
+       "3", ",", "2", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "2", ",", "3", ",", "2", ",", "3", ",", "2", ",", "3", ",", "1", ",", 
+       "1", ",", "2", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "2", ",", "3", ",", "2", ",", "3", ",", "2", ",", "3", ",", "2", ",", 
+       "3", ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "1", ",", "1", ",", "2", ",", "3", ",", "2", ",", "3", ",", "2", ",", 
+       "3", ",", "2", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "2", ",", "3", ",", "1", ",", "1", ",", "2", ",", "3", ",", "2", ",", 
+       "3", ",", "2", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "2", ",", "3", ",", "2", ",", "3", ",", "1", ",", "1", ",", "2", ",", 
+       "3", ",", "2", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "2", ",", "3", ",", "2", ",", "3", ",", "2", ",", "3", ",", "1", ",", 
+       "1", ",", "2", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "2", ",", "3", ",", "2", ",", "3", ",", "2", ",", "3", ",", "2", ",", 
+       "3", ",", "1", ",", "1"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.690648593453808*^9, 3.690648603009166*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"BFS", "[", 
+   RowBox[{"init_", ",", "target_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "visited", ",", "searching", ",", "current", ",", "new", ",", "i", ",", 
+      "children", ",", "level", ",", "newcombs"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"visited", "=", 
+      RowBox[{"CreateEquivalentStates", "[", "init", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"current", "=", 
+      RowBox[{"{", "init", "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"searching", "=", "True"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"level", "=", "1"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{"searching", ",", "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{"Loop", " ", "on", " ", "current", " ", "level"}], ",", " ", 
+         RowBox[{"get", " ", "unvisited", " ", "children"}]}], " ", "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"new", "=", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "\[LessEqual]", 
+           RowBox[{"Length", "@", "current"}]}], ",", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"new", "=", 
+            RowBox[{"Join", "[", 
+             RowBox[{"new", ",", 
+              RowBox[{"CreateAllPossibleSteps", "[", 
+               RowBox[{
+               "current", "\[LeftDoubleBracket]", "i", 
+                "\[RightDoubleBracket]"}], "]"}]}], "]"}]}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Add", " ", "unvisited", " ", "children", " ", "to", " ", "all", " ",
+           "visited", " ", "nodes"}], " ", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"new", "=", 
+         RowBox[{"Complement", "[", 
+          RowBox[{"new", ",", "visited"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Create", " ", "equivalent", " ", "combinations", " ", "for", " ", 
+          "every", " ", "new", " ", 
+          RowBox[{"state", "!"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"newcombs", "=", 
+         RowBox[{"Complement", "[", 
+          RowBox[{
+           RowBox[{"Flatten", "[", 
+            RowBox[{
+             RowBox[{"CreateEquivalentStates", "/@", "new"}], ",", "1"}], 
+            "]"}], ",", "visited"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "\[LessEqual]", 
+           RowBox[{"Length", "@", "new"}]}], ",", 
+          RowBox[{"i", "++"}], ",", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+             "new", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], 
+             "\[Equal]", "target"}], ",", 
+            RowBox[{
+             RowBox[{"searching", "=", "False"}], ";", 
+             RowBox[{"Print", "[", "\"\<Target found!\>\"", "]"}]}]}], 
+           "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"visited", "=", 
+         RowBox[{"Join", "[", 
+          RowBox[{"visited", ",", "newcombs"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Print", "[", 
+         RowBox[{
+         "\"\<Search level: \>\"", ",", "level", ",", 
+          "\"\< total visited: \>\"", ",", 
+          RowBox[{"Length", "@", "visited"}], ",", "\"\<, new level: \>\"", 
+          ",", 
+          RowBox[{"Length", "@", "new"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Set", " ", "current", " ", "level", " ", "to", " ", "new", " ", 
+          "level"}], " ", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"current", " ", "=", "new"}], ";", 
+        RowBox[{"level", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.69064218971434*^9, 3.6906424231623735`*^9}, {
+   3.690642485372508*^9, 3.6906427244207325`*^9}, {3.6906427821279917`*^9, 
+   3.6906428312017593`*^9}, {3.6906429370009356`*^9, 
+   3.6906429876417294`*^9}, {3.6906430317369814`*^9, 
+   3.6906430388346033`*^9}, {3.6906430748899837`*^9, 
+   3.6906430938042555`*^9}, {3.690643125155978*^9, 3.6906432409354196`*^9}, {
+   3.690643337880523*^9, 3.6906433380959797`*^9}, {3.690644532782082*^9, 
+   3.690644548595636*^9}, {3.6906446568029704`*^9, 3.690644680043165*^9}, {
+   3.690644732893727*^9, 3.69064473674788*^9}, {3.6906448888470287`*^9, 
+   3.6906448950766363`*^9}, {3.6906450764165134`*^9, 3.690645102199379*^9}, 
+   3.6906452356078176`*^9, {3.69064763518473*^9, 3.6906476538886747`*^9}, {
+   3.6906479615672784`*^9, 3.690648007961768*^9}, {3.6906480470807037`*^9, 
+   3.690648069175902*^9}, {3.690648250785074*^9, 3.6906482544099007`*^9}, {
+   3.690648458337537*^9, 3.690648458596585*^9}, {3.690648507617215*^9, 
+   3.690648537671734*^9}, 3.6906485745499434`*^9, {3.690648622325713*^9, 
+   3.6906486603239894`*^9}, {3.6906488607285833`*^9, 
+   3.6906488692598276`*^9}, {3.6906489150002966`*^9, 3.6906489365632806`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BFS", "[", 
+  RowBox[{"iState10", ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", 
+       "4", ",", "4", ",", "4"}], "}"}]}], "}"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", "15",
+    "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", "2"}],
+  SequenceForm[
+  "Search level: ", 1, " total visited: ", 15, ", new level: ", 2],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906489518813457`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", "91",
+    "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", "16"}],
+  SequenceForm[
+  "Search level: ", 2, " total visited: ", 91, ", new level: ", 16],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690648951883301*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "141", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "30"}],
+  SequenceForm[
+  "Search level: ", 3, " total visited: ", 141, ", new level: ", 30],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690648951886283*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "316", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "134"}],
+  SequenceForm[
+  "Search level: ", 4, " total visited: ", 316, ", new level: ", 134],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906489519218197`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "5", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "611", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "240"}],
+  SequenceForm[
+  "Search level: ", 5, " total visited: ", 611, ", new level: ", 240],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690648951993909*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "1536", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "896"}],
+  SequenceForm[
+  "Search level: ", 6, " total visited: ", 1536, ", new level: ", 896],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.69064895245935*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "7", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "2731", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "1085"}],
+  SequenceForm[
+  "Search level: ", 7, " total visited: ", 2731, ", new level: ", 1085],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690648952931572*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "8", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "5186", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "2411"}],
+  SequenceForm[
+  "Search level: ", 8, " total visited: ", 5186, ", new level: ", 2411],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906489546822057`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "9", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "7978", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "2627"}],
+  SequenceForm[
+  "Search level: ", 9, " total visited: ", 7978, ", new level: ", 2627],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906489562513294`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "10", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "12239", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "4159"}],
+  SequenceForm[
+  "Search level: ", 10, " total visited: ", 12239, ", new level: ", 4159],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906489599476957`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "11", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "17219", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "4701"}],
+  SequenceForm[
+  "Search level: ", 11, " total visited: ", 17219, ", new level: ", 4701],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906489632324414`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "12", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "24869", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "7459"}],
+  SequenceForm[
+  "Search level: ", 12, " total visited: ", 24869, ", new level: ", 7459],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906489699608793`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "13", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "32374", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "7365"}],
+  SequenceForm[
+  "Search level: ", 13, " total visited: ", 32374, ", new level: ", 7365],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906489766061172`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "14", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "42834", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "10250"}],
+  SequenceForm[
+  "Search level: ", 14, " total visited: ", 42834, ", new level: ", 10250],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690648986364799*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "15", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "53064", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "10186"}],
+  SequenceForm[
+  "Search level: ", 15, " total visited: ", 53064, ", new level: ", 10186],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906489965194116`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "16", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "65895", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "12701"}],
+  SequenceForm[
+  "Search level: ", 16, " total visited: ", 65895, ", new level: ", 12701],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906490089258146`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "17", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "79482", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "13583"}],
+  SequenceForm[
+  "Search level: ", 17, " total visited: ", 79482, ", new level: ", 13583],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906490243496614`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "18", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "90812", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "11310"}],
+  SequenceForm[
+  "Search level: ", 18, " total visited: ", 90812, ", new level: ", 11310],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690649037406638*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "19", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "105533", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "14721"}],
+  SequenceForm[
+  "Search level: ", 19, " total visited: ", 105533, ", new level: ", 14721],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906490524749956`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "20", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "114299", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "8766"}],
+  SequenceForm[
+  "Search level: ", 20, " total visited: ", 114299, ", new level: ", 8766],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906490638713827`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "21", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "124115", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "9816"}],
+  SequenceForm[
+  "Search level: ", 21, " total visited: ", 124115, ", new level: ", 9816],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906490739762726`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "22", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "132311", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "8196"}],
+  SequenceForm[
+  "Search level: ", 22, " total visited: ", 132311, ", new level: ", 8196],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690649083145459*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "23", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "138316", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "6005"}],
+  SequenceForm[
+  "Search level: ", 23, " total visited: ", 138316, ", new level: ", 6005],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906490903006945`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "24", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "143447", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "5131"}],
+  SequenceForm[
+  "Search level: ", 24, " total visited: ", 143447, ", new level: ", 5131],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906490959041333`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "25", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "147482", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "4035"}],
+  SequenceForm[
+  "Search level: ", 25, " total visited: ", 147482, ", new level: ", 4035],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690649100035616*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "26", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "151382", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "3900"}],
+  SequenceForm[
+  "Search level: ", 26, " total visited: ", 151382, ", new level: ", 3900],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906491038982687`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "27", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "153648", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "2266"}],
+  SequenceForm[
+  "Search level: ", 27, " total visited: ", 153648, ", new level: ", 2266],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690649106175339*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "28", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "155639", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "1991"}],
+  SequenceForm[
+  "Search level: ", 28, " total visited: ", 155639, ", new level: ", 1991],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906491082126513`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "29", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "156779", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "1140"}],
+  SequenceForm[
+  "Search level: ", 29, " total visited: ", 156779, ", new level: ", 1140],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690649109359229*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "30", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "157535", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "756"}],
+  SequenceForm[
+  "Search level: ", 30, " total visited: ", 157535, ", new level: ", 756],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690649110298276*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "31", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "157940", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "405"}],
+  SequenceForm[
+  "Search level: ", 31, " total visited: ", 157940, ", new level: ", 405],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.690649110891968*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "32", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "158105", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "165"}],
+  SequenceForm[
+  "Search level: ", 32, " total visited: ", 158105, ", new level: ", 165],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906491114023*^9}],
+
+Cell[BoxData["\<\"Target found!\"\>"], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906491118124657`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "33", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "158186", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "81"}],
+  SequenceForm[
+  "Search level: ", 33, " total visited: ", 158186, ", new level: ", 81],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6906482613641944`*^9, {3.690648525167667*^9, 3.6906485389165893`*^9}, 
+   3.6906485772057247`*^9, 3.690648870773177*^9, 3.6906491118173475`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"iState14", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "1", ",", "1", ",", "2", ",", "3", ",", "2", ",", "3", ",", "2", ",", 
+       "3", ",", "2", ",", "3", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+      "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"target14", "=", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", 
+       "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", "4", ",", "4"}], 
+      "}"}]}], "}"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.690613718072022*^9, 3.690613720814644*^9}, {
+  3.6906456214160986`*^9, 3.690645635652567*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ SuperscriptBox["4", "15"]], "Input",
+ CellChangeTimes->{3.6906137285505486`*^9}],
+
+Cell[BoxData["1073741824"], "Output",
+ CellChangeTimes->{3.6906137292754025`*^9, 3.6906138057655373`*^9, 
+  3.6906421320420303`*^9, 3.690645667253123*^9}]
+}, Open  ]],
+
+Cell["Part 2: 57", "Text",
+ CellChangeTimes->{{3.6906494728448505`*^9, 3.6906494824475393`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BFS", "[", 
+  RowBox[{"iState14", ",", "target14"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6906499622726345`*^9, 3.690649965496643*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "140", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "3"}],
+  SequenceForm[
+  "Search level: ", 1, " total visited: ", 140, ", new level: ", 3],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.690649275578199*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "1211", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "33"}],
+  SequenceForm[
+  "Search level: ", 2, " total visited: ", 1211, ", new level: ", 33],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.690649275624823*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "3206", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "117"}],
+  SequenceForm[
+  "Search level: ", 3, " total visited: ", 3206, ", new level: ", 117],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.690649275786872*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "7413", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "413"}],
+  SequenceForm[
+  "Search level: ", 4, " total visited: ", 7413, ", new level: ", 413],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6906492765503335`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "5", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "27720", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "2625"}],
+  SequenceForm[
+  "Search level: ", 5, " total visited: ", 27720, ", new level: ", 2625],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.690649284870454*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "50071", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "3864"}],
+  SequenceForm[
+  "Search level: ", 6, " total visited: ", 50071, ", new level: ", 3864],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6906492973375397`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "7", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "128191", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "13999"}],
+  SequenceForm[
+  "Search level: ", 7, " total visited: ", 128191, ", new level: ", 13999],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.690649375947013*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "8", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "196770", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "15656"}],
+  SequenceForm[
+  "Search level: ", 8, " total visited: ", 196770, ", new level: ", 15656],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6906494774132667`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "9", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "319466", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "30898"}],
+  SequenceForm[
+  "Search level: ", 9, " total visited: ", 319466, ", new level: ", 30898],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.690649659593334*^9}]
+}, Open  ]],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.6906500071519623`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BFS", "[", 
+  RowBox[{"iState14", ",", "target14"}], "]"}]], "Input",
+ CellChangeTimes->{{3.690645688210284*^9, 3.6906456911914597`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", "3"}],
+  SequenceForm["Search level: ", 1, " total visited: ", 4, ", new level: ", 3],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6906456932069635`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", "37",
+    "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", "33"}],
+  SequenceForm[
+  "Search level: ", 2, " total visited: ", 37, ", new level: ", 33],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6906456932134876`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "166", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "129"}],
+  SequenceForm[
+  "Search level: ", 3, " total visited: ", 166, ", new level: ", 129],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6906456932603755`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "711", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "545"}],
+  SequenceForm[
+  "Search level: ", 4, " total visited: ", 711, ", new level: ", 545],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6906456935455527`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "5", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "3786", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "3075"}],
+  SequenceForm[
+  "Search level: ", 5, " total visited: ", 3786, ", new level: ", 3075],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.69064569459408*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "9381", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]", 
+   "5595"}],
+  SequenceForm[
+  "Search level: ", 6, " total visited: ", 9381, ", new level: ", 5595],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6906456995305367`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "7", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "30253", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "20872"}],
+  SequenceForm[
+  "Search level: ", 7, " total visited: ", 30253, ", new level: ", 20872],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.690645709759956*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "8", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "56258", "\[InvisibleSpace]", "\<\", new level: \"\>", "\[InvisibleSpace]",
+    "26005"}],
+  SequenceForm[
+  "Search level: ", 8, " total visited: ", 56258, ", new level: ", 26005],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.690645759508097*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "9", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "132605", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "76347"}],
+  SequenceForm[
+  "Search level: ", 9, " total visited: ", 132605, ", new level: ", 76347],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.690645836042145*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "10", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "203096", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "70491"}],
+  SequenceForm[
+  "Search level: ", 10, " total visited: ", 203096, ", new level: ", 70491],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6906463379024615`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Search level: \"\>", "\[InvisibleSpace]", "11", 
+   "\[InvisibleSpace]", "\<\" total visited: \"\>", "\[InvisibleSpace]", 
+   "324607", "\[InvisibleSpace]", "\<\", new level: \"\>", 
+   "\[InvisibleSpace]", "121511"}],
+  SequenceForm[
+  "Search level: ", 11, " total visited: ", 324607, ", new level: ", 121511],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6906467959065027`*^9}]
+}, Open  ]],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.6906469597620497`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{958, 988},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+Magnification:>1.3 Inherited,
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 135, 1, 91, "Section"],
+Cell[718, 25, 141, 6, 114, "Text"],
+Cell[862, 33, 123, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[1010, 38, 299, 7, 39, "Input"],
+Cell[1312, 47, 311, 7, 39, "Output"]
+}, Open  ]],
+Cell[1638, 57, 413, 9, 114, "Text"],
+Cell[CellGroupData[{
+Cell[2076, 70, 175, 4, 39, "Input"],
+Cell[2254, 76, 99, 1, 39, "Output"]
+}, Open  ]],
+Cell[2368, 80, 3260, 77, 440, "Input"],
+Cell[CellGroupData[{
+Cell[5653, 161, 404, 10, 39, "Input"],
+Cell[6060, 173, 152, 2, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6249, 180, 277, 8, 39, "Input"],
+Cell[6529, 190, 121, 2, 39, "Output"]
+}, Open  ]],
+Cell[6665, 195, 5393, 139, 515, "Input"],
+Cell[12061, 336, 3468, 93, 415, "Input"],
+Cell[CellGroupData[{
+Cell[15554, 433, 288, 6, 39, "Input"],
+Cell[15845, 441, 992, 20, 39, "Output"]
+}, Open  ]],
+Cell[16852, 464, 521, 14, 90, "Input"],
+Cell[17376, 480, 2631, 67, 265, "Input"],
+Cell[CellGroupData[{
+Cell[20032, 551, 303, 5, 39, "Input"],
+Cell[CellGroupData[{
+Cell[20360, 560, 398, 5, 29, "Print"],
+Cell[20761, 567, 405, 5, 29, "Print"],
+Cell[21169, 574, 400, 5, 29, "Print"]
+}, Open  ]],
+Cell[21584, 582, 1784, 53, 90, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23405, 640, 149, 3, 39, "Input"],
+Cell[23557, 645, 146, 2, 39, "Output"]
+}, Open  ]],
+Cell[23718, 650, 699, 14, 214, "Text"],
+Cell[CellGroupData[{
+Cell[24442, 668, 118, 2, 39, "Input"],
+Cell[24563, 672, 154, 2, 39, "Output"]
+}, Open  ]],
+Cell[24732, 677, 488, 11, 39, "Input"],
+Cell[CellGroupData[{
+Cell[25245, 692, 137, 2, 39, "Input"],
+Cell[25385, 696, 146, 2, 39, "Output"]
+}, Open  ]],
+Cell[25546, 701, 3231, 82, 290, "Input"],
+Cell[CellGroupData[{
+Cell[28802, 787, 244, 5, 39, "Input"],
+Cell[29049, 794, 176, 2, 29, "Print"],
+Cell[29228, 798, 79, 1, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29344, 804, 149, 3, 39, "Input"],
+Cell[29496, 809, 125, 2, 39, "Output"]
+}, Open  ]],
+Cell[29636, 814, 94, 1, 39, "Text"],
+Cell[29733, 817, 367, 11, 39, "Input"],
+Cell[CellGroupData[{
+Cell[30125, 832, 98, 1, 61, "Subsection"],
+Cell[30226, 835, 243, 7, 139, "Text"],
+Cell[30472, 844, 965, 25, 140, "Input"],
+Cell[CellGroupData[{
+Cell[31462, 873, 267, 7, 39, "Input"],
+Cell[31732, 882, 2189, 63, 140, "Output"]
+}, Open  ]],
+Cell[33936, 948, 5305, 114, 640, "Input"],
+Cell[CellGroupData[{
+Cell[39266, 1066, 283, 8, 39, "Input"],
+Cell[CellGroupData[{
+Cell[39574, 1078, 536, 10, 29, "Print"],
+Cell[40113, 1090, 536, 10, 29, "Print"],
+Cell[40652, 1102, 542, 11, 29, "Print"],
+Cell[41197, 1115, 546, 11, 29, "Print"],
+Cell[41746, 1128, 544, 11, 29, "Print"],
+Cell[42293, 1141, 545, 11, 29, "Print"],
+Cell[42841, 1154, 548, 11, 29, "Print"],
+Cell[43392, 1167, 550, 11, 29, "Print"],
+Cell[43945, 1180, 550, 11, 29, "Print"],
+Cell[44498, 1193, 554, 11, 29, "Print"],
+Cell[45055, 1206, 554, 11, 29, "Print"],
+Cell[45612, 1219, 554, 11, 29, "Print"],
+Cell[46169, 1232, 554, 11, 29, "Print"],
+Cell[46726, 1245, 554, 11, 29, "Print"],
+Cell[47283, 1258, 556, 11, 29, "Print"],
+Cell[47842, 1271, 556, 11, 29, "Print"],
+Cell[48401, 1284, 556, 11, 29, "Print"],
+Cell[48960, 1297, 554, 11, 29, "Print"],
+Cell[49517, 1310, 558, 11, 29, "Print"],
+Cell[50078, 1323, 556, 11, 29, "Print"],
+Cell[50637, 1336, 556, 11, 29, "Print"],
+Cell[51196, 1349, 554, 11, 29, "Print"],
+Cell[51753, 1362, 556, 11, 29, "Print"],
+Cell[52312, 1375, 556, 11, 29, "Print"],
+Cell[52871, 1388, 554, 11, 29, "Print"],
+Cell[53428, 1401, 556, 11, 29, "Print"],
+Cell[53987, 1414, 554, 11, 29, "Print"],
+Cell[54544, 1427, 556, 11, 29, "Print"],
+Cell[55103, 1440, 554, 11, 29, "Print"],
+Cell[55660, 1453, 552, 11, 29, "Print"],
+Cell[56215, 1466, 552, 11, 29, "Print"],
+Cell[56770, 1479, 550, 11, 29, "Print"],
+Cell[57323, 1492, 216, 3, 29, "Print"],
+Cell[57542, 1497, 552, 11, 29, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[58121, 1512, 756, 20, 65, "Input"],
+Cell[CellGroupData[{
+Cell[58902, 1536, 95, 2, 39, "Input"],
+Cell[59000, 1540, 154, 2, 39, "Output"]
+}, Open  ]],
+Cell[59169, 1545, 96, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[59290, 1550, 161, 3, 39, "Input"],
+Cell[CellGroupData[{
+Cell[59476, 1557, 415, 9, 29, "Print"],
+Cell[59894, 1568, 419, 9, 29, "Print"],
+Cell[60316, 1579, 421, 9, 29, "Print"],
+Cell[60740, 1590, 423, 9, 29, "Print"],
+Cell[61166, 1601, 425, 9, 29, "Print"],
+Cell[61594, 1612, 427, 9, 29, "Print"],
+Cell[62024, 1623, 429, 9, 29, "Print"],
+Cell[62456, 1634, 431, 9, 29, "Print"],
+Cell[62890, 1645, 429, 9, 29, "Print"]
+}, Open  ]],
+Cell[63334, 1657, 79, 1, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63450, 1663, 161, 3, 39, "Input"],
+Cell[CellGroupData[{
+Cell[63636, 1670, 406, 7, 29, "Print"],
+Cell[64045, 1679, 413, 8, 29, "Print"],
+Cell[64461, 1689, 421, 9, 29, "Print"],
+Cell[64885, 1700, 421, 9, 29, "Print"],
+Cell[65309, 1711, 422, 9, 29, "Print"],
+Cell[65734, 1722, 425, 9, 29, "Print"],
+Cell[66162, 1733, 427, 9, 29, "Print"],
+Cell[66592, 1744, 427, 9, 29, "Print"],
+Cell[67022, 1755, 429, 9, 29, "Print"],
+Cell[67454, 1766, 433, 9, 29, "Print"],
+Cell[67890, 1777, 435, 9, 29, "Print"]
+}, Open  ]],
+Cell[68340, 1789, 79, 1, 39, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
