@@ -61,6 +61,45 @@ void bfs_longest(T node, T target, size_t depth_limit = 0, bool verbose = false)
     cout << "Max depth: " << max_depth << endl;
 }
 
+/**** DAY 5 : WORKS ****/
+
+const string day05_input = "ojvtpuvg";
+
+void day05(string input) {
+    bool searching = true;
+    long long int i = 0;
+    vector<string> codes;
+    vector<bool> found;
+    for(size_t z=0; z<8; z++) {
+        found.push_back(false);
+        codes.push_back("-");
+    }
+    while(searching) {
+        string current = input + to_string(i);
+        string hash = md5(current);
+        string check = hash.substr(0,5);
+        if(check.compare("00000") == 0) {
+            cout << i << ", " << hash << " pos: " << hash.substr(5,1) << " code: " << hash.substr(6,1) << endl;
+            size_t pos = stoi(hash.substr(5,1),0,16);
+            if (pos < 8) {
+                if (found[pos]) {
+                    // skip this
+                } else {
+                    found[pos] = true;
+                    codes[pos] = hash.substr(6, 1);
+                }
+                bool terminate = true;
+                for (size_t k = 0; k < 8; k++) {
+                    terminate &= found[k];
+                }
+                if (terminate) searching = false;
+            }
+        }
+        i++;
+    }
+    cout << "code: ";
+    for(size_t i=0; i<8; i++) cout << codes[i];
+}
 /*** DAY17 : WORKS ***/
 
 string day17_input = "pvhmgsws";
