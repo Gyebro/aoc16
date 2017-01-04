@@ -1,0 +1,1371 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     61554,       1363]
+NotebookOptionsPosition[     59285,       1282]
+NotebookOutlinePosition[     59658,       1298]
+CellTagsIndexPosition[     59615,       1295]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Day 4: Security Through Obscurity", "Section",
+ CellChangeTimes->{3.690137308484214*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Input", "Subsection",
+ CellChangeTimes->{{3.690138214394273*^9, 3.690138215160474*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "input", "=", 
+   "\"\<nzydfxpc-rclop-qwzhpc-qtylyntyr-769[oshgk]\n\
+qzlozfhmf-bzmcx-bnzshmf-zbpthrhshnm-339[zmxdi]\n\
+xtwtelcj-rclop-upwwjmply-zapcletzyd-743[itbds]\n\
+mrxivrexmsrep-fewoix-ywiv-xiwxmrk-308[kzypw]\n\
+ibghopzs-qobrm-difqvogwbu-142[lnrzo]\nirgyyolokj-xghhoz-lotgtiotm-228[vnmxd]\n\
+foadouwbu-gqojsbusf-vibh-fsgsofqv-376[ymswi]\n\
+jvuzbtly-nyhkl-wyvqljapsl-wshzapj-nyhzz-ylzlhyjo-903[jnyaz]\n\
+amjmpdsj-cee-qcptgacq-236[caejm]\nnvrgfezqvu-avccpsvre-crsfirkfip-217[nrzcd]\n\
+vdzonmhydc-bzmcx-bnzshmf-zbpthrhshnm-235[znyot]\n\
+oxaflxzqfsb-mixpqfz-doxpp-abmxoqjbkq-393[xqbfo]\n\
+drxevkzt-upv-crsfirkfip-893[rfikp]\nrkpqxyib-zelzlixqb-obzbfsfkd-627[wzymt]\n\
+ajvyjprwp-kdwwh-bjunb-563[jwbpa]\n\
+nzcczdtgp-eza-dpncpe-mldvpe-opalcexpye-171[wjzyc]\n\
+jxdkbqfz-zixppfcfba-mixpqfz-doxpp-abmilvjbkq-809[nbaoc]\n\
+tbxmlkfwba-zelzlixqb-xkxivpfp-315[yixla]\n\
+gvcskirmg-gerhc-gsexmrk-hizipstqirx-620[zyosg]\n\
+ygcrqpkbgf-ecpfa-eqcvkpi-uvqtcig-440[sbpfj]\n\
+irdgrxzex-vxx-rthlzjzkzfe-425[zdqok]\n\
+szfyrqriuflj-tfcfiwlc-wcfnvi-uvjzxe-425[lfipb]\n\
+zgmfyxypbmsq-aylbw-bcqgel-912[dqtlr]\n\
+ubhatstkwhnl-cxeeruxtg-wxitkmfxgm-475[ectpi]\n\
+ejpanjwpekjwh-fahhuxawj-wymqeoepekj-316[utnvq]\n\
+qlm-pbzobq-ciltbo-pqloxdb-601[lktqh]\nvotubcmf-fhh-efwfmpqnfou-493[aiyzx]\n\
+jqwpihizlwca-uqtqbizg-ozilm-kivlg-twoqabqka-382[frmkh]\n\
+zovldbkfz-bdd-tlohpelm-497[dcfxw]\natyzghrk-yigbktmkx-natz-jkyomt-748[ktyag]\n\
+iuxxuyobk-hgyqkz-iayzuskx-ykxboik-566[yzsxi]\n\
+jvsvymbs-zjhclunly-obua-klzpnu-903[ckmyr]\nsbnqbhjoh-ezf-tbmft-623[bfhte]\n\
+forwcoqhwjs-rms-difqvogwbu-870[owfqr]\nyhtwhnpun-ibuuf-zopwwpun-721[tjlfz]\n\
+guahyncw-wbiwifuny-omyl-nymncha-968[nywac]\n\
+ykjoqian-cnwza-bhksan-zaoecj-576[btksq]\nckgvutofkj-igtje-zxgototm-800[mlqgz]\
+\nipvohghykvbz-jvsvymbs-lnn-dvyrzovw-227[pysto]\n\
+jqwpihizlwca-zilqwikbqdm-ntwemz-kwvbiqvumvb-382[antsy]\n\
+njmjubsz-hsbef-cvooz-mbcpsbupsz-805[bferv]\n\
+ojk-nzxmzo-xgvnndadzy-xcjxjgvoz-mzxzdqdib-785[vzpun]\n\
+yhkpvhjapcl-ihzrla-svnpzapjz-747[pahzj]\n\
+htqtwkzq-zsxyfgqj-kqtbjw-rfsfljrjsy-827[wzxif]\n\
+fubrjhqlf-sodvwlf-judvv-ilqdqflqj-257[flqdj]\n\
+forwcoqhwjs-qobrm-qcohwbu-rsgwub-116[gtsir]\n\
+nzydfxpc-rclop-mfyyj-cpdplcns-483[gzysm]\n\
+cjpibabsepvt-cbtlfu-nbobhfnfou-857[bfcno]\n\
+oxmeeuruqp-ngzzk-geqd-fqefuzs-222[equzf]\n\
+mvkccspson-lexxi-bomosfsxq-614[ybgsn]\n\
+frqvxphu-judgh-fdqgb-frdwlqj-vhuylfhv-231[bojwc]\n\
+sno-rdbqds-bgnbnkzsd-btrsnldq-rdquhbd-989[dbnsq]\n\
+wrs-vhfuhw-fdqgb-frdwlqj-uhvhdufk-179[fhduw]\n\
+ftzgxmbv-ynssr-vahvhetmx-mktbgbgz-397[truqi]\n\
+xst-wigvix-tpewxmg-kveww-ywiv-xiwxmrk-984[nmrid]\n\
+dkqjcbctfqwu-rncuvke-itcuu-ucngu-544[inaxl]\n\
+hwdtljsnh-wfggny-fsfqdxnx-151[anbvm]\n\
+aflwjfslagfsd-bwddqtwsf-vwhdgqewfl-970[sjqtc]\n\
+hmsdqmzshnmzk-okzrshb-fqzrr-sqzhmhmf-885[qzbly]\n\
+xcitgcpixdcpa-qphzti-gtrtxkxcv-141[ctxip]\n\
+nbhofujd-tdbwfohfs-ivou-gjobodjoh-649[fnwgk]\n\
+wfruflnsl-wfggny-xjwanhjx-905[lnztx]\njrncbavmrq-rtt-fgbentr-975[rtbna]\n\
+jqwpihizlwca-akidmvomz-pcvb-bziqvqvo-460[zakpd]\n\
+oxmeeuruqp-nmewqf-eqdhuoqe-560[vtznk]\n\
+plolwdub-judgh-udeelw-uhvhdufk-985[fnsty]\n\
+kfg-jvtivk-treup-ivrthlzjzkzfe-503[ktvze]\n\
+bqvvu-ywjzu-ykwpejc-naoawnyd-550[txaws]\n\
+gsvvswmzi-wgezirkiv-lyrx-qerekiqirx-984[irevg]\n\
+vcibutulxiom-yaa-uhufsmcm-552[gpimb]\n\
+ugjjgkanw-usfvq-ugslafy-lwuzfgdgyq-918[gufaj]\n\
+qfmcusbwq-foadouwbu-dzoghwq-ufogg-hsqvbczcum-506[uoqbc]\n\
+qzchnzbshud-rbzudmfdq-gtms-zmzkxrhr-547[gxjyh]\n\
+aflwjfslagfsd-usfvq-ugslafy-esjcwlafy-450[kjnil]\n\
+nzwzcqfw-nsznzwlep-afcnsldtyr-951[hjrdi]\naoubshwq-pogysh-kcfygvcd-740[pxyzt]\
+\nzbytomdsvo-lkcuod-nocsqx-380[rqsuo]\n\
+fmsledevhsyw-jpsaiv-wivzmgiw-542[pitok]\n\
+qvbmzvibqwvit-ntwemz-abwziom-304[urjat]\n\
+gvaaz-tdbwfohfs-ivou-eftjho-389[inlud]\nwlqqp-avccpsvre-ivjvrity-399[qcgto]\n\
+shmml-pelbtravp-pubpbyngr-znantrzrag-897[prabn]\n\
+iruzfrtkzmv-jtrmvexvi-ylek-jvimztvj-477[vijmr]\n\
+hdgdovmt-bmvyz-xjgjmapg-xviyt-xjvodib-yzqzgjkhzio-499[tsira]\n\
+willimcpy-yaa-omyl-nymncha-916[jtwau]\ndpssptjwf-gmpxfs-bobmztjt-389[kjlin]\n\
+gpbepvxcv-snt-tcvxcttgxcv-245[etyfm]\njxdkbqfz-ciltbo-cfkxkzfkd-367[xldij]\n\
+udglrdfwlyh-sodvwlf-judvv-pdunhwlqj-231[rslnt]\n\
+ygcrqpkbgf-ecpfa-eqcvkpi-gpikpggtkpi-440[pgkci]\n\
+sno-rdbqds-eknvdq-otqbgzrhmf-391[yzexr]\n\
+lzfmdshb-atmmx-bnmszhmldms-313[bacsl]\n\
+qczcftiz-xszzmpsob-aofyshwbu-974[nxzyq]\n\
+nwzekwypera-fahhuxawj-iwngapejc-420[yzguv]\n\
+sbnqbhjoh-gmpxfs-efwfmpqnfou-389[sbwne]\nugjjgkanw-xdgowj-ksdwk-554[sntqw]\n\
+wdjcvuvmyjpn-kgvnodx-bmvnn-ncdkkdib-213[apifx]\n\
+nvrgfezqvu-tyftfcrkv-uvgcfpdvek-269[tiuvc]\nuiovmbqk-jcvvg-abwziom-252[trvgn]\
+\nfydelmwp-prr-ecltytyr-561[ryelp]\n\
+ujoon-rpcsn-rdpixcv-jhtg-ithixcv-999[dcbon]\n\
+ahngzyzqcntr-eknvdq-dmfhmddqhmf-131[dhmnq]\n\
+iqmbazulqp-ngzzk-fqotzaxask-222[nmtgf]\n\
+tfejldvi-xiruv-avccpsvre-nfibjyfg-113[vfice]\n\
+wlsiayhcw-nij-mywlyn-xsy-nywbhifias-552[otlcf]\n\
+muqfedyput-sqdto-seqjydw-skijecuh-iuhlysu-764[mqlfy]\n\
+wbhsfbohwcboz-suu-hfowbwbu-324[bwhou]\n\
+owshgfarwv-hdsklau-yjskk-suimakalagf-944[wtiza]\n\
+ahngzyzqcntr-rbzudmfdq-gtms-bnmszhmldms-859[yvztm]\n\
+qyujihctyx-vohhs-fiacmncwm-292[knzep]\nvetllbybxw-xzz-ybgtgvbgz-579[bgzlt]\n\
+zekvierkzferc-tyftfcrkv-uvgrikdvek-477[pecqo]\n\
+molgbzqfib-mixpqfz-doxpp-obzbfsfkd-367[ptnjg]\n\
+oxmeeuruqp-otaoaxmfq-geqd-fqefuzs-924[puwxb]\n\
+gpewwmjmih-nippcfier-gsrxemrqirx-646[tpsoa]\n\
+xgvnndadzy-wvnfzo-gvwjmvojmt-603[nfstl]\n\
+bjfutsneji-hfsid-htfynsl-htsyfnsrjsy-983[fdzej]\n\
+pynffvsvrq-wryylorna-qrcnegzrag-351[dymsz]\n\
+xjgjmapg-rzvkjiduzy-wvnfzo-kpmxcvndib-109[eyrcm]\n\
+sebehvkb-rkddo-vydqdsydw-296[lgonm]\nhjgbwuladw-uzgugdslw-kwjnauwk-138[kgloe]\
+\nohmnuvfy-wuhxs-wiuncha-uwkocmcncih-890[tvylz]\n\
+udpsdjlqj-iorzhu-wudlqlqj-491[rtwma]\n\
+rdggdhxkt-ytaanqtpc-ejgrwphxcv-635[gtacd]\n\
+eqttqukxg-ecpfa-yqtmujqr-596[hnvwy]\nlaffe-lruckx-iutzgotsktz-852[nglsy]\n\
+pkl-oaynap-xwogap-yqopkian-oanreya-394[ebzft]\n\
+kyelcrga-afmamjyrc-bcnyprkclr-314[crayk]\n\
+joufsobujpobm-dipdpmbuf-ufdiopmphz-571[ytgxs]\n\
+ydjuhdqjyedqb-fbqijys-whqii-tufqhjcudj-894[ekswi]\n\
+ajvyjprwp-kdwwh-mnenuxyvnwc-251[psaok]\nibghopzs-suu-gsfjwqsg-220[qshwm]\n\
+ugjjgkanw-hdsklau-yjskk-dstgjslgjq-502[lqxth]\n\
+ugdgjxmd-hdsklau-yjskk-hmjuzskafy-788[vtyzi]\n\
+lqwhuqdwlrqdo-mhoobehdq-oderudwrub-751[bzype]\n\
+wdjcvuvmyjpn-kgvnodx-bmvnn-pnzm-oznodib-837[dcbaw]\n\
+vcibutulxiom-qyujihctyx-wbiwifuny-fiacmncwm-994[tjxnm]\n\
+vqr-ugetgv-dcumgv-tgegkxkpi-102[gvekt]\n\
+encuukhkgf-lgnnadgcp-wugt-vguvkpi-752[vdmps]\n\
+ktfitzbgz-wrx-vhgmtbgfxgm-267[twjsh]\n\
+dzczkrip-xiruv-jtrmvexvi-ylek-kvtyefcfxp-243[vctis]\n\
+pynffvsvrq-enzcntvat-qlr-qrcnegzrag-377[vdxzy]\n\
+zixppfcfba-mixpqfz-doxpp-ixyloxqlov-679[pxfio]\n\
+shoewudys-isqludwuh-xkdj-kiuh-juijydw-608[qedlg]\n\
+qjopwxha-ywjzu-ykwpejc-nayaerejc-524[syznu]\n\
+upq-tfdsfu-dboez-dpbujoh-nbobhfnfou-415[bfoud]\n\
+fruurvlyh-udeelw-dqdobvlv-907[psznj]\n\
+tcfkqcevkxg-dwppa-wugt-vguvkpi-336[klouj]\n\
+plolwdub-judgh-gbh-uhdftxlvlwlrq-621[bnwav]\n\
+chnylhuncihuf-wuhxs-wiuncha-xypyfijgyhn-110[hnuyc]\n\
+froruixo-gbh-rshudwlrqv-153[amoni]\nclxalrtyr-nsznzwlep-zapcletzyd-327[guevs]\
+\nxgsvgmotm-igtje-rghuxgzuxe-306[lcxzy]\n\
+gpsxdprixkt-rpcsn-gtprfjxhxixdc-401[xprcd]\n\
+lsyrkjkbnyec-nio-bokmaescsdsyx-874[nkgyo]\nbuzahisl-ibuuf-zopwwpun-747[vwuxt]\
+\nvqr-ugetgv-fag-yqtmujqr-882[gqrtu]\nbgmxkgtmbhgte-wrx-wxlbzg-137[zquts]\n\
+ujqgywfau-ugdgjxmd-tskcwl-hmjuzskafy-112[yolzm]\n\
+lqwhuqdwlrqdo-fkrfrodwh-frqwdlqphqw-985[qwdrf]\n\
+surmhfwloh-fdqgb-uhvhdufk-621[dimhn]\nfhezusjybu-hqrryj-qdqboiyi-322[esjtk]\n\
+gvaaz-tdbwfohfs-ivou-tijqqjoh-857[oafhi]\nxmtjbzidx-xviyt-mznzvmxc-759[xmzit]\
+\ntfiifjzmv-gcrjkzt-xirjj-dribvkzex-399[ijrzf]\n\
+zuv-ykixkz-kmm-uvkxgzouty-748[xvipz]\n\
+gokzyxsjon-cmkfoxqob-rexd-domrxyvyqi-172[yfozw]\n\
+plolwdub-judgh-frqvxphu-judgh-sodvwlf-judvv-frqwdlqphqw-959[duhlq]\n\
+kfg-jvtivk-treup-tfekrzedvek-373[xyqzr]\n\
+dmybmsuzs-oaddaeuhq-qss-pqeusz-586[mansh]\n\
+ryexqpqhteki-rqiauj-iqbui-660[trqbl]\nytu-xjhwjy-jll-wjhjnansl-125[zketn]\n\
+fhezusjybu-muqfedyput-sqdto-udwyduuhydw-660[udyef]\n\
+qspkfdujmf-dipdpmbuf-mphjtujdt-909[dwuov]\n\
+cebwrpgvyr-enqvbnpgvir-enoovg-nanylfvf-533[akmyb]\n\
+qfmcusbwq-pogysh-hfowbwbu-246[hdsbg]\n\
+dmybmsuzs-bxmefuo-sdmee-abqdmfuaze-846[wsntq]\n\
+sno-rdbqds-azrjds-nodqzshnmr-157[ogtbm]\n\
+dpotvnfs-hsbef-cbtlfu-qvsdibtjoh-493[isjkl]\n\
+nwilwcejc-lhwopey-cnwoo-odellejc-732[isofe]\n\
+gokzyxsjon-mkxni-mykdsxq-bomosfsxq-822[nyudi]\n\
+molgbzqfib-gbiivybxk-obxznrfpfqflk-679[wotra]\n\
+cybyjqho-whqtu-rqiauj-jhqydydw-920[qyhjd]\ntinnm-pogysh-ghcfous-506[xtcso]\n\
+myvybpev-cmkfoxqob-rexd-cdybkqo-146[boycd]\n\
+pbeebfvir-shmml-enoovg-chepunfvat-949[nltsr]\n\
+apuut-ezggtwzvi-yzqzgjkhzio-135[gdywb]\nxfbqpojafe-ezf-bobmztjt-441[qbwdc]\n\
+ktfitzbgz-xzz-ehzblmbvl-943[zdigt]\neqnqthwn-dcumgv-rwtejcukpi-232[umdca]\n\
+xlrypetn-clmmte-opawzjxpye-379[bkvqj]\n\
+fydelmwp-awldetn-rcldd-lylwjdtd-821[dlwet]\n\
+owshgfarwv-esyfwlau-kusnwfywj-zmfl-ugflsafewfl-658[fwlsa]\n\
+bnmrtldq-fqzcd-eknvdq-sqzhmhmf-807[snkmf]\n\
+tyepcyletzylw-upwwjmply-cpnptgtyr-951[kyfol]\n\
+ckgvutofkj-igtje-iugzotm-ynovvotm-462[otgvi]\n\
+jshzzpmplk-ihzrla-klzpnu-981[yiaum]\n\
+aoubshwq-qczcftiz-qvcqczohs-qighcasf-gsfjwqs-896[hyxzq]\n\
+zilqwikbqdm-kpwkwtibm-ewzsapwx-668[zujgy]\n\
+tpspahyf-nyhkl-jhukf-jvhapun-zopwwpun-669[slmnt]\n\
+iuruxlar-lruckx-aykx-zkyzotm-852[kruxa]\n\
+bdavqofuxq-bxmefuo-sdmee-dqeqmdot-144[gblym]\n\
+eqnqthwn-ygcrqpkbgf-dcumgv-octmgvkpi-778[aznbf]\n\
+amppmqgtc-kyelcrga-bwc-ylyjwqgq-522[aedsm]\n\
+diozmivodjivg-xviyt-xjvodib-vxlpdndodji-109[dcnaq]\n\
+wifilzof-wbiwifuny-uwkocmcncih-474[lcymu]\n\
+dpmpsgvm-dboez-dpbujoh-efwfmpqnfou-779[ujlre]\n\
+iwcjapey-fahhuxawj-nayaerejc-758[elvba]\n\
+tcorcikpi-ejqeqncvg-vgejpqnqia-414[tywiv]\n\
+excdklvo-mrymyvkdo-wkbuodsxq-120[ngxcw]\n\
+nbhofujd-qmbtujd-hsbtt-bobmztjt-467[evdab]\n\
+fubrjhqlf-gbh-pdqdjhphqw-959[nmklz]\nlxuxaodu-snuuhknjw-cnlqwxuxph-667[skyjn]\
+\nytu-xjhwjy-jll-zxjw-yjxynsl-931[tyzfu]\n\
+cjpibabsepvt-sbccju-tbmft-519[ijnyz]\nbkwzkqsxq-lexxi-cobfsmoc-406[xbcko]\n\
+yaxsnlcrun-dwbcjkun-kdwwh-orwjwlrwp-823[wnrcd]\n\
+jchipqat-gpqqxi-ejgrwphxcv-739[pqcgh]\netyyx-dff-cdudknoldms-937[dfyce]\n\
+jsehsyafy-vqw-dgyaklauk-112[rhsgp]\n\
+nzwzcqfw-awldetn-rcldd-opalcexpye-587[cdelw]\n\
+nvrgfezqvu-wcfnvi-uvjzxe-139[vefnu]\napuut-kgvnodx-bmvnn-ncdkkdib-915[stofz]\n\
+hwdtljsnh-ojqqdgjfs-zxjw-yjxynsl-489[ftzsy]\n\
+pualyuhapvuhs-jhukf-jvhapun-ayhpupun-877[oflqz]\n\
+yaxsnlcrun-bljenwpna-qdwc-mnenuxyvnwc-407[ncwae]\n\
+eqnqthwn-ejqeqncvg-nqikuvkeu-102[exsvc]\n\
+ynssr-lvtoxgzxk-angm-tvjnblbmbhg-813[bgnlm]\n\
+sehheiylu-zubboruqd-cqdqwucudj-400[ziuys]\n\
+awzwhofm-ufors-qobrm-gozsg-246[zurge]\n\
+ahngzyzqcntr-bzmcx-bnzshmf-lzmzfdldms-677[zmnbc]\n\
+eza-dpncpe-awldetn-rcldd-wzrtdetnd-769[mtgef]\n\
+htsxzrjw-lwfij-kqtbjw-wjxjfwhm-931[sjxwa]\n\
+szfyrqriuflj-jtrmvexvi-ylek-nfibjyfg-373[alfvj]\n\
+emixwvqhml-ntwemz-amzdqkma-876[lutzf]\nhwbba-fag-tgegkxkpi-726[zilbc]\n\
+nwilwcejc-zua-zalhkuiajp-212[acijl]\n\
+aflwjfslagfsd-esyfwlau-kusnwfywj-zmfl-mkwj-lwklafy-892[flwas]\n\
+fmsledevhsyw-fewoix-xiglrspskc-256[sefil]\n\
+zuv-ykixkz-lruckx-ykxboiky-306[odviu]\nftzgxmbv-utldxm-ftgtzxfxgm-969[noxmk]\n\
+ojk-nzxmzo-nxvqzibzm-cpio-mzvxlpdndodji-109[nfysr]\n\
+molgbzqfib-mixpqfz-doxpp-abmilvjbkq-133[bimpq]\n\
+zekvierkzferc-tyftfcrkv-jkfirxv-867[bjyft]\ngvaaz-ezf-bobmztjt-727[muyvq]\n\
+mvhkvbdib-zbb-hvivbzhzio-551[yntvz]\ndwbcjkun-kdwwh-ujkxajcxah-641[jkwac]\n\
+lhkhszqx-fqzcd-qzaahs-lzmzfdldms-209[tklbi]\n\
+njmjubsz-hsbef-sbccju-qvsdibtjoh-571[tpswx]\n\
+avw-zljyla-lnn-zopwwpun-149[lnwap]\n\
+ckgvutofkj-hgyqkz-iayzuskx-ykxboik-358[mdnay]\n\
+ytu-xjhwjy-hfsid-rfsfljrjsy-697[hmiag]\n\
+houngfgxjuay-igtje-sgtgmksktz-384[monuj]\nqfkkj-ojp-ecltytyr-249[itsvz]\n\
+udglrdfwlyh-udeelw-zrunvkrs-985[dlrue]\n\
+gsvvswmzi-tpewxmg-kveww-viwievgl-178[vbmit]\n\
+houngfgxjuay-yigbktmkx-natz-ykxboiky-930[bjyzu]\n\
+eqttqukxg-uecxgpigt-jwpv-uvqtcig-102[gnzpx]\namjmpdsj-bwc-pcqcypaf-288[gsywq]\
+\nzntargvp-cynfgvp-tenff-npdhvfvgvba-793[vfngp]\n\
+hdgdovmt-bmvyz-xcjxjgvoz-ozxcijgjbt-811[snjmz]\n\
+etaqigpke-rncuvke-itcuu-ewuvqogt-ugtxkeg-154[eugtk]\n\
+pbybeshy-sybjre-ybtvfgvpf-117[vszqj]\nvqr-ugetgv-tcddkv-uvqtcig-336[hzkdw]\n\
+ykhknbqh-xwogap-pnwejejc-368[nqxzy]\nsehheiylu-rkddo-jusxdebewo-634[edhos]\n\
+mvydjvxodqz-xcjxjgvoz-adivixdib-395[snpmt]\n\
+ahngzyzqcntr-bzmcx-rsnqzfd-183[zfkpc]\n\
+qxdwpopgsdjh-eaphixr-vgphh-detgpixdch-973[hpdgx]\n\
+nij-mywlyn-jlidywncfy-jfumncw-alumm-zchuhwcha-682[nvybs]\n\
+yhtwhnpun-jhukf-klzpnu-383[hnukp]\nyhtwhnpun-qlssfilhu-svnpzapjz-175[fopst]\n\
+sgmtkzoi-jek-jkbkruvsktz-774[whzny]\ngifavtkzcv-wcfnvi-rercpjzj-711[cvfij]\n\
+pkl-oaynap-acc-lqnydwoejc-940[aclno]\nvhkkhlbox-ktuubm-tvjnblbmbhg-475[gyhzn]\
+\nguahyncw-wfummczcyx-wuhxs-guleyncha-422[iybfa]\n\
+ydjuhdqjyedqb-hqrryj-sedjqydcudj-816[ftnej]\n\
+rnqnyfwd-lwfij-gfxpjy-xytwflj-801[phsxc]\n\
+vdzonmhydc-qzaahs-rdquhbdr-365[quvjr]\n\
+ucynmlgxcb-zyqicr-rcaflmjmew-444[ncmzr]\n\
+wfummczcyx-gcfcnuls-aluxy-luvvcn-jolwbumcha-864[culma]\n\
+qzoggwtwsr-dfcxsqhwzs-suu-qighcasf-gsfjwqs-220[sgqwf]\n\
+esyfwlau-mfklstdw-uzgugdslw-suimakalagf-918[igapw]\n\
+zntargvp-wryylorna-genvavat-819[zmnji]\n\
+ugfkmewj-yjsvw-uzgugdslw-umklgewj-kwjnauw-268[wugjk]\n\
+xjinphzm-bmvyz-kgvnodx-bmvnn-pnzm-oznodib-109[rfzpw]\n\
+mvydjvxodqz-mvwwdo-ozxcijgjbt-265[cxfdz]\n\
+ujoon-rwdrdapit-bpcpvtbtci-375[ptbcd]\n\
+aczupnetwp-dnlgpyrpc-sfye-afcnsldtyr-457[cydjq]\n\
+uzfqdzmfuazmx-eomhqzsqd-tgzf-ymzmsqyqzf-898[zmqfd]\n\
+lugjuacha-luvvcn-ijyluncihm-890[uclah]\n\
+mtzslklcozfd-upwwjmply-lnbftdtetzy-379[yzwvu]\n\
+myvybpev-oqq-bocokbmr-328[bomqv]\ntagzsrsjvgmk-xdgowj-ghwjslagfk-346[anbri]\n\
+dpmpsgvm-ezf-mphjtujdt-493[dolas]\nvotubcmf-sbccju-efqbsunfou-831[mnvky]\n\
+zotts-xsy-nywbhifias-188[boqzr]\ngvcskirmg-glsgspexi-irkmriivmrk-646[igrkm]\n\
+bnknqetk-cxd-cdozqsldms-625[dcknq]\neqnqthwn-lgnnadgcp-cpcnauku-206[ytmnv]\n\
+kmjezxodgz-wpiit-mznzvmxc-525[gtdob]\n\
+dpotvnfs-hsbef-fhh-dvtupnfs-tfswjdf-519[fsdht]\n\
+bwx-amkzmb-kpwkwtibm-lmdmtwxumvb-486[qmvwa]\n\
+guahyncw-vohhs-lyuwkocmcncih-760[chnou]\n\
+guahyncw-zfiqyl-nywbhifias-188[szhfp]\nksodcbwnsr-foppwh-kcfygvcd-194[cdfko]\n\
+gpewwmjmih-glsgspexi-jmrergmrk-542[bfqnt]\n\
+vqr-ugetgv-fag-fgxgnqrogpv-440[gvfqr]\n\
+encuukhkgf-etaqigpke-tcddkv-ceswkukvkqp-726[fijhw]\n\
+yrwxefpi-fyrrc-hiwmkr-724[rfiwy]\n\
+hwdtljsnh-bjfutsneji-hfsid-htfynsl-xfqjx-801[cdbsl]\n\
+xjmmjndqz-xcjxjgvoz-jkzmvodjin-681[jmxzd]\n\
+jqwpihizlwca-kivlg-tijwzibwzg-200[jpsbx]\n\
+fodvvlilhg-froruixo-fkrfrodwh-wudlqlqj-621[yketz]\n\
+wpuvcdng-fag-fgrctvogpv-518[klean]\n\
+xgvnndadzy-xviyt-xjvodib-mzxzdqdib-421[oypak]\n\
+kzeed-gzssd-qtlnxynhx-515[byszr]\nsurmhfwloh-iorzhu-pdqdjhphqw-517[bhpqy]\n\
+xcitgcpixdcpa-ytaanqtpc-rjhidbtg-htgkxrt-167[kjlxw]\n\
+yuxufmdk-sdmpq-nmewqf-emxqe-248[cteon]\niuxxuyobk-kmm-xkykgxin-306[hjxkm]\n\
+joufsobujpobm-dboez-dpbujoh-mphjtujdt-675[fwybh]\n\
+ajmrxjlcren-ouxfna-vjatncrwp-459[ajnrc]\n\
+nwzekwypera-xwogap-paydjkhkcu-992[akpwe]\n\
+aietsrmdih-gpewwmjmih-gerhc-stivexmsrw-282[eimhr]\n\
+sxdobxkdsyxkv-nio-yzobkdsyxc-874[gpnhm]\nqfkkj-mldvpe-afcnsldtyr-639[dfkla]\n\
+eqnqthwn-tcddkv-ucngu-674[lekca]\nlqxlxujcn-bcxajpn-667[aomrt]\n\
+etaqigpke-dcumgv-wugt-vguvkpi-180[guvei]\n\
+udglrdfwlyh-mhoobehdq-orjlvwlfv-413[mnizv]\n\
+wyvqljapsl-jhukf-jvhapun-klzpnu-851[ixkjt]\n\
+esyfwlau-jsttal-wfyafwwjafy-138[afwyj]\n\
+bdavqofuxq-ymszqfuo-otaoaxmfq-fdmuzuzs-222[zbyrv]\n\
+udskkaxawv-wyy-vwkayf-996[drsqf]\n\
+qzoggwtwsr-qczcftiz-foppwh-gvwddwbu-246[btqac]\n\
+yaxsnlcrun-yujbcrl-pajbb-nwprwnnarwp-745[cdwey]\n\
+zhdsrqlchg-gbh-pdunhwlqj-439[hdglq]\n\
+zekvierkzferc-nvrgfezqvu-treup-tfrkzex-ivjvrity-139[nthvs]\n\
+vhkkhlbox-ktwbhtvmbox-vtgwr-vhtmbgz-ftgtzxfxgm-709[tbghv]\n\
+kmjezxodgz-xmtjbzidx-agjrzm-rjmfncjk-863[hramk]\n\
+qspkfdujmf-kfmmzcfbo-vtfs-uftujoh-129[nmtql]\n\
+ipvohghykvbz-jhukf-jvhapun-jvuahputlua-591[cyqjf]\n\
+lahxpnwrl-lqxlxujcn-vjwjpnvnwc-563[wcjme]\n\
+sbejpbdujwf-qmbtujd-hsbtt-bdrvjtjujpo-493[jbtdu]\n\
+ujoon-hrpktcvtg-wjci-stepgibtci-115[tdcgy]\n\
+wlqqp-jtrmvexvi-ylek-rercpjzj-321[pyfoz]\n\
+qyujihctyx-vohhs-yhachyylcha-604[xfbmz]\n\
+eza-dpncpe-nlyoj-nzletyr-epnsyzwzrj-925[ytbnm]\n\
+nzwzcqfw-awldetn-rcldd-lnbftdtetzy-743[tomzn]\n\
+nwzekwypera-bhksan-yqopkian-oanreya-914[otvsm]\n\
+avw-zljyla-wshzapj-nyhzz-klclsvwtlua-773[lazwh]\n\
+plolwdub-judgh-iorzhu-vdohv-179[bmrjz]\nlnkfaypeha-zua-zarahkliajp-368[tzngm]\
+\nslqryzjc-afmamjyrc-pcqcypaf-418[tjmsy]\n\
+frqvxphu-judgh-vfdyhqjhu-kxqw-rshudwlrqv-387[dxhnm]\n\
+uqtqbizg-ozilm-lgm-nqvivkqvo-928[rmnzf]\n\
+lqwhuqdwlrqdo-edvnhw-ilqdqflqj-335[ctsda]\n\
+zloolpfsb-mixpqfz-doxpp-obzbfsfkd-133[txiel]\n\
+otzkxtgzoutgr-igtje-iugzotm-xkykgxin-592[zywxn]\n\
+sbnqbhjoh-kfmmzcfbo-nbobhfnfou-701[fihgn]\n\
+eqttqukxg-tcfkqcevkxg-rncuvke-itcuu-vtckpkpi-960[fobts]\n\
+xgjougizobk-hatte-jkbkruvsktz-592[ktbgj]\nbqvvu-bhksan-pnwejejc-836[tcjgz]\n\
+ikhcxvmbex-unggr-kxvxbobgz-787[opysz]\n\
+jsehsyafy-usfvq-mkwj-lwklafy-320[msztr]\n\
+ikhcxvmbex-ktuubm-ftgtzxfxgm-891[ojsny]\n\
+ajvyjprwp-ajkkrc-mnenuxyvnwc-381[umkpn]\npinovwgz-zbb-mznzvmxc-993[aumbt]\n\
+ajyqqgdgcb-aylbw-rcaflmjmew-678[abcgj]\nhoungfgxjuay-kmm-zxgototm-488[zudop]\n\
+kmjezxodgz-ezggtwzvi-ozxcijgjbt-707[jyizu]\n\
+eadalsjq-yjsvw-xdgowj-mkwj-lwklafy-762[jwald]\n\
+aczupnetwp-ojp-dstaatyr-379[ftyeo]\n\
+gvcskirmg-yrwxefpi-gerhc-gsexmrk-ywiv-xiwxmrk-958[rgixe]\n\
+yuxufmdk-sdmpq-rxaiqd-pqbmdfyqzf-196[azivn]\n\
+qyujihctyx-wuhxs-yhachyylcha-344[zdimn]\nrflsjynh-idj-yjhmstqtld-515[cvfph]\n\
+lqwhuqdwlrqdo-edvnhw-rshudwlrqv-257[nlxst]\nodiih-kdwwh-mnbrpw-953[wdhib]\n\
+ugdgjxmd-uzgugdslw-klgjsyw-814[cktda]\n\
+mybbycsfo-pvygob-myxdksxwoxd-744[ifscp]\nbqvvu-ywjzu-odellejc-316[krcsj]\n\
+nzcczdtgp-dnlgpyrpc-sfye-cplnbftdtetzy-743[kbdyu]\n\
+pinovwgz-xcjxjgvoz-xjiovdihzio-525[mhjxn]\n\
+ckgvutofkj-igtje-xkykgxin-878[vimez]\nrmn-qcapcr-zsllw-bcnjmwkclr-912[anzkg]\n\
+ipvohghykvbz-yhiipa-zlycpjlz-227[oyzjt]\n\
+nwilwcejc-nwxxep-wymqeoepekj-550[ztyes]\n\
+uzfqdzmfuazmx-otaoaxmfq-pqhqxabyqzf-274[qafzm]\n\
+hafgnoyr-qlr-chepunfvat-975[zauvm]\n\
+irdgrxzex-treup-tfrkzex-ljvi-kvjkzex-269[lozqp]\n\
+udskkaxawv-bwddqtwsf-klgjsyw-944[nmsxw]\nujoon-rpcsn-gtprfjxhxixdc-921[xcjno]\
+\njrncbavmrq-enoovg-qrfvta-195[aqyxs]\n\
+xgsvgmotm-yigbktmkx-natz-iutzgotsktz-462[smvtd]\n\
+sxdobxkdsyxkv-mkxni-zebmrkcsxq-770[zkwax]\nzbytomdsvo-oqq-crszzsxq-614[iwqoc]\
+\nwfruflnsl-kqtbjw-qfgtwfytwd-801[imsvp]\nnglmtuex-wrx-ybgtgvbgz-787[etuki]\n\
+ixeumktoi-yigbktmkx-natz-uvkxgzouty-774[hylkz]\n\
+cxy-bnlanc-ljwmh-cnlqwxuxph-719[unwgt]\n\
+xcitgcpixdcpa-ytaanqtpc-hidgpvt-453[cptai]\n\
+udglrdfwlyh-fkrfrodwh-fxvwrphu-vhuylfh-985[ntvum]\n\
+dsxxw-glrcplyrgmlyj-afmamjyrc-yaosgqgrgml-912[hstuv]\n\
+nglmtuex-xzz-wxiehrfxgm-267[wjyqr]\nixccb-fdqgb-xvhu-whvwlqj-153[bchqv]\n\
+vhehkyne-vtgwr-vhtmbgz-ehzblmbvl-449[mnuht]\n\
+xgjougizobk-hgyqkz-jkyomt-774[sdeqt]\nktiaaqnqml-zijjqb-abwziom-252[fgisn]\n\
+glrcplyrgmlyj-cee-pcyaosgqgrgml-470[osmrp]\n\
+qjopwxha-lhwopey-cnwoo-nawymqeoepekj-472[rfgnc]\n\
+plolwdub-judgh-fdqgb-vklsslqj-959[ldbgj]\n\
+yknnkoera-zua-wymqeoepekj-472[rsqmj]\nujoon-ytaanqtpc-gtrtxkxcv-635[tacno]\n\
+tcfkqcevkxg-fag-ujkrrkpi-856[njiek]\n\
+uzfqdzmfuazmx-bdavqofuxq-qss-dqmocgueufuaz-170[wktxs]\n\
+ltpedcxots-rpcsn-hwxeexcv-375[draoy]\nzntargvp-pnaql-nanylfvf-585[iejdf]\n\
+lqwhuqdwlrqdo-vfdyhqjhu-kxqw-orjlvwlfv-101[szrtk]\n\
+dyz-combod-oqq-cdybkqo-614[odqbc]\njyddc-fyrrc-wepiw-802[chjtm]\n\
+nglmtuex-yehpxk-phkdlahi-319[cjshn]\nsurmhfwloh-fdqgb-xvhu-whvwlqj-205[vzite]\
+\nwrs-vhfuhw-udeelw-dqdobvlv-179[znwyc]\n\
+myxcewob-qbkno-lkcuod-cdybkqo-328[ysbjw]\n\
+ixeumktoi-inuiurgzk-giwaoyozout-124[vnlcr]\n\
+vhehkyne-utldxm-nlxk-mxlmbgz-839[cnryt]\n\
+tagzsrsjvgmk-tskcwl-klgjsyw-216[sgkjl]\nbjfutsneji-idj-ijajqturjsy-203[gkoyb]\
+\nplolwdub-judgh-gbh-wudlqlqj-335[snabj]\n\
+ydjuhdqjyedqb-sqdto-seqjydw-tufbeocudj-504[cawtu]\n\
+fkqbokxqflkxi-ciltbo-jxohbqfkd-913[mthlx]\n\
+eadalsjq-yjsvw-tskcwl-sfsdqkak-840[sakdj]\n\
+tipfxvezt-dzczkrip-xiruv-irsszk-ivtvzmzex-347[ewgst]\n\
+plolwdub-judgh-fdqgb-pdqdjhphqw-309[slvtc]\n\
+nwilwcejc-iehepwnu-cnwza-ywjzu-naoawnyd-914[wnace]\n\
+lejkrscv-irsszk-fgvirkzfej-633[krsef]\n\
+qzlozfhmf-bgnbnkzsd-qdrdzqbg-105[ltrxz]\n\
+hmsdqmzshnmzk-bkzrrhehdc-idkkxadzm-sqzhmhmf-833[vsftk]\n\
+mbggf-wyvqljapsl-ibuuf-ylhjxbpzpapvu-565[kxetg]\n\
+vehmsegxmzi-tpewxmg-kveww-erepcwmw-360[ewmgp]\n\
+mhi-lxvkxm-xzz-wxoxehifxgm-475[zvuxn]\npejji-nio-gybucryz-848[scvwe]\n\
+oqnidbshkd-rbzudmfdq-gtms-cdozqsldms-729[dsmqb]\n\
+hmsdqmzshnmzk-lzfmdshb-idkkxadzm-btrsnldq-rdquhbd-937[yncvm]\n\
+fmsledevhsyw-wgezirkiv-lyrx-jmrergmrk-932[bgytv]\n\
+houngfgxjuay-lruckx-iayzuskx-ykxboik-462[vefmw]\n\
+njmjubsz-hsbef-dboez-vtfs-uftujoh-337[bfjsu]\n\
+lhkhszqx-fqzcd-azrjds-cdozqsldms-157[amnks]\n\
+dpotvnfs-hsbef-dipdpmbuf-tbmft-103[zhrge]\n\
+sebehvkb-rqiauj-jusxdebewo-166[jscdv]\n\
+diozmivodjivg-pinovwgz-ezggtwzvi-mznzvmxc-811[ysntj]\n\
+kwtwznct-kpwkwtibm-zmamizkp-902[kwmtz]\njyddc-fyrrc-asvowlst-828[ybfgd]\n\
+tagzsrsjvgmk-vqw-ugflsafewfl-580[xmqnr]\nmfklstdw-tmffq-kwjnauwk-502[fkwmt]\n\
+xcitgcpixdcpa-rpcsn-rdpixcv-rdcipxcbtci-453[ynzqc]\n\
+fmsledevhsyw-wgezirkiv-lyrx-hitevxqirx-542[eirvx]\n\
+ojk-nzxmzo-zbb-ozxcijgjbt-213[zbjox]\ngpewwmjmih-hci-vigimzmrk-932[injxy]\n\
+gpsxdprixkt-qjccn-hpath-349[pchtx]\n\
+diozmivodjivg-nxvqzibzm-cpio-omvdidib-109[jivdx]\n\
+dzczkrip-xiruv-srjbvk-crsfirkfip-269[mbnda]\n\
+lgh-kwujwl-usfvq-ugslafy-vwhsjlewfl-580[ftwxr]\n\
+ymszqfuo-rxaiqd-xmnadmfadk-456[smxyt]\n\
+slqryzjc-njyqrga-epyqq-kypicrgle-158[ktcij]\n\
+apwmeclga-hcjjwzcyl-bctcjmnkclr-496[cjlam]\n\
+pejji-zvkcdsm-qbkcc-gybucryz-770[junto]\nkzeed-kqtbjw-xmnuunsl-931[eknub]\n\
+fhezusjybu-sedikcuh-whqtu-hqrryj-cqhaujydw-322[kogjn]\n\
+encuukhkgf-uecxgpigt-jwpv-fgrnqaogpv-648[gpuce]\n\
+fnjyxwrinm-kjbtnc-bjunb-225[nbjcf]\ngifavtkzcv-sleep-kvtyefcfxp-737[cusry]\n\
+nij-mywlyn-xsy-fiacmncwm-266[txfyk]\npxtihgbsxw-cxeeruxtg-labiibgz-501[vfryk]\
+\noaxadrgx-vqxxknqmz-etubbuzs-612[gmzpy]\n\
+oxaflxzqfsb-yxphbq-obzbfsfkd-497[gsjqc]\n\
+lxaaxbren-ajmrxjlcren-kdwwh-uxprbcrlb-563[rxabl]\n\
+drxevkzt-jtrmvexvi-ylek-ivrthlzjzkzfe-893[evzkr]\n\
+xst-wigvix-veqtekmrk-hci-hizipstqirx-334[itxeh]\n\
+hqcfqwydw-sxesebqju-bewyijysi-556[upyan]\noxjmxdfkd-avb-abmxoqjbkq-809[cuyzr]\
+\nvkppo-isqludwuh-xkdj-husuylydw-686[sfajr]\n\
+nwilwcejc-ykjoqian-cnwza-ywjzu-ykjpwejiajp-576[jwaci]\n\
+gpewwmjmih-hci-jmrergmrk-360[jftsi]\n\
+ibghopzs-gqojsbusf-vibh-gvwddwbu-324[ratwb]\n\
+mvhkvbdib-wvnfzo-gvwjmvojmt-785[zljyf]\nlahxpnwrl-mhn-bjunb-719[kexws]\n\
+iuxxuyobk-inuiurgzk-vaxingyotm-722[snwtx]\n\
+rnqnyfwd-lwfij-xhfajsljw-mzsy-wjhjnansl-671[nyphz]\n\
+uwtojhynqj-wfggny-yjhmstqtld-229[qzmtg]\n\
+dfcxsqhwzs-pibbm-qighcasf-gsfjwqs-220[iucxp]\n\
+eqttqukxg-dwppa-uvqtcig-362[setiw]\ngcfcnuls-aluxy-vohhs-guleyncha-500[gchrt]\
+\nocipgvke-dwppa-gpikpggtkpi-518[tihzs]\n\
+qfmcusbwq-dzoghwq-ufogg-cdsfohwcbg-454[ylkjh]\n\
+yhtwhnpun-msvdly-zlycpjlz-123[qjnxy]\n\
+lxuxaodu-ljwmh-lxjcrwp-anjlzdrbrcrxw-199[lnesc]\n\
+qekrixmg-jpsaiv-tyvglewmrk-646[egikm]\nemixwvqhml-moo-wxmzibqwva-720[mwioq]\n\
+kpvgtpcvkqpcn-dwppa-cpcnauku-934[bmprc]\nlugjuacha-vumeyn-mylpcwym-604[muyac]\
+\nlzfmdshb-ahngzyzqcntr-dff-nodqzshnmr-937[pwdof]\n\
+sbqiiyvyut-vkppo-zubboruqd-cqdqwucudj-348[osntj]\n\
+ubhatstkwhnl-wrx-ftkdxmbgz-111[fojwk]\nmvhkvbdib-zbb-ncdkkdib-967[brnch]\n\
+vetllbybxw-utldxm-mktbgbgz-579[gljhz]\n\
+htsxzrjw-lwfij-gzssd-btwpxmtu-333[rhtqs]\n\
+nzcczdtgp-nlyoj-nzletyr-xlcvpetyr-587[smnct]\n\
+pybgmyargtc-zsllw-jyzmpyrmpw-366[zutsy]\nkfg-jvtivk-upv-jvimztvj-997[xicjt]\n\
+kpvgtpcvkqpcn-hnqygt-ewuvqogt-ugtxkeg-388[gtkpq]\n\
+ktiaaqnqml-kpwkwtibm-mvoqvmmzqvo-564[asert]\n\
+mfklstdw-uzgugdslw-dgyaklauk-892[dgklu]\ngzefmnxq-pkq-xmnadmfadk-196[madfk]\n\
+qcbgiasf-ufors-dzoghwq-ufogg-ghcfous-714[yiavh]\n\
+veqtekmrk-nippcfier-asvowlst-958[thmsn]\n\
+iehepwnu-cnwza-zua-skngodkl-134[naeku]\nxfbqpojafe-fhh-tfswjdft-571[fhjta]\n\
+laffe-jek-ygrky-150[pjbaq]\nlxwbdvna-pajmn-kjbtnc-fxatbqxy-459[xbmlo]\n\
+wkqxodsm-bkllsd-bomosfsxq-276[isaey]\n\
+ovbunmneqbhf-fpniratre-uhag-qrirybczrag-741[rabne]\n\
+xjmmjndqz-mvwwdo-kpmxcvndib-395[hyolt]\n\
+zbytomdsvo-mkxni-mykdsxq-bomosfsxq-276[efcvd]\n\
+jqwpihizlwca-bwx-amkzmb-jcvvg-ivitgaqa-252[dsmej]\n\
+dszphfojd-sbccju-nbobhfnfou-805[bfocd]\nhwbba-lgnnadgcp-vgejpqnqia-830[ptkvu]\
+\nwfintfhynaj-hmthtqfyj-fhvznxnynts-125[nfhty]\n\
+wfummczcyx-wbiwifuny-mbcjjcha-864[cmwbf]\n\
+tfcfiwlc-avccpsvre-uvjzxe-269[cvefa]\ndlhwvupglk-msvdly-dvyrzovw-331[nmeji]\n\
+fnjyxwrinm-npp-orwjwlrwp-979[tqyvp]\nsgmtkzoi-hgyqkz-xkgiwaoyozout-904[ogkzi]\
+\nqjopwxha-oywrajcan-dqjp-opknwca-680[qgsnh]\n\
+oxjmxdfkd-zxkav-pxibp-185[mtfwl]\nmfklstdw-wyy-lwuzfgdgyq-814[iznma]\n\
+zlilocri-bdd-pefmmfkd-341[intay]\nrwcnawjcrxwju-kdwwh-cajrwrwp-849[wrcja]\n\
+xmrrq-uzgugdslw-jwuwanafy-372[uwagr]\nkzgwomvqk-zijjqb-ewzsapwx-278[wzjkq]\n\
+lxuxaodu-ouxfna-ujkxajcxah-277[xaujo]\n\
+nwzekwypera-iehepwnu-cnwza-fahhuxawj-zalhkuiajp-186[nbzay]\n\
+vhkkhlbox-ktuubm-hixktmbhgl-943[byecg]\n\
+qxdwpopgsdjh-uadltg-prfjxhxixdc-141[eqzvr]\n\
+kyelcrga-zsllw-pcacgtgle-522[lcgae]\n\
+qzoggwtwsr-ksodcbwnsr-dzoghwq-ufogg-zcuwghwqg-818[dzclv]\n\
+xekdwvwnzkqo-lhwopey-cnwoo-bejwjyejc-238[ksrhc]\n\
+npmhcargjc-cee-bctcjmnkclr-782[tgrxz]\n\
+hwbba-ecpfa-eqcvkpi-ceswkukvkqp-336[kcepa]\n\
+uwtojhynqj-hmthtqfyj-wjhjnansl-437[kylvd]\n\
+sxdobxkdsyxkv-bknsykmdsfo-oqq-kmaescsdsyx-380[skdxo]\n\
+rmn-qcapcr-afmamjyrc-dglylagle-158[aclmr]\n\
+raphhxuxts-gpqqxi-advxhixrh-583[vuafx]\nnij-mywlyn-xsy-jolwbumcha-760[mkhgy]\n\
+lnkfaypeha-xqjju-odellejc-680[ghsol]\n\
+ytu-xjhwjy-wfggny-zxjw-yjxynsl-931[tynvp]\n\
+myxcewob-qbkno-lkcuod-nofovyzwoxd-744[obcdk]\n\
+diozmivodjivg-mvwwdo-gvwjmvojmt-161[vpsib]\n\
+vhkkhlbox-cxeeruxtg-ehzblmbvl-787[behlx]\n\
+iruzfrtkzmv-treup-tfrkzex-jvimztvj-841[xmwvi]\n\
+kyelcrga-cee-pcacgtgle-730[yladm]\n\
+iutyaskx-mxgjk-yigbktmkx-natz-jkyomt-436[tznsm]\n\
+hvbizodx-agjrzm-ncdkkdib-421[iqnst]\nxzwrmkbqtm-kivlg-lmxtwgumvb-252[tkefm]\n\
+udpsdjlqj-vfdyhqjhu-kxqw-pdqdjhphqw-439[dqhjp]\n\
+mbggf-ibuuf-mpuhujpun-695[gnpdh]\nirdgrxzex-avccpsvre-ivtvzmzex-997[stcvr]\n\
+sawlkjevaz-ywjzu-opknwca-602[awjkz]\nwlqqp-irsszk-tljkfdvi-jvimztv-217[mrqcl]\
+\nsehheiylu-tou-sedjqydcudj-192[teamg]\n\
+ajyqqgdgcb-pyzzgr-kylyeckclr-470[cjtul]\nziuxioqvo-moo-bziqvqvo-278[ixnjm]\n\
+vjpwncrl-kjbtnc-nwprwnnarwp-199[nwprc]\nwpuvcdng-gii-hkpcpekpi-986[picgk]\n\
+dmybmsuzs-nmewqf-iadwetab-456[mabde]\nrtqlgevkng-tcddkv-fgukip-830[juyzr]\n\
+votubcmf-dipdpmbuf-sfbdrvjtjujpo-727[rcslk]\n\
+vhkkhlbox-wrx-ftgtzxfxgm-163[txmwq]\n\
+zloolpfsb-mixpqfz-doxpp-qbzeklildv-289[lpozb]\n\
+rkpqxyib-zxkav-zlxqfkd-xkxivpfp-393[bpquj]\n\
+pbafhzre-tenqr-qlr-freivprf-455[byihv]\n\
+kzeed-hfsid-htfynsl-jslnsjjwnsl-905[egluv]\nnlyoj-nzletyr-lylwjdtd-899[ymzvu]\
+\nlaffe-pkrrehkgt-sgxqkzotm-800[gsdnt]\nynukcajey-xwogap-zaoecj-212[ewjah]\n\
+rgndvtcxr-bxaxipgn-vgpst-hrpktcvtg-wjci-sthxvc-661[zwgis]\n\
+ujqgywfau-vqw-vwnwdghewfl-580[istzh]\n\
+jyddc-tvsnigxmpi-fewoix-hiwmkr-178[idmwx]\n\
+fab-eqodqf-omzpk-etubbuzs-430[befoq]\nibghopzs-suu-fsoqeiwgwhwcb-792[qzyrk]\n\
+sedikcuh-whqtu-uww-vydqdsydw-166[dwuhq]\n\
+cjpibabsepvt-qmbtujd-hsbtt-tupsbhf-467[wsrek]\n\
+aietsrmdih-ikk-gsrxemrqirx-594[irekm]\nbwx-amkzmb-jcvvg-bziqvqvo-694[vbmqz]\n\
+ixccb-exqqb-xvhu-whvwlqj-647[qxbch]\nnwlddtqtpo-nlyoj-dezclrp-639[dlnop]\n\
+ahngzyzqcntr-azrjds-otqbgzrhmf-833[oquzx]\n\
+xcitgcpixdcpa-gpqqxi-ejgrwphxcv-193[cpxgi]\n\
+buzahisl-zjhclunly-obua-svnpzapjz-643[zalub]\n\
+excdklvo-mkxni-mykdsxq-nozkbdwoxd-458[fxjwy]\n\
+jvyyvzpcl-jyfvnlupj-msvdly-klclsvwtlua-253[injkl]\n\
+emixwvqhml-akidmvomz-pcvb-zmkmqdqvo-434[mvqdi]\n\
+dszphfojd-qmbtujd-hsbtt-sfbdrvjtjujpo-831[ykcho]\n\
+kwzzwaqdm-zijjqb-camz-bmabqvo-902[zabmq]\n\
+nvrgfezqvu-irsszk-jkfirxv-789[neysm]\n\
+yflexwxoalrp-zelzlixqb-jxohbqfkd-679[lxbef]\n\
+wfummczcyx-yaa-nluchcha-344[rmpgs]\ntcfkqcevkxg-gii-ocpcigogpv-674[stfma]\n\
+nwzekwypera-ywjzu-ajcejaanejc-316[xoprq]\n\
+qzlozfhmf-idkkxadzm-btrsnldq-rdquhbd-105[pawus]\n\
+uqtqbizg-ozilm-kivlg-uizsmbqvo-356[xhvzm]\n\
+apuut-kgvnodx-bmvnn-mzvxlpdndodji-473[dnvmo]\n\
+wfummczcyx-dyffsvyuh-guhuaygyhn-500[yufhc]\n\
+cybyjqho-whqtu-shoewudys-vbemuh-tuiywd-842[huywb]\n\
+sedikcuh-whqtu-tou-jhqydydw-920[dhuqt]\n\
+zekvierkzferc-wcfnvi-ljvi-kvjkzex-815[ibzsg]\n\
+froruixo-udeelw-orjlvwlfv-777[zyusv]\noxmeeuruqp-ngzzk-qzsuzqqduzs-222[mcqzj]\
+\ngpewwmjmih-ikk-ywiv-xiwxmrk-568[uszki]\naietsrmdih-jpsaiv-wepiw-334[iaeps]\n\
+joufsobujpobm-cbtlfu-dvtupnfs-tfswjdf-441[fubjo]\n\
+xst-wigvix-hci-viwievgl-256[jnlst]\n\
+oknkvcta-itcfg-wpuvcdng-dwppa-qrgtcvkqpu-414[dcxst]\n\
+rnqnyfwd-lwfij-gfxpjy-htsyfnsrjsy-957[whlxr]\nsbnqbhjoh-fhh-tbmft-181[jndic]\n\
+slqryzjc-afmamjyrc-qcptgacq-236[soytq]\nrgllk-qss-ymdwqfuzs-768[ynsjx]\n\
+nwilwcejc-ywjzu-ykwpejc-pnwejejc-966[fthzx]\n\
+gokzyxsjon-lexxi-gybucryz-146[qomrj]\n\
+cybyjqho-whqtu-zubboruqd-cqhaujydw-192[naxrp]\n\
+esyfwlau-bwddqtwsf-vwkayf-294[acbmr]\nshmml-rtt-znantrzrag-455[vseqh]\n\
+qlm-pbzobq-yrkkv-obpbxoze-601[lfewg]\n\
+fbebmtkr-zktwx-utldxm-ybgtgvbgz-995[stygr]\n\
+ikhcxvmbex-ietlmbv-zktll-vnlmhfxk-lxkobvx-943[lxkvb]\n\
+rgndvtcxr-hrpktcvtg-wjci-prfjxhxixdc-193[crxtd]\n\
+ucynmlgxcb-pyzzgr-kypicrgle-158[qtuyz]\n\
+wpuvcdng-lgnnadgcp-vtckpkpi-466[sftpn]\ntfiifjzmv-treup-kirzezex-633[gjtxn]\n\
+cvabijtm-jiasmb-lmxizbumvb-356[axbtn]\n\
+xgvnndadzy-kgvnodx-bmvnn-yzkgjthzio-395[byaut]\n\
+rdchjbtg-vgpst-tvv-pcpanhxh-765[hptvc]\n\
+hqcfqwydw-isqludwuh-xkdj-cqhaujydw-322[mzgty]\n\
+hvbizodx-wvnfzo-gjbdnodxn-577[kljip]\n\
+udpsdjlqj-fruurvlyh-fdqgb-frdwlqj-vdohv-283[ktzrm]\n\
+xjmmjndqz-zbb-jkzmvodjin-707[jmzbd]\n\
+glrcplyrgmlyj-zsllw-nspafyqgle-184[ptidc]\n\
+zvyvgnel-tenqr-cebwrpgvyr-fpniratre-uhag-hfre-grfgvat-377[zesyf]\n\
+ubhatstkwhnl-vahvhetmx-wxitkmfxgm-605[qzvme]\n\
+iqmbazulqp-dmnnuf-ruzmzouzs-898[shtag]\nsurmhfwloh-gbh-ghsorbphqw-179[sickj]\n\
+htqtwkzq-uqfxynh-lwfxx-xjwanhjx-593[rwtbd]\n\
+kgjgrypw-epybc-njyqrga-epyqq-rpyglgle-600[jkcuz]\n\
+ktiaaqnqml-zijjqb-zmikycqaqbqwv-642[qaibj]\n\
+udglrdfwlyh-fdqgb-frdwlqj-sxufkdvlqj-803[cmkaq]\n\
+oxmeeuruqp-pkq-pqbmdfyqzf-196[qpefm]\n\
+dzczkrip-xiruv-sleep-ivjvrity-893[xjomn]\n\
+dmpuamofuhq-ymszqfuo-otaoaxmfq-fdmuzuzs-482[mufoa]\n\
+nbhofujd-ezf-tbmft-389[cjgtr]\nuzfqdzmfuazmx-otaoaxmfq-iadwetab-820[afmzd]\n\
+froruixo-fdqgb-oderudwrub-205[ziyjo]\n\
+ugjjgkanw-kusnwfywj-zmfl-dstgjslgjq-840[nhxgt]\n\
+zhdsrqlchg-iorzhu-sxufkdvlqj-101[qtzca]\n\
+dsxxw-aylbw-amyrgle-qcptgacq-912[qdwmn]\nveqtekmrk-hci-xiglrspskc-282[tfuln]\n\
+qcffcgwjs-forwcoqhwjs-rms-hfowbwbu-480[hgnsl]\n\
+jvsvymbs-jovjvshal-zhslz-539[ocmvj]\nenqvbnpgvir-rtt-fuvccvat-195[nmrlc]\n\
+oxmeeuruqp-bxmefuo-sdmee-geqd-fqefuzs-170[uenfm]\n\
+wlsiayhcw-wfummczcyx-xsy-xyjfisgyhn-214[zpqtr]\n\
+jxdkbqfz-avb-obxznrfpfqflk-133[fbkqx]\n\
+zvyvgnel-tenqr-pnaql-bcrengvbaf-195[eghnt]\n\
+diozmivodjivg-ytz-vxlpdndodji-551[diovj]\n\
+jyddc-jpsaiv-ywiv-xiwxmrk-308[idjvw]\n\
+pbafhzre-tenqr-enoovg-hfre-grfgvat-403[erfga]\n\
+pbeebfvir-enoovg-ernpdhvfvgvba-793[vebfg]\n\
+wfummczcyx-zfiqyl-uhufsmcm-292[tvcdw]\n\
+kwvacumz-ozilm-zijjqb-ivitgaqa-746[iazjm]\n\
+udpsdjlqj-ixccb-sodvwlf-judvv-ghyhorsphqw-465[kgyhw]\n\
+tcrjjzwzvu-wcfnvi-rthlzjzkzfe-451[zjcfr]\n\
+qxdwpopgsdjh-rpcsn-htgkxrth-947[dkwlb]\nyaxsnlcrun-kdwwh-bnaerlnb-953[zyncx]\n\
+zhdsrqlchg-vfdyhqjhu-kxqw-xvhu-whvwlqj-699[mriyj]\n\
+bkzrrhehdc-bgnbnkzsd-lzqjdshmf-417[izpxt]\n\
+nwzekwypera-fahhuxawj-wjwhuoeo-862[wsmnu]\n\
+zgmfyxypbmsq-bwc-rcaflmjmew-964[nmpwb]\nguahyncw-wuhxs-wihnuchgyhn-188[vmayn]\
+\nkwtwznct-jcvvg-uizsmbqvo-980[ryzva]\n\
+udskkaxawv-lgh-kwujwl-uzgugdslw-vwhdgqewfl-138[trijm]\n\
+shoewudys-rkddo-huiuqhsx-868[tozlb]\nbnknqetk-atmmx-rzkdr-183[zbyuw]\n\
+hwdtljsnh-idj-xytwflj-983[sztqp]\n\
+tipfxvezt-jtrmvexvi-ylek-cfxzjkztj-165[gwmzp]\n\
+clotzlnetgp-nsznzwlep-opdtry-327[khryz]\n\
+mhi-lxvkxm-bgmxkgtmbhgte-wrx-ltexl-449[cfrql]\n\
+hqtyeqsjylu-sxesebqju-cqdqwucudj-686[ngaly]\n\
+zlkprjbo-doxab-avb-ildfpqfzp-211[ponbm]\nbqvvu-zua-ykjpwejiajp-420[mdlgx]\n\
+tfcfiwlc-treup-tfrkzex-drerxvdvek-841[fmlyq]\n\
+rmn-qcapcr-qaytclecp-fslr-bctcjmnkclr-652[zksta]\n\
+oazegyqd-sdmpq-nmewqf-xasuefuoe-248[qypjm]\n\
+kwtwznct-lgm-tijwzibwzg-278[ytdmc]\n\
+wlqqp-gcrjkzt-xirjj-rthlzjzkzfe-555[xzkhl]\n\
+gpewwmjmih-gerhc-erepcwmw-646[stnzy]\ndmybmsuzs-qss-eqdhuoqe-144[sqdem]\n\
+yflexwxoalrp-zelzlixqb-qoxfkfkd-705[gtnxw]\n\
+votubcmf-cvooz-sftfbsdi-701[qhtkp]\niuruxlar-xghhoz-gtgreyoy-306[fnctb]\n\
+slqryzjc-bwc-qyjcq-574[pozts]\n\
+wdjcvuvmyjpn-nxvqzibzm-cpio-gjbdnodxn-525[pcmhn]\n\
+excdklvo-mkxni-mykdsxq-vklybkdybi-744[vmsba]\n\
+pybgmyargtc-hcjjwzcyl-sqcp-rcqrgle-912[nhxvg]\n\
+wifilzof-wuhxs-xypyfijgyhn-760[nuovc]\nktiaaqnqml-jcvvg-lmaqov-512[nwxms]\n\
+kfg-jvtivk-tyftfcrkv-crsfirkfip-945[fkirt]\n\
+tfiifjzmv-avccpsvre-ivjvrity-581[fnemb]\n\
+zotts-wuhxs-wiuncha-xyjfisgyhn-786[tzjse]\nynssr-ktuubm-phkdlahi-579[bemfv]\n\
+xlrypetn-mldvpe-dlwpd-145[rnfmz]\nmfklstdw-wyy-wfyafwwjafy-840[lksij]\n\
+dsxxw-aylbw-amlryglkclr-938[larwx]\nwyvqljapsl-msvdly-mpuhujpun-435[gzlnx]\n\
+bxaxipgn-vgpst-hrpktcvtg-wjci-steadnbtci-323[tcgip]\n\
+oxjmxdfkd-mixpqfz-doxpp-abpfdk-471[dpxfk]\n\
+tipfxvezt-szfyrqriuflj-avccpsvre-ivrthlzjzkzfe-321[zfrve]\n\
+qyujihctyx-mwupyhayl-bohn-uwkocmcncih-708[chyui]\n\
+zilqwikbqdm-kivlg-apqxxqvo-434[obtmp]\nwillimcpy-luvvcn-qilembij-578[ilcmv]\n\
+rflsjynh-kqtbjw-ijxnls-437[zskut]\n\
+jsvagsulanw-hdsklau-yjskk-klgjsyw-814[uzmvg]\n\
+oknkvcta-itcfg-tcddkv-yqtmujqr-908[zdync]\n\
+zvyvgnel-tenqr-pnaql-pbngvat-qrcyblzrag-741[gvtck]\n\
+xjgjmapg-zbb-adivixdib-395[ovzan]\n\
+gvcskirmg-tpewxmg-kveww-wlmttmrk-464[szvty]\n\
+gpewwmjmih-gerhc-gsexmrk-wlmttmrk-620[fqrba]\n\
+jchipqat-gpqqxi-jhtg-ithixcv-661[ihqtc]\n\
+bjfutsneji-ojqqdgjfs-ijufwyrjsy-619[jfsiq]\n\
+gvcskirmg-fyrrc-hitpscqirx-308[kwgpv]\nmvhkvbdib-wpiit-rjmfncjk-525[stlem]\n\
+bnqqnrhud-qzaahs-cdrhfm-339[pbsax]\nqfmcusbwq-qvcqczohs-rsgwub-116[qcsbu]\n\
+qyujihctyx-yaa-guhuaygyhn-734[yahug]\n\
+jqwpihizlwca-kivlg-kwibqvo-uizsmbqvo-616[qozkj]\n\
+nglmtuex-vtgwr-ybgtgvbgz-865[gtbve]\n\
+encuukhkgf-ecpfa-eqcvkpi-yqtmujqr-414[cekqu]\n\
+jchipqat-ytaanqtpc-tcvxcttgxcv-375[jnfcy]\n\
+mvydjvxodqz-xviyt-xjvodib-vxlpdndodji-915[spxnt]\n\
+wfintfhynaj-hmthtqfyj-xmnuunsl-151[nfhtj]\n\
+pynffvsvrq-sybjre-ratvarrevat-611[rvaef]\n\
+hplazytkpo-dnlgpyrpc-sfye-nfdezxpc-dpcgtnp-327[uzifr]\n\
+cybyjqho-whqtu-vbemuh-qdqboiyi-374[zlsdw]\n\
+yhkpvhjapcl-wshzapj-nyhzz-svnpzapjz-825[bpcty]\n\
+zhdsrqlchg-mhoobehdq-fxvwrphu-vhuylfh-179[hdflo]\n\
+ynukcajey-ywjzu-ykwpejc-qoan-paopejc-238[bpemf]\n\
+vehmsegxmzi-gerhc-gsexmrk-pefsvexsvc-256[umtvy]\n\
+lugjuacha-jfumncw-alumm-uwkocmcncih-240[bzlaw]\n\
+nvrgfezqvu-jtrmvexvi-ylek-jkfirxv-165[ywnzb]\n\
+fhezusjybu-uww-fkhsxqiydw-920[hgusy]\n\
+bgmxkgtmbhgte-vahvhetmx-hixktmbhgl-189[ebaun]\n\
+apwmeclga-afmamjyrc-pcqcypaf-496[uyatz]\n\
+pdjqhwlf-vfdyhqjhu-kxqw-whfkqrorjb-829[xogzy]\n\
+crwwv-rkpqxyib-zxkav-rpbo-qbpqfkd-289[bkpqr]\n\
+tfcfiwlc-irsszk-kvtyefcfxp-893[fciks]\nlejkrscv-wcfnvi-ivjvrity-191[uyalq]\n\
+ktfitzbgz-unggr-inkvatlbgz-111[lmwni]\n\
+fodvvlilhg-fdqgb-frdwlqj-frqwdlqphqw-205[kxstn]\n\
+odkasqzuo-bxmefuo-sdmee-fqotzaxask-638[oaesd]\n\
+pdjqhwlf-fdqgb-frdwlqj-rshudwlrqv-569[xcdnu]\n\
+ckgvutofkj-vrgyzoi-mxgyy-jkvgxzsktz-592[murta]\n\
+eza-dpncpe-mtzslklcozfd-clmmte-dezclrp-353[celzd]\n\
+vehmsegxmzi-nippcfier-wxsveki-516[vqrpz]\nrflsjynh-jll-ijufwyrjsy-853[taqil]\n\
+jvyyvzpcl-msvdly-hjxbpzpapvu-513[nyxtz]\n\
+iehepwnu-cnwza-fahhuxawj-oanreyao-264[ulyvn]\n\
+gcfcnuls-aluxy-wbiwifuny-omyl-nymncha-526[snoxf]\n\
+oaxadrgx-dmpuamofuhq-omzpk-etubbuzs-638[uamob]\n\
+oxmeeuruqp-nmewqf-dqeqmdot-352[kjtia]\n\
+bqxnfdmhb-dff-btrsnldq-rdquhbd-521[iyjvl]\n\
+joufsobujpobm-fhh-pqfsbujpot-701[obfjp]\n\
+hafgnoyr-pnaql-pbngvat-fnyrf-845[vtsod]\nmhi-lxvkxm-wrx-kxvxbobgz-657[npmfu]\n\
+jrncbavmrq-pnaql-chepunfvat-299[tnzyx]\nxgsvgmotm-lruckx-gtgreyoy-566[cuxte]\n\
+vcibutulxiom-wbiwifuny-xyjfisgyhn-994[uayrz]\n\
+wyvqljapsl-zjhclunly-obua-vwlyhapvuz-123[stmdx]\n\
+tvsnigxmpi-jpsaiv-stivexmsrw-568[lhxnw]\nbnqqnrhud-azrjds-cdrhfm-703[pozyr]\n\
+mfklstdw-tmffq-ugflsafewfl-164[flmst]\ntcorcikpi-hnqygt-fgukip-778[hzsum]\n\
+amppmqgtc-hcjjwzcyl-qfgnngle-262[yfnvu]\nynssr-vtgwr-ehzblmbvl-631[zxbiy]\n\
+slqryzjc-aylbw-amyrgle-dglylagle-938[lyage]\n\
+vrurcjah-pajmn-snuuhknjw-jwjuhbrb-745[dphsv]\n\
+oaddaeuhq-eomhqzsqd-tgzf-etubbuzs-222[inrke]\n\
+yrwxefpi-veffmx-qerekiqirx-542[efirx]\nnchhg-rmttgjmiv-bziqvqvo-304[vghim]\n\
+vkppo-vbemuh-efuhqjyedi-244[fetmj]\n\
+tyepcyletzylw-nlyoj-nzletyr-qtylyntyr-379[ngrvh]\n\
+otzkxtgzoutgr-hatte-giwaoyozout-228[tjxcr]\n\
+rgllk-eomhqzsqd-tgzf-pqbxakyqzf-534[lzpxc]\n\
+zgmfyxypbmsq-zyqicr-jyzmpyrmpw-704[ewjdl]\n\
+vehmsegxmzi-gerhc-gsexmrk-qevoixmrk-204[tyisn]\n\
+lugjuacha-zfiqyl-xyjfisgyhn-890[fcsxk]\n\
+qjopwxha-ywjzu-ykwpejc-zaoecj-810[rvmet]\n\
+bnknqetk-sno-rdbqds-idkkxadzm-knfhrshbr-521[kdnbr]\n\
+ksodcbwnsr-tzcksf-cdsfohwcbg-818[mnker]\n\
+vdzonmhydc-rbzudmfdq-gtms-lzqjdshmf-183[abjvy]\n\
+wfummczcyx-luvvcn-yhachyylcha-630[cyhal]\n\
+zvyvgnel-tenqr-rtt-freivprf-351[zymsx]\n\
+fhezusjybu-sqdto-jusxdebewo-972[amzjn]\n\
+amjmpdsj-zyqicr-cleglccpgle-106[vdopa]\nhjgbwuladw-wyy-kwjnauwk-502[mrbin]\n\
+willimcpy-vohhs-mbcjjcha-734[vsbfq]\nxjgjmapg-xcjxjgvoz-omvdidib-317[wynjr]\n\
+htqtwkzq-idj-xytwflj-385[tjqwd]\nynssr-xzz-xgzbgxxkbgz-579[nsivc]\n\
+xgvnndadzy-agjrzm-rjmfncjk-473[toazb]\npbeebfvir-sybjre-fuvccvat-533[stklm]\n\
+jvuzbtly-nyhkl-ibuuf-aljouvsvnf-851[lmnuf]\n\
+ziuxioqvo-ntwemz-uiviomumvb-902[arxeu]\n\
+vrurcjah-pajmn-ajkkrc-mnbrpw-589[qmtsy]\n\
+dwbcjkun-bljenwpna-qdwc-vjwjpnvnwc-537[nwjcb]\n\
+oxjmxdfkd-mixpqfz-doxpp-jxkxdbjbkq-913[xdjkp]\n\
+mvkccspson-mkxni-mykdsxq-vyqscdsmc-432[stfwy]\n\
+rflsjynh-htwwtxnaj-jll-qtlnxynhx-879[jsdzt]\n\
+pelbtravp-onfxrg-chepunfvat-663[hazbg]\n\
+zbytomdsvo-zvkcdsm-qbkcc-vyqscdsmc-692[csdmv]\n\
+qspkfdujmf-fhh-vtfs-uftujoh-415[nmzht]\naczupnetwp-nlyoj-qtylyntyr-405[tjvzp]\
+\ngsvvswmzi-jyddc-glsgspexi-wxsveki-646[puyzv]\n\
+rgndvtcxr-eaphixr-vgphh-sthxvc-973[ijhlr]\n\
+dyz-combod-mrymyvkdo-domrxyvyqi-250[pjlom]\n\
+xst-wigvix-fewoix-jmrergmrk-646[irxeg]\nxgsvgmotm-kmm-iutzgotsktz-436[mtgko]\n\
+nzwzcqfw-awldetn-rcldd-nzyeltyxpye-769[delnw]\n\
+crwwv-oxyyfq-rpbo-qbpqfkd-393[qbfop]\n\
+wlsiayhcw-jfumncw-alumm-lywycpcha-344[wfzqm]\n\
+qfkkj-fydelmwp-nlyoj-nzletyr-cpnptgtyr-951[oxpuz]\n\
+qcffcgwjs-qobrm-rsdofhasbh-376[zwyat]\n\
+jshzzpmplk-pualyuhapvuhs-yhiipa-zopwwpun-669[simvn]\n\
+nglmtuex-wrx-kxvxbobgz-735[phwgz]\noaxadrgx-nmewqf-abqdmfuaze-404[tysvj]\n\
+vkppo-zubboruqd-qdqboiyi-998[dhjui]\n\
+ajvyjprwp-snuuhknjw-dbna-cnbcrwp-667[ziuhp]\n\
+pybgmyargtc-zsllw-bcnjmwkclr-314[mnhck]\npkl-oaynap-xwogap-opknwca-992[nhagy]\
+\nhafgnoyr-onfxrg-znexrgvat-741[cywdg]\nvkppo-sqdto-ijehqwu-816[opqde]\n\
+jvsvymbs-jhukf-zavyhnl-409[vhjsy]\n\
+hqtyeqsjylu-cqwdujys-tou-husuylydw-686[kcdsj]\n\
+awzwhofm-ufors-pibbm-rsdofhasbh-298[bfhos]\n\
+xjinphzm-bmvyz-nxvqzibzm-cpio-mznzvmxc-161[oslup]\n\
+tfejldvi-xiruv-wcfnvi-fgvirkzfej-529[sgtbw]\n\
+qlm-pbzobq-ciltbo-pxibp-185[zjmpt]\nguahyncw-xsy-xymcah-630[fckyn]\n\
+lahxpnwrl-ljwmh-jlzdrbrcrxw-407[lrwhj]\n\
+dmybmsuzs-omzpk-ogefayqd-eqdhuoq-222[mctji]\n\
+forwcoqhwjs-pibbm-twbobqwbu-480[bwoqc]\n\
+mhi-lxvkxm-lvtoxgzxk-angm-xgzbgxxkbgz-839[lczyd]\n\
+iqmbazulqp-rxaiqd-mocgueufuaz-378[ygdtb]\n\
+plolwdub-judgh-udeelw-uhfhlylqj-309[ludhe]\n\
+raphhxuxts-hrpktcvtg-wjci-htgkxrth-739[htrxc]\n\
+pybgmyargtc-hcjjwzcyl-rcaflmjmew-548[ajlkr]\n\
+lnkfaypeha-ywjzu-ykwpejc-ykjpwejiajp-368[jpyae]\n\
+vehmsegxmzi-gerhc-gsexmrk-hizipstqirx-100[jzboa]\n\
+pdjqhwlf-frqvxphu-judgh-iorzhu-frqwdlqphqw-725[yijon]\n\
+kzgwomvqk-kivlg-kwibqvo-ivitgaqa-720[zjyxm]\n\
+xqvwdeoh-surmhfwloh-fkrfrodwh-dqdobvlv-855[xwtjs]\n\
+xgsvgmotm-igtje-iugzotm-sgxqkzotm-228[ygzda]\n\
+lxwbdvna-pajmn-snuuhknjw-bcxajpn-953[yxark]\n\
+oaddaeuhq-omzpk-oamfuzs-mocgueufuaz-326[odcqb]\n\
+jyddc-ikk-hitevxqirx-750[btmqn]\noaddaeuhq-rxaiqd-fqotzaxask-586[slgad]\n\
+kwzzwaqdm-moo-nqvivkqvo-798[epnyr]\nfydelmwp-nsznzwlep-opalcexpye-847[ltbwy]\n\
+dszphfojd-cbtlfu-tupsbhf-415[fbdhp]\n\
+hqcfqwydw-rkddo-skijecuh-iuhlysu-114[ynqsd]\n\
+ixeumktoi-inuiurgzk-uvkxgzouty-410[acqzt]\n\
+wlqqp-avccpsvre-wzeretzex-347[bgzvw]\nvdzonmhydc-bzmcx-bnmszhmldms-157[rspcq]\
+\nfodvvlilhg-mhoobehdq-whfkqrorjb-699[defpm]\n\
+gntmfefwitzx-ojqqdgjfs-qfgtwfytwd-827[sypzf]\n\
+nzydfxpc-rclop-mfyyj-wlmzclezcj-769[clyzf]\n\
+zuv-ykixkz-pkrrehkgt-rumoyzoiy-852[yhkru]\n\
+aietsrmdih-glsgspexi-vigimzmrk-802[sgnmt]\n\
+rgndvtcxr-hrpktcvtg-wjci-igpxcxcv-245[xszoq]\n\
+nwzekwypera-xqjju-skngodkl-758[kejnw]\nhcd-gsqfsh-rms-rsdzcmasbh-974[vtsqm]\n\
+qspkfdujmf-dboez-mphjtujdt-935[diolt]\naczupnetwp-nlyoj-afcnsldtyr-665[zemik]\
+\naoubshwq-qobrm-qcohwbu-rsdofhasbh-376[wyzxl]\n\
+xtwtelcj-rclop-ncjzrpytn-ojp-qtylyntyr-353[lyris]\n\
+zvyvgnel-tenqr-pelbtravp-rtt-fnyrf-819[fjysz]\n\
+ejpanjwpekjwh-bhksan-paydjkhkcu-420[jkahp]\n\
+ygcrqpkbgf-hnqygt-hkpcpekpi-882[pgkch]\nraphhxuxts-gpqqxi-pcpanhxh-817[qinta]\
+\ngsvvswmzi-wgezirkiv-lyrx-stivexmsrw-646[isvrw]\n\
+htqtwkzq-kqtbjw-fsfqdxnx-307[ytxis]\noqnidbshkd-eknvdq-cdozqsldms-833[dqskn]\n\
+qxdwpopgsdjh-hrpktcvtg-wjci-hidgpvt-219[tdlsw]\n\
+fnjyxwrinm-snuuhknjw-jwjuhbrb-459[vjwxy]\n\
+egdytrixat-eaphixr-vgphh-stepgibtci-609[vrzoq]\n\
+veqtekmrk-fewoix-pskmwxmgw-906[ekmwx]\n\
+xmrrq-eadalsjq-yjsvw-usfvq-vwnwdghewfl-502[wqsva]\n\
+dpotvnfs-hsbef-gvaaz-sbccju-tfswjdft-649[lbipa]\n\
+zvyvgnel-tenqr-enoovg-ybtvfgvpf-637[kchij]\n\
+pynffvsvrq-cynfgvp-tenff-ybtvfgvpf-247[dcwfm]\n\
+xjinphzm-bmvyz-xviyt-xjvodib-zibdizzmdib-187[gbnqs]\n\
+ugfkmewj-yjsvw-hdsklau-yjskk-dgyaklauk-502[kajsu]\n\
+iruzfrtkzmv-sleep-tljkfdvi-jvimztv-269[vitze]\n\
+sawlkjevaz-oywrajcan-dqjp-hkceopeyo-550[gvitx]\n\
+wfummczcyx-wifilzof-vumeyn-ijyluncihm-604[lnmdw]\n\
+lahxpnwrl-kdwwh-xynajcrxwb-927[xykwv]\n\
+xekdwvwnzkqo-fahhuxawj-oanreyao-836[xnzsy]\n\
+mbiyqoxsm-bkllsd-bokmaescsdsyx-718[thcfp]\n\
+uiovmbqk-zijjqb-zmamizkp-746[xpstr]\n\
+nglmtuex-vkrhzxgbv-xzz-ehzblmbvl-293[zblvx]\n\
+xgvnndadzy-kgvnodx-bmvnn-xpnojhzm-nzmqdxz-577[qgfhc]\n\
+zntargvp-ohaal-jbexfubc-975[vflzg]\nvqr-ugetgv-tcddkv-gpikpggtkpi-830[zlyxv]\n\
+qfkkj-nsznzwlep-nzyeltyxpye-847[satrm]\n\
+dwbcjkun-yujbcrl-pajbb-fxatbqxy-225[glisn]\n\
+tyftfcrkv-tljkfdvi-jvimztv-113[tvfij]\n\
+hjgbwuladw-ugjjgkanw-tskcwl-suimakalagf-450[cneum]\n\
+vkrhzxgbv-wrx-etuhktmhkr-397[fnspx]\n\
+elrkdcdugrxv-zhdsrqlchg-edvnhw-vklsslqj-933[dlhrs]\n\
+etaqigpke-lgnnadgcp-uvqtcig-752[ojdgw]\n\
+nsyjwsfyntsfq-hmthtqfyj-ywfnsnsl-385[sfnyt]\n\
+bnmrtldq-fqzcd-bgnbnkzsd-sqzhmhmf-833[jipnm]\n\
+fkqbokxqflkxi-bdd-xkxivpfp-471[rjlxc]\n\
+lnkfaypeha-bhksan-hwxknwpknu-316[nsoam]\npelbtravp-ohaal-erprvivat-221[kdvcs]\
+\ndfcxsqhwzs-qobrm-qcohwbu-ghcfous-350[choqs]\n\
+ejpanjwpekjwh-xwogap-ajcejaanejc-706[dtcks]\n\
+gzefmnxq-rxaiqd-pqhqxabyqzf-638[yntmj]\n\
+awzwhofm-ufors-qobrm-qcohwbu-hsqvbczcum-454[tfiay]\n\
+yknnkoera-yhwooebeaz-lhwopey-cnwoo-klanwpekjo-420[fqbwp]\n\
+bkzrrhehdc-bzmcx-bnzshmf-cdoknxldms-183[bcdhm]\n\
+htqtwkzq-jll-jslnsjjwnsl-905[oicay]\nnpmhcargjc-bwc-sqcp-rcqrgle-834[thaxs]\n\
+njmjubsz-hsbef-dboez-dvtupnfs-tfswjdf-909[qkeyv]\n\
+qyujihctyx-wuhxs-wiuncha-nywbhifias-994[hiuwy]\n\
+vetllbybxw-unggr-phkdlahi-475[rqpto]\netyyx-dff-qdzbpthrhshnm-313[zpisy]\n\
+ijmockjgz-jwezxo-nojmvbz-993[jozmb]\nxgvnndadzy-ytz-mznzvmxc-343[uhztm]\n\
+pxtihgbsxw-yehpxk-wxitkmfxgm-189[clynd]\n\
+tfiifjzmv-treup-tfekrzedvek-711[gptfw]\n\
+sedikcuh-whqtu-rqiauj-iuhlysui-660[znymv]\n\
+ktwbhtvmbox-ynssr-cxeeruxtg-tvjnblbmbhg-813[kdico]\n\
+xst-wigvix-wgezirkiv-lyrx-tyvglewmrk-542[igrvw]\n\
+gzefmnxq-fab-eqodqf-pkq-pqhqxabyqzf-222[examq]\n\
+ncjzrpytn-nlyoj-nzletyr-ecltytyr-925[jybxu]\n\
+mvkccspson-lexxi-crszzsxq-588[jirxq]\n\
+zbytomdsvo-bkllsd-ecob-docdsxq-640[getaf]\n\
+willimcpy-luvvcn-mbcjjcha-552[snrxz]\n\
+htsxzrjw-lwfij-gntmfefwitzx-hfsid-htfynsl-xmnuunsl-307[fnsth]\n\
+iuruxlar-jek-jkvruesktz-306[btnac]\ncqwdujys-rqiauj-efuhqjyedi-166[rgncm]\n\
+dpssptjwf-dipdpmbuf-sfbdrvjtjujpo-623[yeftd]\n\
+pbybeshy-onfxrg-qrfvta-195[wmjer]\nlaffe-pkrrehkgt-uvkxgzouty-644[kefgr]\n\
+rnqnyfwd-lwfij-jll-fhvznxnynts-723[qmybf]\n\
+dyz-combod-lkcuod-wkbuodsxq-354[suqhl]\n\
+gpewwmjmih-veffmx-ywiv-xiwxmrk-464[zyowm]\n\
+xfbqpojafe-cvooz-bdrvjtjujpo-363[qgvxl]\nwyvqljapsl-kfl-huhsfzpz-435[yomjs]\n\
+hqcfqwydw-rqiauj-huiuqhsx-478[kxtls]\najyqqgdgcb-zsllw-qrmpyec-392[nztsu]\n\
+luxciuwncpy-zfiqyl-xypyfijgyhn-838[bzpxo]\n\
+kdijqrbu-fbqijys-whqii-udwyduuhydw-556[ihdkv]\n\
+mfklstdw-bwddqtwsf-ghwjslagfk-450[esbmd]\n\
+lugjuacha-dyffsvyuh-nywbhifias-578[snqwt]\n\
+ibghopzs-qobrm-qcohwbu-fsoqeiwgwhwcb-298[ndtlm]\n\
+nwilwcejc-oywrajcan-dqjp-hkceopeyo-394[cejow]\n\
+vqr-ugetgv-tcddkv-ucngu-258[xetvd]\nrtt-genvavat-975[taveg]\n\
+willimcpy-dyffsvyuh-xyjfisgyhn-656[mrjtz]\n\
+dmbttjgjfe-njmjubsz-hsbef-gmpxfs-dpoubjonfou-779[yakzv]\n\
+muqfedyput-rqiauj-kiuh-juijydw-660[rkonp]\n\
+pkl-oaynap-fahhuxawj-odellejc-342[xmeyn]\n\
+qlm-pbzobq-yrkkv-pbosfzbp-315[bpkoq]\n\
+wihmogyl-aluxy-vumeyn-ijyluncihm-292[yilmu]\n\
+mvydjvxodqz-wvnfzo-nvgzn-291[vnzdo]\nikhcxvmbex-ktuubm-hixktmbhgl-215[bhkmx]\n\
+willimcpy-vohhs-xypyfijgyhn-136[pmnwz]\nynukcajey-xwogap-skngodkl-394[enjif]\n\
+ynukcajey-xqjju-zalwnpiajp-394[kzjlp]\n\
+yhtwhnpun-jovjvshal-hjxbpzpapvu-539[ycldk]\n\
+nglmtuex-ktuubm-ybgtgvbgz-397[qvtsp]\n\
+cvabijtm-rmttgjmiv-lmxtwgumvb-174[zpytf]\n\
+fnjyxwrinm-ajkkrc-mnyuxhvnwc-459[molxs]\n\
+mybbycsfo-mkxni-yzobkdsyxc-614[ybckm]\n\
+ugdgjxmd-kusnwfywj-zmfl-ghwjslagfk-840[gfjwd]\n\
+wbhsfbohwcboz-dzoghwq-ufogg-cdsfohwcbg-766[obghw]\n\
+qekrixmg-ikk-qerekiqirx-334[aeldt]\n\
+ktwbhtvmbox-mhi-lxvkxm-utldxm-lmhktzx-657[yqjuz]\n\
+ugdgjxmd-wyy-klgjsyw-216[gydjw]\nucynmlgxcb-cee-pcacgtgle-704[tonxb]\n\
+nsyjwsfyntsfq-hmthtqfyj-ijxnls-931[rdmog]\n\
+enzcntvat-ohaal-ybtvfgvpf-455[cvmts]\naczupnetwp-nsznzwlep-dlwpd-483[ticoy]\n\
+wbhsfbohwcboz-pibbm-cdsfohwcbg-350[oebpc]\n\
+shmml-cynfgvp-tenff-znexrgvat-715[fyuze]\n\
+sedikcuh-whqtu-uww-huiuqhsx-582[ytsoz]\n\
+ynukcajey-pkl-oaynap-xwogap-nayaerejc-550[mnfkp]\n\
+ipvohghykvbz-zjhclunly-obua-huhsfzpz-851[mecug]\n\
+tbxmlkfwba-oxyyfq-ixyloxqlov-783[woqrj]\n\
+zilqwikbqdm-kpwkwtibm-abwziom-954[yzmul]\n\
+kwvacumz-ozilm-zijjqb-apqxxqvo-590[dojfm]\n\
+bqxnfdmhb-bgnbnkzsd-sdbgmnknfx-547[ajynr]\n\
+sbnqbhjoh-dmbttjgjfe-dipdpmbuf-gjobodjoh-103[bjdoh]\n\
+jsvagsulanw-usfvq-vwhsjlewfl-268[kiwfy]\n\
+mbggf-buzahisl-lnn-wbyjohzpun-539[bnghl]\n\
+htwwtxnaj-jll-ijajqturjsy-411[zhgpj]\n\
+amppmqgtc-aylbw-amyrgle-pcacgtgle-496[agclm]\n\
+jchipqat-uadltg-detgpixdch-895[wogif]\nktfitzbgz-unggr-tgterlbl-605[wjmxs]\n\
+yhwooebeaz-ywjzu-ykwpejc-bejwjyejc-498[sgtmz]\n\
+muqfedyput-fbqijys-whqii-cqhaujydw-634[pcekt]\n\
+udskkaxawv-mfklstdw-hdsklau-yjskk-dstgjslgjq-840[xeguw]\n\
+hqfxxnknji-kqtbjw-qfgtwfytwd-983[fqtwj]\n\
+veqtekmrk-fyrrc-eguymwmxmsr-490[stfrm]\n\
+awzwhofm-ufors-ksodcbwnsr-tzcksf-gozsg-298[sofwz]\n\
+tinnm-gqojsbusf-vibh-gsfjwqsg-714[dczyw]\n\
+nuatmlmdpage-ngzzk-pqbxakyqzf-456[azgkm]\n\
+htsxzrjw-lwfij-kqtbjw-jslnsjjwnsl-255[ldqwi]\n\
+zotts-zfiqyl-lywycpcha-136[fwujm]\nodiih-kdwwh-ldbcxvna-bnaerln-927[dnabh]\n\
+nuatmlmdpage-dmnnuf-xasuefuoe-586[atenm]\n\
+qxdwpopgsdjh-rpcsn-rdpixcv-htgkxrth-739[pkxqs]\n\
+iruzfrtkzmv-sleep-rthlzjzkzfe-633[ykopj]\n\
+ejpanjwpekjwh-nwxxep-zaoecj-550[ejpwa]\n\
+rwcnawjcrxwju-kdwwh-cnlqwxuxph-979[genou]\n\
+rwcnawjcrxwju-lqxlxujcn-mnyuxhvnwc-719[wxnmk]\n\
+qlm-pbzobq-avb-jxohbqfkd-601[mzylk]\n\
+lqwhuqdwlrqdo-vfdyhqjhu-kxqw-frqwdlqphqw-881[qwdhl]\n\
+udglrdfwlyh-gbh-ilqdqflqj-439[otyms]\nhvbizodx-ezggtwzvi-nojmvbz-473[isoun]\n\
+dzczkrip-xiruv-vxx-ivtvzmzex-763[yblku]\n\
+oaxadrgx-bxmefuo-sdmee-xasuefuoe-222[exaou]\n\
+bnmrtldq-fqzcd-bzmcx-vnqjrgno-287[odhcx]\n\
+wifilzof-wbiwifuny-lyuwkocmcncih-864[iwcfl]\n\
+ynukcajey-ydkykhwpa-yqopkian-oanreya-654[cghze]\n\
+egdytrixat-qjccn-bpgztixcv-349[ctgix]\nslqryzjc-cee-kypicrgle-210[gqknl]\n\
+jef-iushuj-rqiauj-iqbui-296[mzxhd]\nqcffcgwjs-gqojsbusf-vibh-gozsg-220[gsfbc]\
+\neadalsjq-yjsvw-usfvq-ugslafy-vwnwdghewfl-606[kyzev]\n\
+willimcpy-jfumncw-alumm-xymcah-318[mclai]\n\
+excdklvo-bkllsd-vklybkdybi-432[hrznt]\ngntmfefwitzx-gzssd-xjwanhjx-801[xfgjn]\
+\nqzoggwtwsr-xszzmpsob-fsgsofqv-636[cthmf]\n\
+houngfgxjuay-hgyqkz-xkykgxin-332[spxuj]\n\
+oaxadrgx-eomhqzsqd-tgzf-qzsuzqqduzs-638[meluy]\n\
+qzoggwtwsr-qobrm-rsdzcmasbh-740[fwsan]\n\
+bkzrrhehdc-sno-rdbqds-qzaahs-vnqjrgno-339[rdhnq]\n\
+excdklvo-cmkfoxqob-rexd-zebmrkcsxq-458[xaqgb]\n\
+oknkvcta-itcfg-uecxgpigt-jwpv-fgukip-856[gcikp]\n\
+shoewudys-rkddo-qdqboiyi-530[doiqs]\n\
+mrxivrexmsrep-gerhc-pefsvexsvc-828[ubzia]\nfydelmwp-mfyyj-hzcvdsza-769[anbml]\
+\nrwcnawjcrxwju-ljwmh-bqryyrwp-277[nxatm]\>\""}], ";"}]], "Input",
+ CellChangeTimes->{{3.690138216143473*^9, 3.690138227518433*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Parsing data", "Subsection",
+ CellChangeTimes->{{3.6901382328389215`*^9, 3.6901382343550205`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lines", "=", 
+   RowBox[{"StringSplit", "[", 
+    RowBox[{"input", ",", "\"\<\\n\>\""}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6901382366687655`*^9, 3.6901382709271297`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"checkSums", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"StringTake", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "6"}], ",", 
+         RowBox[{"-", "2"}]}], "}"}]}], "]"}], "&"}], "/@", "lines"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.690138272018447*^9, 3.6901383128106594`*^9}, 
+   3.6901383981267548`*^9, {3.6901390536946483`*^9, 3.690139062933393*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"StringTake", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "8"}]}], "}"}]}], "]"}], "&"}], "/@", "lines"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6901384014199247`*^9, 3.690138444901997*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dataparts", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"StringSplit", "[", 
+      RowBox[{"#", ",", "\"\<-\>\""}], "]"}], "&"}], "/@", "data"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.690138447640589*^9, 3.690138476743072*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sectorIds", "=", 
+   RowBox[{"Last", "/@", "dataparts"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6901384935223913`*^9, 3.6901385026169505`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dataStrings", "=", 
+   RowBox[{"StringJoin", "/@", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Drop", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"-", "1"}]}], "]"}], "&"}], "/@", "dataparts"}], ")"}]}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.690138505770472*^9, 3.6901385472966185`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part 1:", "Subsection",
+ CellChangeTimes->{{3.690139279618079*^9, 3.6901392817149086`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"checkSum", "[", "string_", "]"}], ":=", 
+  RowBox[{"StringJoin", "[", 
+   RowBox[{
+    RowBox[{"SortBy", "[", 
+     RowBox[{
+      RowBox[{"Tally", "@", 
+       RowBox[{"Characters", "[", "string", "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], "&"}], ",", 
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "&"}]}], "}"}]}], "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{
+      RowBox[{"1", ";;", "5"}], ",", "1"}], "]"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.69013858146834*^9, 3.6901385955558*^9}, {
+  3.690138695174167*^9, 3.6901387014203396`*^9}, {3.690138746348216*^9, 
+  3.6901387529749393`*^9}, {3.6901388720281534`*^9, 3.690138886172027*^9}, {
+  3.690138963172641*^9, 3.690139024377987*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"checkSum", "[", 
+  RowBox[{"dataStrings", "[", 
+   RowBox[{"[", "1", "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6901385503841867`*^9, 3.6901386049692736`*^9}, {
+  3.69013903840946*^9, 3.690139066722644*^9}}],
+
+Cell[BoxData["\<\"ycpln\"\>"], "Output",
+ CellChangeTimes->{{3.6901385562686357`*^9, 3.690138575029764*^9}, 
+   3.6901386053988805`*^9, 3.690138704309599*^9, {3.690138749744317*^9, 
+   3.6901387551887293`*^9}, 3.6901388897441163`*^9, 3.6901389763852644`*^9, {
+   3.6901390066165433`*^9, 3.690139067036824*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"lines", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6901391177419553`*^9, 3.6901391193117228`*^9}}],
+
+Cell[BoxData["\<\"nzydfxpc-rclop-qwzhpc-qtylyntyr-769[oshgk]\"\>"], "Output",
+ CellChangeTimes->{3.690139119684914*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataStrings", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.690139120252697*^9, 3.6901391241069326`*^9}}],
+
+Cell[BoxData["\<\"nzydfxpcrclopqwzhpcqtylyntyr\"\>"], "Output",
+ CellChangeTimes->{3.690139124743552*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"sectorIds", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.690139128688527*^9, 3.6901391305900693`*^9}}],
+
+Cell[BoxData["\<\"769\"\>"], "Output",
+ CellChangeTimes->{3.690139130957977*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"validated", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"lines", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], ",", 
+       RowBox[{"sectorIds", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], ",", 
+       RowBox[{"data", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"checkSums", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "\[Equal]", 
+        RowBox[{"checkSum", "[", 
+         RowBox[{
+         "dataStrings", "\[LeftDoubleBracket]", "i", 
+          "\[RightDoubleBracket]"}], "]"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "@", "lines"}]}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6901390720714817`*^9, 3.6901391608244953`*^9}, {
+  3.6901393631308994`*^9, 3.690139375421278*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "@", "lines"}]], "Input",
+ CellChangeTimes->{{3.69013919848036*^9, 3.6901392008391676`*^9}}],
+
+Cell[BoxData["1066"], "Output",
+ CellChangeTimes->{
+  3.6901392011677876`*^9, {3.6901393660857973`*^9, 3.6901393765266676`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"valid", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{"validated", ",", "Last"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"valid", "//", "Length"}]}], "Input",
+ CellChangeTimes->{{3.6901391625258565`*^9, 3.6901392081106834`*^9}}],
+
+Cell[BoxData["286"], "Output",
+ CellChangeTimes->{{3.6901391699058332`*^9, 3.6901392086409054`*^9}, {
+  3.690139366837393*^9, 3.690139377039674*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"valid", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6901392129994526`*^9, 3.6901392151583967`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"amjmpdsj-cee-qcptgacq-236[caejm]\"\>", ",", "\<\"236\"\>", 
+   ",", "\<\"amjmpdsj-cee-qcptgacq-236\"\>", ",", "True"}], "}"}]], "Output",
+ CellChangeTimes->{3.6901392155230513`*^9, 3.6901393783948107`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ToExpression", "[", 
+   RowBox[{"valid", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}], "//", "Total"}]], "Input",
+ CellChangeTimes->{{3.6901392174382224`*^9, 3.6901392435791802`*^9}}],
+
+Cell[BoxData["158835"], "Output",
+ CellChangeTimes->{{3.6901392207701464`*^9, 3.690139244009554*^9}, 
+   3.690139384551248*^9}]
+}, Open  ]],
+
+Cell["Correct :)", "Text",
+ CellChangeTimes->{{3.690139266243188*^9, 3.6901392677287292`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part 2:", "Subsection",
+ CellChangeTimes->{{3.690139269399145*^9, 3.6901392716128044`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"validIds", "=", 
+   RowBox[{"ToExpression", "[", 
+    RowBox[{"StringTake", "[", 
+     RowBox[{
+      RowBox[{"valid", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "3"}], "]"}], "]"}], ",", 
+      RowBox[{"-", "3"}]}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"validData", "=", 
+   RowBox[{"StringTake", "[", 
+    RowBox[{
+     RowBox[{"valid", "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", "3"}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "5"}]}], "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6901393862585907`*^9, 3.6901394451590047`*^9}, {
+  3.6901395363813887`*^9, 3.690139547200572*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"RotateWord", "[", 
+   RowBox[{"string_", ",", "number_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Mod", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Flatten", "[", 
+        RowBox[{"ToCharacterCode", "[", 
+         RowBox[{"Characters", "@", "string"}], "]"}], "]"}], "-", "97", "+", 
+       "number"}], ",", 
+      RowBox[{"123", "-", "97"}]}], "]"}], "+", "97"}], "//", 
+   "FromCharacterCode"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"RotateText", "[", 
+   RowBox[{"string_", ",", "number_"}], "]"}], ":=", 
+  RowBox[{"StringJoin", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"RotateWord", "[", 
+       RowBox[{"#", ",", "number"}], "]"}], "<>", "\"\< \>\""}], "&"}], "/@", 
+    RowBox[{"StringSplit", "[", 
+     RowBox[{"string", ",", "\"\<-\>\""}], "]"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.6901395300747423`*^9, 3.6901395730876026`*^9}, {
+  3.69013962264001*^9, 3.6901396662730002`*^9}, {3.6901397073388023`*^9, 
+  3.6901400477544365`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RotateText", "[", 
+  RowBox[{"\"\<qzmt-zixmtkozy-ivhz\>\"", ",", "343"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6901396276822443`*^9, 3.690139639751848*^9}}],
+
+Cell[BoxData["\<\"very encrypted name \"\>"], "Output",
+ CellChangeTimes->{{3.690139640331682*^9, 3.6901396689932814`*^9}, 
+   3.690139739663663*^9, {3.6901397912116632`*^9, 3.6901398244625006`*^9}, 
+   3.690139873245925*^9, {3.6901399366374435`*^9, 3.6901399446539664`*^9}, {
+   3.69014001300179*^9, 3.690140048950224*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"decrypted", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RotateText", "[", 
+        RowBox[{
+         RowBox[{
+         "validData", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], 
+         ",", 
+         RowBox[{
+         "validIds", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}],
+         "]"}], ",", 
+       RowBox[{
+       "validIds", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"Length", "@", "validData"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.69014002433914*^9, 3.690140130713234*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Select", "[", 
+  RowBox[{"decrypted", ",", 
+   RowBox[{
+    RowBox[{"StringContainsQ", "[", 
+     RowBox[{
+      RowBox[{"#", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<north\>\""}], "]"}], "&"}]}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.690140131982221*^9, 3.6901401808404903`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"\<\"northpole object storage \"\>", ",", "993"}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.6901401646252747`*^9, 3.690140181565733*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1920, 997},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>1.1 Inherited,
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 94, 1, 78, "Section"],
+Cell[CellGroupData[{
+Cell[699, 27, 93, 1, 53, "Subsection"],
+Cell[795, 30, 47670, 895, 22292, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[48502, 930, 104, 1, 43, "Subsection"],
+Cell[48609, 933, 219, 5, 33, "Input"],
+Cell[48831, 940, 445, 13, 33, "Input"],
+Cell[49279, 955, 339, 11, 33, "Input"],
+Cell[49621, 968, 268, 8, 33, "Input"],
+Cell[49892, 978, 181, 4, 33, "Input"],
+Cell[50076, 984, 354, 11, 33, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50467, 1000, 97, 1, 53, "Subsection"],
+Cell[50567, 1003, 899, 24, 33, "Input"],
+Cell[CellGroupData[{
+Cell[51491, 1031, 241, 5, 33, "Input"],
+Cell[51735, 1038, 310, 4, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52082, 1047, 151, 3, 33, "Input"],
+Cell[52236, 1052, 119, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52392, 1058, 155, 3, 33, "Input"],
+Cell[52550, 1063, 105, 1, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52692, 1069, 153, 3, 33, "Input"],
+Cell[52848, 1074, 80, 1, 33, "Output"]
+}, Open  ]],
+Cell[52943, 1078, 881, 24, 33, "Input"],
+Cell[CellGroupData[{
+Cell[53849, 1106, 125, 2, 33, "Input"],
+Cell[53977, 1110, 128, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54142, 1117, 273, 6, 56, "Input"],
+Cell[54418, 1125, 149, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54604, 1132, 151, 3, 33, "Input"],
+Cell[54758, 1137, 249, 4, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[55044, 1146, 249, 6, 33, "Input"],
+Cell[55296, 1154, 127, 2, 33, "Output"]
+}, Open  ]],
+Cell[55438, 1159, 94, 1, 32, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[55569, 1165, 97, 1, 53, "Subsection"],
+Cell[55669, 1168, 726, 21, 56, "Input"],
+Cell[56398, 1191, 1031, 28, 56, "Input"],
+Cell[CellGroupData[{
+Cell[57454, 1223, 182, 3, 33, "Input"],
+Cell[57639, 1228, 324, 4, 33, "Output"]
+}, Open  ]],
+Cell[57978, 1235, 715, 22, 33, "Input"],
+Cell[CellGroupData[{
+Cell[58718, 1261, 322, 9, 33, "Input"],
+Cell[59043, 1272, 202, 5, 33, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
