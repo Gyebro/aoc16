@@ -1,0 +1,294 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11361,        286]
+NotebookOptionsPosition[     10379,        245]
+NotebookOutlinePosition[     10722,        260]
+CellTagsIndexPosition[     10679,        257]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Day 6: Signals and Noise", "Section",
+ CellChangeTimes->{3.690144827627228*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Input", "Subsection",
+ CellChangeTimes->{{3.6901448299957848`*^9, 3.6901448323792887`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "input", "=", 
+   "\"\<blrqqadw\nhxwteava\nxtzzneor\nufydaiyx\nhhvcoozu\nnbbvuvmd\nusvdcalw\n\
+rpntrbyo\nkgjholvo\nnlohafzu\ngxmifiuy\nxndolmhm\nzmtsfmtq\nwkdzmogx\n\
+aogqflji\nuphmjtnl\njkqognlw\nmdzsbrij\nzyxolasw\nkvdyikgy\nxpxgmuqq\n\
+viuoqyap\nsimgbmca\nqxcjewnz\nivwoedjr\nmlmzozlr\njmyallmm\noeecmjte\n\
+miuvzeww\nqtfsiigb\nlstgpdfp\npevoamxy\nmjtpbedv\nugbasbgg\nidcnuhtx\n\
+wwhcrxdr\nprrugmrq\nnpoiywvw\nzpkohigv\nwngoczfk\ngxnmxano\ncbacsmte\n\
+meclajtf\nzhztflqy\ngrqqlecu\nqjbzsptn\nebagoidi\negegrnyh\njccwkqle\n\
+ikkwrzqt\nnedkjwhf\nvildwwrp\nugrejotn\nkdajfbqw\ngyiwhxpd\neemhkuwh\n\
+jvfhoiqi\nwsgyaiip\njzjvagvv\nlqupczes\nfetfptqt\nmsmlbgcf\niukfpgrm\n\
+ctymfjpj\nrbrpmkvx\nglooxgap\nscctgiai\nlakkjuyk\ngaekimfl\nbhfaybki\n\
+qaiazzpf\ndwqkvsee\nfuhbygkt\nzhkggelc\nhaigokzn\njpuangaj\ntpunltos\n\
+izqxnhhd\noeyxnqkn\nvzvelmik\nddnaozap\nmdlhkdlu\noglyexnm\nmcgxswpe\n\
+jzkjknxc\ngfqnuhfs\nztnxzwng\nbnuxixlk\nvmumdwec\nkuxxbcbv\nvdcfhyso\n\
+qtdesxqr\nqciljohn\nqqlluqzz\nnjhvvqbw\nknakngrj\npradgsbt\nkoffjwwy\n\
+tvrkgjql\nmqtxerte\nsmigupym\nbxxvoskx\njerbindg\nsnlgnowp\nqsuxtdsu\n\
+fnpexyoa\nffwifdad\nmvgrpczm\noxszzrsb\npxefzlch\nmcgbeauh\nneseoapm\n\
+iwnulsrv\nzhinoifi\nlfmjmmtk\nfsxcqurn\ngmkkhfuh\nnuqeimxo\nuvjdgkdo\n\
+ohtmvkcu\nalbuiptc\npiaihrgr\nfjviblws\nqotlvddl\ngchijkjr\nazzrnqhy\n\
+xrynrbck\npdvkcekk\nthscvzai\neoapfznw\nhpgoissz\nifnesaoy\neniqycje\n\
+hmjmghcp\nsfyrvbbi\ntuxcoidt\nicysmkcf\nycagvtls\ndohqfcgc\ntaitvkzk\n\
+bblnroyh\ngrdklrua\nqpijbooa\npcwtjacj\nmrvxbefl\noodwrtvj\nxosqbcie\n\
+zbquakff\nypwpamng\nrpfbkssq\nfctgmcav\nhdtcdfcf\nctboapkz\nqypakerm\n\
+vebdtsmq\ncyxqtbtt\ndcnpkmnu\nhnjppwfo\ngqmfdahb\nhxiqcrbe\nrpxazkak\n\
+nmtraoky\nsisqtogo\noycwooev\nlmmitjey\nrytzptco\nwaatgjdu\nkhsuxyse\n\
+cxjltfxn\needsmcld\nfngdicwe\nlkomchdq\nulvabpoz\noyhjvimr\ndpyexiwi\n\
+wjfzkbbv\nihohnaxx\najxfefrv\nbplrrpcz\nrtamodoq\nslwrcibk\nsgwdtumz\n\
+vlemhplz\ndnpkqvad\nytolejsa\nojevrxsc\nbgbmnvyv\nlmrousup\nyyubvohm\n\
+bqaqltmt\nvfbzzthz\nylehjmop\nexddqqwo\nxqfxejzq\nmyyuypku\nzyvmvbla\n\
+cnpquvbp\nyaxdddeq\ncnrjqdra\nlwphgfgf\nzqdbcnmn\nqelivdwx\nwpnwomgu\n\
+xzephbpa\nyghrabgr\npnjsyhth\nokdznczw\nurwcwwfm\nhjrsrrzk\nfoklmzqs\n\
+mjldwaun\ndabalbmb\njmtqvwst\nuhtzixah\nblclhmjf\nwilsnjwb\nqeeriszr\n\
+vbfagerv\nafegxkkh\nzwzausdd\nysfgzvbw\nymjlmnmz\nrnrbxnij\nihvhqtvk\n\
+ofwrugbp\nontvlhfu\nsfjgpqpx\noyzkaiyl\nxfmvkfkh\npqpeeptl\njdyueahx\n\
+plghatyl\nyrdizope\nlrurgkqw\nxdqtlmww\ndkaiotxb\niegjcmln\niupoupxa\n\
+zrepcilx\ntpewzoxi\nmunsmbpj\nfvhsucvb\nrlwchfml\nkcmlbubj\njnhurapr\n\
+dflwxeii\nwtypbujm\njivypmpr\nargvlhnz\nacyvvplf\nnaqafzfw\nngepfsju\n\
+xfpuwtji\npqgkxbmj\noeygjbxs\nevoydkqq\nnhuoohdi\nwrznguek\nssirmkbq\n\
+ackhglvh\negszqozo\nrhnhhxul\nmqabqvun\nyunlcuvd\nzklsneau\nitanrdqb\n\
+pvxbkwoc\nrqbqjyuv\nioxjpvqd\npzkgsdej\nyklripsi\niohazhoh\numxxpdaw\n\
+czfnfgxt\nxaxvkjjc\nqhgvdvaa\niobwhxjq\njwfwqqjs\ncbrfgjpp\nconpdlzv\n\
+wbcmssue\ngyqkseid\nozrzahxt\nrzowboce\nlhntmyie\ntlrcktzc\nlxmzpvku\n\
+ckliqrdt\nqlmalosg\novvyxrnr\ngctjwzrl\nooqvxzac\ndbdqzzly\nfpsjzuxx\n\
+njndzgel\nhjfqofhh\ntxhcpktf\notceqnmc\ndduyepiz\nbsxdbzgs\nzklbicun\n\
+rstnuwtg\ntasiqsbs\nwewnwuyn\nzvgkuxxp\nnxcmlrmx\nmizqhlnv\nxyxzfeca\n\
+qkeuwzgi\najnzmfks\nejszlxyc\nxzfggxpd\njbooydts\neisoqvuo\nhdfpevns\n\
+alybbyrb\nyvpylcnz\ntdpcycrv\nkwptuqyw\nncobyufk\nfclvkbek\ntgnfcfup\n\
+vbcuaudl\nhublkdvy\naoetzcyl\nfsiuwhbi\neyolgmxh\nsiptvnjn\nshvycepr\n\
+ntrwmime\ndbdnbfyt\nbwluchce\nuigenqhy\nkrxdyhap\navycqglh\ngguniqpm\n\
+wcwzelyd\nwzurdris\nrmhstxuj\nvuaozvvq\nbsdgqrpx\ntwnvkunt\nnqgqtugs\n\
+vzkvghwg\nypceflob\ndsyzunmb\nkvhacqqr\nozlfwkjl\npyznytxd\nykdkbfgf\n\
+eajwdyia\nbhkxsxcc\nvytpdoop\nibpypdrh\ndkkjnwng\nlxwkkldf\nnbtckkoy\n\
+qtjyffvl\nsbitpceb\nsxmhbcuy\nzorovlxd\nbazreact\ncwzggemu\nuowhquji\n\
+eijszbmy\naarneovu\ngrhvjqyo\nfzheiyvq\nnzsdrlli\nwfsdwsok\nwrqjuygq\n\
+ggpffnri\nwkycrfjm\ndrksyjxn\nsmuhwcxa\niabdvvyj\nesidunjn\ndecnfzwl\n\
+ysihdzkf\nzokmsjgk\npxuddjdo\nuemyoegc\nglqycmsw\nfvfkqzdu\nmhotjpqc\n\
+pfyuopbx\ntibutsqb\nkrzcqnkv\ndjqpmsmb\nvbufrshp\nmmzsrikm\nzkjbrtoo\n\
+uopielbd\njmketnly\nraomwphg\nuwocphkf\nlvktwagm\nlqmorzgf\nrihrgrdp\n\
+cnbuplfg\nhwfjvxcj\nsfgptuic\nixkimxsx\nkfpicnix\ntvpybbrf\nnavehxpr\n\
+rwbcttbq\nobqcxwjd\nfuiskmfg\nxcvfxoeh\ntsmaaoyx\nqjhiyeex\nqwfxiyxq\n\
+ctkyxatm\nhyxhsvmy\npuknicfi\nhbwzmyks\nuczqlycu\nwkywzgqs\nkzfehffd\n\
+aoooehdc\nlnijvgrg\naedbnxzk\nlusvnger\nltpbpgiq\naypxjgwo\nlgejygmw\n\
+auqexwja\nfwszagnq\naiafpduf\nlyltmest\nagtasqwl\nfqrlliiw\nudarpyjv\n\
+kxotyded\naodevwdt\nlmmfarbx\nsnjwogeo\nehfmpymn\nyahfaxeo\nxudbdnog\n\
+rrkxhhsy\nhdxadfck\ndmnujkng\ncujvjtry\nsrwxylvi\ndwohbywb\ncvspfupf\n\
+czvvjhfw\nwvyjwtzz\nvfooqywj\nbmulxlpz\nhbukjylo\nbdhsvgdg\nvnrrqyue\n\
+hjveswxf\nyxgzdjwn\nbyonsarh\nedbmtqyz\nowvunnfp\nwfqqsuyj\ncwckbkwt\n\
+plesmdky\npzatdacm\nnqfyxhij\njjwqitsc\ntejffykk\nyllyznoo\nkkqhuqlc\n\
+hxchsqos\nbuvmceha\nkbzymzrl\nkiemcigv\ntxmjfujf\nvfnystic\nkvaiybnq\n\
+ztrwxszz\nwiyawlfm\nsgedycpx\nisafnieb\nbpspuqvx\nfqjtxrtb\nbgjdrvhb\n\
+mnsbgbhe\njpsqcfzz\nfpumugea\nqqutezwg\neoabntsw\ntupqchzt\nezwjasja\n\
+rsguwrqg\ncqzcijqd\nrhxlhksr\nvcwlknrc\neiqbcafb\nlwzbrrtr\naomiovcj\n\
+ujxshcar\nfbpjehma\nbgdphfwg\niukvlxvq\nptawvjzy\nstyyqrqd\nitobtfvm\n\
+yqnpsyha\nvkwfaykp\nzwpoxkzx\nuqwasoht\ntkgfmnvj\nxkilydvt\nxlmkpdaz\n\
+xfvukjte\nyyzpwped\nxzxwnrlm\nausmhunn\nqgiiljhq\nnjqhxprl\nfgfxiphp\n\
+kkzjpuur\ndcqixesl\ntthldwgg\nnkjxnttn\ncjtiiltj\ndrlzddsv\nxxluiael\n\
+kjjsewia\ndanhtpxa\nedexzcqw\nmrqewvuh\nopwtwbbt\nrdbsaeke\nviistwnj\n\
+llcndvsm\njeejjqyb\nhstekias\ngmswtskg\nqhdktszo\nptbryiff\njrtlgbag\n\
+gjbbbfnu\nuirwdwzh\nesmntxej\nvdcmrenk\ntagtsvaz\nhnewrron\nzydwkvuh\n\
+zscfhzxk\nsazgunom\ngqcxdowc\ntwmxtniu\nwfblhfiv\nbarpdrob\njwjrnqhv\n\
+xvnysjvz\njvsftvqs\njivuhphv\ngrbezkpe\nxuolyqis\nsmuxlqpu\nrticwcrh\n\
+huzyzxul\npgqawldg\nmdcgejab\nrlrgwpfo\nuqhvyglu\ncsinjsjy\nydorfrud\n\
+gmcnjnbr\nqzvizjbt\nvejkuvii\nuhfrombz\nclgrjlys\>\""}], ";"}]], "Input",
+ CellChangeTimes->{{3.6901448124791203`*^9, 3.690144816190516*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Parsing & Part1", "Subsection",
+ CellChangeTimes->{{3.690144835704039*^9, 3.6901448443150916`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mostFrequent", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"SortBy", "[", 
+       RowBox[{"#", ",", "Last"}], "]"}], "&"}], "/@", 
+     RowBox[{"(", 
+      RowBox[{"Tally", "/@", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"Characters", "/@", 
+         RowBox[{"StringSplit", "[", 
+          RowBox[{"input", ",", "\"\<\\n\>\""}], "]"}]}], "]"}]}], ")"}]}], 
+    ")"}], "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", 
+     RowBox[{"-", "1"}]}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6901448477485156`*^9, 3.6901449539432683`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"q\"\>", ",", "23"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"r\"\>", ",", "23"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"q\"\>", ",", "23"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"l\"\>", ",", "23"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"z\"\>", ",", "23"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"n\"\>", ",", "23"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"r\"\>", ",", "23"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"l\"\>", ",", "23"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.690144852501893*^9, 3.690144954719505*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mostFrequent", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "1"}], "]"}], "]"}], "//", "StringJoin"}]], "Input",
+ CellChangeTimes->{{3.6901449562644715`*^9, 3.6901449643498216`*^9}}],
+
+Cell[BoxData["\<\"qrqlznrl\"\>"], "Output",
+ CellChangeTimes->{{3.690144960471854*^9, 3.6901449647474556`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part 2", "Subsection",
+ CellChangeTimes->{{3.690145005677335*^9, 3.6901450078489957`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"leastFrequent", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"SortBy", "[", 
+       RowBox[{"#", ",", "Last"}], "]"}], "&"}], "/@", 
+     RowBox[{"(", 
+      RowBox[{"Tally", "/@", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"Characters", "/@", 
+         RowBox[{"StringSplit", "[", 
+          RowBox[{"input", ",", "\"\<\\n\>\""}], "]"}]}], "]"}]}], ")"}]}], 
+    ")"}], "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "1"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6901450133767037`*^9, 3.690145016767436*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"k\"\>", ",", "21"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"g\"\>", ",", "21"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"z\"\>", ",", "21"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"d\"\>", ",", "21"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"f\"\>", ",", "21"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"a\"\>", ",", "21"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"o\"\>", ",", "21"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"n\"\>", ",", "21"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.690145018053767*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"leastFrequent", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "1"}], "]"}], "]"}], "//", "StringJoin"}]], "Input",
+ CellChangeTimes->{3.6901450377163644`*^9}],
+
+Cell[BoxData["\<\"kgzdfaon\"\>"], "Output",
+ CellChangeTimes->{3.690145038541241*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{775, 872},
+WindowMargins->{{564, Automatic}, {Automatic, 54}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 85, 1, 70, "Section"],
+Cell[CellGroupData[{
+Cell[690, 27, 97, 1, 49, "Subsection"],
+Cell[790, 30, 6033, 86, 10880, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6860, 121, 105, 1, 41, "Subsection"],
+Cell[CellGroupData[{
+Cell[6990, 126, 602, 18, 69, "Input"],
+Cell[7595, 146, 663, 19, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8295, 170, 219, 5, 30, "Input"],
+Cell[8517, 177, 111, 1, 30, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8677, 184, 96, 1, 49, "Subsection"],
+Cell[CellGroupData[{
+Cell[8798, 189, 580, 17, 69, "Input"],
+Cell[9381, 208, 639, 19, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10057, 232, 194, 5, 30, "Input"],
+Cell[10254, 239, 85, 1, 30, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
