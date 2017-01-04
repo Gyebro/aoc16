@@ -100,6 +100,130 @@ void day05(string input) {
     cout << "code: ";
     for(size_t i=0; i<8; i++) cout << codes[i];
 }
+
+/**** DAY 14 : WORKS ****/
+
+const string day14_input = "zpqevtbw";
+const string day14_test = "abc";
+
+// Returns all characters which appear as a triplet (like ccc or 888)
+vector<char> day14_check_triplet(string hash) {
+    vector<char> triplets;
+    char c;
+    for(size_t i=0; i<hash.length()-2; i++) {
+        c = hash[i];
+        if ((c == hash[i+1]) && (c == hash[i+2])) {
+            triplets.push_back(c);
+            return triplets;
+        }
+    }
+    return triplets;
+}
+
+// Checks if a character occurs in quintet form (like ccccc)
+bool day14_check_quintet(char c, string hash) {
+    for(size_t i=0; i<hash.length()-4; i++) {
+        if ((c == hash[i]) && (c == hash[i+1]) && (c == hash[i+2]) && (c == hash[i+3]) && (c == hash[i+4])) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Checks if a has has a quintet
+bool day14_has_quintet(string hash) {
+    for(size_t i=0; i<hash.length()-4; i++) {
+        char c = hash[i];
+        if ((c == hash[i+1]) && (c == hash[i+2]) && (c == hash[i+3]) && (c == hash[i+4])) {
+            return true;
+        }
+    }
+    return false;
+}
+
+struct potential_key {
+    char c;
+    size_t key;
+    size_t expires;
+};
+
+string stretched_hash(string s) {
+    string h = md5(s); // First
+    // Additional 2016
+    for (size_t i = 0; i<2016; i++) {
+        h = md5(h);
+    }
+    return h;
+}
+
+#define day14_part2
+
+void day14(string input) {
+    bool searching = true;
+    size_t key=0;
+    vector<char> triplets;
+    vector<potential_key> pkeys;
+    vector<potential_key> final;
+    size_t keylim = 0;
+    while (searching) {
+        string current = input + to_string(key);
+#ifndef day14_part2
+        string hash = md5(current);
+#else
+        string hash = stretched_hash(current);
+#endif
+        if (day14_has_quintet(hash)) {
+            //cout << "key " << key << " has a quintet!\n";
+            // Check all existing potential keys whether they are satisfied or not.
+            vector<size_t> erases;
+            for (size_t z = 0; z < pkeys.size(); z++) {
+                potential_key p = pkeys[z];
+                if (p.expires > key) {
+                    if (day14_check_quintet(p.c, hash)) {
+                        // Save in final, erase from potentials
+                        cout << "Final key found: " << p.key << " verified at "<< key << " total: " << final.size() << endl;
+                        final.push_back(p);
+                        erases.push_back(z);
+                    }
+                } else {
+                    // remove current p as it expired
+                    erases.push_back(z);
+                }
+            }
+            std::sort(erases.rbegin(), erases.rend());
+            for (size_t z : erases) {
+                pkeys[z] = pkeys.back();
+                pkeys.pop_back();
+            }
+        }
+        // Check if current is a potential key
+        triplets = day14_check_triplet(hash);
+        if(triplets.size()>0) {
+            //cout << "Potential key found: " << key << " has triplet: " << triplets[0] << endl;
+            potential_key pkey = {triplets[0], key, key+1000};
+            pkeys.push_back(pkey);
+        }
+        key++;
+        if ((keylim == 0) && (final.size() >= 64)) {
+            keylim = key+1000;
+            cout << "64 final keys found " << keylim << endl;
+        }
+        if ((keylim > 0) && (key > keylim)) {
+            searching = false;
+        }
+    }
+    vector<size_t> finalkeys;
+    for (potential_key& p : final) {
+        finalkeys.push_back(p.key);
+    }
+    sort(finalkeys.begin(),finalkeys.end());
+    size_t j=1;
+    for (size_t& k : finalkeys) {
+        cout << j << " " << k << endl;
+        j++;
+    }
+}
+
 /*** DAY17 : WORKS ***/
 
 string day17_input = "pvhmgsws";
